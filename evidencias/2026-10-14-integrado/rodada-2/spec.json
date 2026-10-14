@@ -1,0 +1,107 @@
+{
+  "criterios": [
+    {
+      "id": "C01",
+      "texto": "Dado a tarefa \"Revisar código\" e o termo \"REVISAR\" com estado \"todas\", filtrarTarefas retorna a tarefa \"Revisar código\"."
+    },
+    {
+      "id": "C02",
+      "texto": "Dado a tarefa \"Straße\" e o termo \"strasse\", filtrarTarefas não retorna a tarefa \"Straße\"."
+    },
+    {
+      "id": "C03",
+      "texto": "Dado a tarefa \"Relatório\" e o termo \"relatorio\", filtrarTarefas não retorna a tarefa \"Relatório\"."
+    },
+    {
+      "id": "C04",
+      "texto": "Dado a tarefa \"Comprar pão\" e o termo \"  compr  \" (com espaços no começo e no fim), filtrarTarefas retorna a tarefa \"Comprar pão\"."
+    },
+    {
+      "id": "C05",
+      "texto": "Dado o termo \"   \" (só espaços), filtrarTarefas não filtra pelo título e retorna as tarefas que atendem apenas ao estado."
+    },
+    {
+      "id": "C06",
+      "texto": "Dado o filtro sem termo (termo ausente) com estado \"todas\", filtrarTarefas não filtra pelo título e retorna todas as tarefas da lista."
+    },
+    {
+      "id": "C07",
+      "texto": "Dado o termo \"\" (vazio) com estado \"abertas\", filtrarTarefas não filtra pelo título e retorna as tarefas abertas."
+    },
+    {
+      "id": "C08",
+      "texto": "Dado a tarefa \"Comprar pão\" e o termo \"compr\", filtrarTarefas retorna a tarefa (termo no início do título)."
+    },
+    {
+      "id": "C09",
+      "texto": "Dado a tarefa \"Comprar pão\" e o termo \"pão\", filtrarTarefas retorna a tarefa (termo no fim do título)."
+    },
+    {
+      "id": "C10",
+      "texto": "Dado a tarefa \"Revisar código\" e o termo \"revisar código\" (um espaço entre as palavras), filtrarTarefas retorna a tarefa."
+    },
+    {
+      "id": "C11",
+      "texto": "Dado a tarefa \"Revisar código\" e o termo \"revisar  código\" (dois espaços entre as palavras), filtrarTarefas não retorna a tarefa."
+    },
+    {
+      "id": "C12",
+      "texto": "Dado a tarefa \"Relatório\" com acento em forma precomposta (U+00E9) e o termo com o mesmo acento em forma decomposta (e + U+0301), filtrarTarefas não retorna a tarefa."
+    },
+    {
+      "id": "C13",
+      "texto": "Dado o estado \"ABERTAS\", filtrarTarefas lança Error com a mensagem \"Estado inválido\"."
+    },
+    {
+      "id": "C14",
+      "texto": "Dado o estado \" abertas \" (com espaços), filtrarTarefas lança Error com a mensagem \"Estado inválido\"."
+    },
+    {
+      "id": "C15",
+      "texto": "Dado o estado \"pendentes\" com lista de tarefas vazia, filtrarTarefas lança Error com a mensagem \"Estado inválido\"."
+    },
+    {
+      "id": "C16",
+      "texto": "Dado o estado \"todas\", filtrarTarefas retorna todas as tarefas da lista, abertas e concluídas."
+    },
+    {
+      "id": "C17",
+      "texto": "Dado o estado \"abertas\", filtrarTarefas retorna apenas as tarefas com concluida igual a false."
+    },
+    {
+      "id": "C18",
+      "texto": "Dado o estado \"concluidas\", filtrarTarefas retorna apenas as tarefas com concluida igual a true."
+    },
+    {
+      "id": "C19",
+      "texto": "Dado uma lista de tarefas com estado válido, filtrarTarefas retorna as tarefas na mesma ordem em que aparecem na lista recebida."
+    },
+    {
+      "id": "C20",
+      "texto": "Dado uma lista de tarefas, após chamar filtrarTarefas a lista recebida permanece com os mesmos elementos e na mesma ordem."
+    },
+    {
+      "id": "C21",
+      "texto": "Dado a tarefa \"Revisar código\" concluída (concluida true), o estado \"abertas\" e o termo \"revisar\", filtrarTarefas não retorna a tarefa."
+    },
+    {
+      "id": "C22",
+      "texto": "Dado a tarefa \"Revisar código\" aberta (concluida false), o estado \"abertas\" e o termo \"revisar\", filtrarTarefas retorna a tarefa."
+    },
+    {
+      "id": "C23",
+      "texto": "Dado a tarefa \"Revisar código\" aberta (concluida false), o estado \"concluidas\" e o termo \"revisar\", filtrarTarefas não retorna a tarefa."
+    },
+    {
+      "id": "C24",
+      "texto": "Dado uma lista de tarefas com estado válido, os objetos do resultado são as mesmas referências dos objetos da lista recebida (sem cópia)."
+    },
+    {
+      "id": "C25",
+      "texto": "Dado uma lista de tarefas vazia e estado válido, filtrarTarefas retorna uma lista vazia."
+    }
+  ],
+  "duvidas": [
+    "Quando o estado é \"todas\" e não há termo filtrando, o resultado deve ser um novo array ou pode ser a mesma referência do array recebido? As respostas dizem que os objetos não são copiados e que a lista recebida não é alterada, mas não dizem se o array devolvido é uma instância nova. Os dois comportamentos são possíveis dentro das respostas dadas."
+  ]
+}

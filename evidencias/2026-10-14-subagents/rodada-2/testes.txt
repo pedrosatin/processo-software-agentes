@@ -1,0 +1,31 @@
+ok    C01 C01 - estado todas sem termo devolve todas as tarefas
+ok    C01 C01 - estado todas preserva a ordem da lista recebida
+ok    C02 C02 - estado abertas devolve somente concluida false
+ok    C03 C03 - estado concluidas devolve somente concluida true
+ok    C04 C04 - termo REVISAR em maiusculas encontra Revisar código
+ok    C04 C04 - termo em minusculas encontra titulo com inicial maiuscula
+ok    C05 C05 - termo relatorio sem acento nao encontra Relatorio com acento
+ok    C05 C05 - termo com acento igual ao titulo encontra a tarefa
+ok    C06 C06 - termo com espacos nas pontas e removido antes de buscar
+ok    C07 C07 - termo vazio nao filtra pelo titulo
+ok    C07 C07 - termo só com espacos nao filtra pelo titulo
+ok    C07 C07 - sem campo termo, estado abertas devolve so pelo estado
+ok    C08 C08 - termo pao encontra titulo onde ele aparece no meio ou no fim
+ok    C09 C09 - termo strasse nao encontra Straße
+ok    C09 C09 - termo Straße encontra Straße (controle)
+ok    C10 C10 - termo com dois espacos entre palavras nao encontra titulo com um espaco
+ok    C10 C10 - termo com um espaco entre palavras encontra o titulo (controle)
+ok    C11 C11 - estado ABERTAS em maiusculas lanca Estado invalido
+ok    C11 C11 - estado com espacos nas pontas lanca Estado invalido
+ok    C12 C12 - estado fora da lista lanca Estado invalido com lista nao vazia
+ok    C12 C12 - estado fora da lista lanca Estado invalido mesmo com lista vazia
+ok    C13 C13 - estado abertas e termo pao devolve so abertas com pao
+ok    C13 C13 - estado concluidas e termo pao devolve so concluidas com pao
+ok    C14 C14 - estado valido com lista vazia devolve array vazio
+ok    C14 C14 - estado todas com lista vazia e termo devolve array vazio
+ok    C15 C15 - titulo com e decomposto nao e encontrado por termo composto
+ok    C15 C15 - titulo com e composto nao e encontrado por termo decomposto
+ok    C16 C16 - resultado contem as tarefas da lista recebida com os mesmos ids
+
+28 de 28 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

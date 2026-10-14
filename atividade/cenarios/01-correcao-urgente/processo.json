@@ -1,0 +1,27 @@
+{
+  "id": "01-correcao-urgente",
+  "titulo": "Correção urgente em produção",
+  "pedido": "Filtrar tarefas por estado e por termo no título. O termo ignora maiúsculas e minúsculas e espaços nas pontas. Termo vazio ou só com espaços não filtra. O resultado mantém a ordem recebida e a lista recebida não pode ser alterada.",
+  "materiais": {
+    "relatoDoDefeito": "Chamado 4127, aberto pelo suporte em 13/10. A busca por 'revisar' não retorna a tarefa 'Revisar código'. Buscar 'Revisar' retorna. A versão 1.4.0 está em produção e a correção sai hoje, sem outras mudanças no módulo.",
+    "codigoAtual": {
+      "arquivo": "versao-atual.ts"
+    }
+  },
+  "contexto": {
+    "spec": [
+      "relatoDoDefeito"
+    ],
+    "coder": [],
+    "tester": []
+  },
+  "limiteCorrecoes": 2,
+  "gates": [
+    "regressao",
+    "mudanca-minima"
+  ],
+  "revisaoNoCiclo": [],
+  "parametros": {
+    "maxLinhasAlteradas": 4
+  }
+}

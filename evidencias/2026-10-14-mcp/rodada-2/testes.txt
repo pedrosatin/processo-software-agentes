@@ -1,0 +1,26 @@
+ok    C01 C01 todas sem termo devolve tudo na ordem
+ok    C02 C02 abertas devolve só não concluídas
+ok    C03 C03 concluidas devolve só concluídas
+ok    C04 C04 estado pendentes lança Estado inválido
+ok    C05 C05 estado ABERTAS lança Estado inválido
+ok    C05 C05 estado com espaços lança Estado inválido
+ok    C06 C06 estado inválido com lista vazia lança erro
+ok    C07 C07 termo em maiúsculas encontra título em minúsculas
+ok    C08 C08 strasse não encontra Straße
+ok    C09 C09 relatorio sem acento não encontra Relatório
+ok    C10 C10 termo com espaços nas bordas é aparado
+ok    C11 C11 espaço duplo entre palavras não encontra
+ok    C12 C12 termo vazio não filtra
+ok    C12 C12 termo só com espaços não filtra
+ok    C12 C12 termo ausente não filtra
+ok    C13 C13 termo no meio do título
+ok    C14 C14 abertas com termo ignora concluídas
+ok    C15 C15 concluidas com termo ignora abertas
+ok    C16 C16 termo com maiúsculas acentuadas encontra título misto
+ok    C17 C17 acento em forma NFD não encontra NFC
+ok    C18 C18 filtro sem termo mantém a lista recebida
+ok    C19 C19 resultado contém os mesmos objetos recebidos
+ok    C20 C20 lista vazia com estado válido devolve vazia
+
+23 de 23 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

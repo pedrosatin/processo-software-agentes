@@ -1,0 +1,43 @@
+# Evidências
+
+Registros de execuções reais do processo spec, coder e tester sobre a função `filtrarTarefas`. Cada pasta descreve um experimento: a pergunta, a montagem, o fluxo observado, os resultados, a interpretação, as limitações e como reproduzir.
+
+| Data | Experimento | Pergunta | Resultado |
+|---|---|---|---|
+| 04/10/2026 | [Gemini, verificação e validação](2026-10-04-gemini-validacao) | Os testes do tester detectam uma decisão errada do spec? | Verificação 5 de 5, validação 4 de 5 |
+| 14/10/2026 | [Skills no Claude Code](2026-10-14-skills) | O spec para nas dúvidas? Com respostas, o processo completo entrega código correto? | Rodada 1 parou com 5 dúvidas. Rodada 2 com 24 de 24 casos e 14 de 14 na suíte de referência |
+| 14/10/2026 | [Subagents no Claude Code](2026-10-14-subagents) | A conversa principal só delega e para nas dúvidas? | Rodada 1 parou com 6 dúvidas. Rodada 2 com 28 de 28 casos e 14 de 14 na suíte de referência |
+| 14/10/2026 | [Servidor MCP](2026-10-14-mcp) | O host segue a ordem que o servidor libera? | Rodada 1 parada pelo servidor com 5 dúvidas. Rodada 2 com 23 de 23 casos e 14 de 14 na suíte de referência |
+| 14/10/2026 | [Subagents, Skills e MCP integrados](2026-10-14-integrado) | O processo completa dúvida, teste e correção? | 7 dúvidas, depois 1 dúvida nova, depois 4 de 31 casos, correção pelo coder e 31 de 31 |
+| 14/10/2026 | [CLI em modo demonstração](2026-10-14-cli-demonstracao) | Um gate em código reprova uma entrega com testes aprovados? | Tester 5 de 5, referência 7 de 7, gate de rastreabilidade reprovado |
+
+## Leitura conjunta
+
+```text
+                         pedido ambíguo (maiúsculas, acentos, espaços)
+                                         │
+              ┌──────────────────────────┴──────────────────────────┐
+              ▼                                                     ▼
+   spec decide sozinho (04/10)                           spec registra dúvidas (14/10)
+              │                                                     │
+   tester e coder seguem a decisão                       pessoa responde, spec com 16 a 22 critérios
+              │                                                     │
+   verificação 5/5, validação 4/5                        24/24, 28/28 e 23/23 nos casos do tester
+                                                         14/14 na suíte de referência (Skills, subagents e MCP)
+
+   CLI (14/10): código correto nas duas suítes, entrega reprovada pela regra de
+   rastreabilidade, que nenhum teste de comportamento verifica
+
+   Integrado (14/10): o coder recebeu a especificação sem a assinatura, entregou
+   parâmetros na ordem errada, os casos do tester pegaram e a correção passou
+```
+
+Os experimentos usam modelos, ferramentas e instruções diferentes. Eles mostram comportamentos que o processo precisa tratar e não servem para comparar modelos.
+
+## Transcrições
+
+[transcrever.mjs](transcrever.mjs) converte a saída `stream-json` do Claude Code em Markdown. Remove o identificador da sessão, troca caminhos locais e identificadores de subagentes e omite os conectores MCP da conta de quem executou.
+
+```bash
+node evidencias/transcrever.mjs stream.jsonl > transcricao.md
+```

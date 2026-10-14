@@ -1,0 +1,123 @@
+{
+  "casos": [
+    {
+      "nome": "Estado todas com termo em caixa diferente",
+      "criterio": "Com estado 'todas' e termo 'ESTUDAR', a comparação ignora maiúsculas e minúsculas e o resultado mantém a ordem recebida.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Estudar Java",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Relatório final",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "estudar testes",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "ESTUDAR"
+      },
+      "esperadoIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "nome": "Estado abertas com termo com espaços nas pontas",
+      "criterio": "Com estado 'abertas' e termo '  estudar  ', o termo é aparado com trim antes da comparação e o resultado contém apenas tarefas com concluida false.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Estudar Java",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Relatório final",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "estudar testes",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "abertas",
+        "termo": "  estudar  "
+      },
+      "esperadoIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "nome": "Combinação de estado concluídas com termo sem correspondência",
+      "criterio": "Com estado 'concluidas' e termo 'estudar', os dois critérios precisam valer ao mesmo tempo, e a única tarefa concluída não contém o termo.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Estudar Java",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Relatório final",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "estudar testes",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "concluidas",
+        "termo": "estudar"
+      },
+      "esperadoIds": []
+    },
+    {
+      "nome": "Termo com espaços internos duplicados",
+      "criterio": "Com estado 'todas' e termo 'estudar  java' com dois espaços internos, os espaços internos são preservados e nenhum título contém essa sequência.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Estudar Java",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Relatório final",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "estudar testes",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "estudar  java"
+      },
+      "esperadoIds": []
+    },
+    {
+      "nome": "Estado inválido com lista vazia",
+      "criterio": "Com a lista vazia e estado 'Abertas', a validação do estado ocorre antes da filtragem e a função lança Error com a mensagem exata 'Estado inválido'.",
+      "tarefas": [],
+      "filtro": {
+        "estado": "Abertas"
+      },
+      "esperadoErro": "Estado inválido"
+    }
+  ]
+}

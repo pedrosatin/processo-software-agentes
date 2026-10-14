@@ -1,0 +1,22 @@
+{
+  "requisito": "Implementar filtrarTarefas, uma função pura que filtra tarefas do tipo Tarefa = { id: number, titulo: string, concluida: boolean } por estado e por termo no título, combinando os dois filtros com E. O estado aceita 'todas', 'abertas' (concluida false) ou 'concluidas' (concluida true), comparado exatamente. O termo é opcional. Quando presente, remove espaços nas pontas com String.prototype.trim(), compara com toLowerCase() sem locale nos dois lados e verifica se o título contém o termo como substring. Termo ausente, vazio ou só com espaços não filtra. Acentos e caracteres Unicode são comparados como chegam, sem normalização. Espaços internos do termo são mantidos. O resultado é um novo array que segue a ordem da lista recebida, mantém duplicatas e não altera a lista nem os objetos recebidos. Estado fora da lista lança Error com a mensagem exata Estado inválido, mesmo quando a lista recebida está vazia.",
+  "assinatura": "filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): Tarefa[]",
+  "criterios": [
+    "Estado 'todas' sem termo retorna todas as tarefas na ordem recebida. Entrada com ids [3, 1, 2] resulta em ids [3, 1, 2].",
+    "Estado 'abertas' retorna somente tarefas com concluida false, mantendo a ordem. Entrada com ids 1 (false), 2 (true) e 3 (false) resulta em ids [1, 3].",
+    "Estado 'concluidas' retorna somente tarefas com concluida true, mantendo a ordem. Entrada com ids 1 (false), 2 (true) e 3 (true) resulta em ids [2, 3].",
+    "Estado fora da lista lança Error com a mensagem exata 'Estado inválido'. Os valores 'Abertas', ' abertas', 'pendentes' e '' lançam esse erro, inclusive com lista vazia.",
+    "A comparação do termo ignora maiúsculas e minúsculas. O termo 'TESTE' encontra o título 'Escrever teste' e o título 'Teste de API'.",
+    "O termo é buscado como substring do título. O termo 'tes' encontra o título 'Teste de API'.",
+    "Espaços nas pontas do termo são removidos antes da busca. O termo '  teste  ' encontra o título 'Escrever teste' e resulta no mesmo retorno que o termo 'teste'.",
+    "Termo vazio '' ou só com espaços '   ' não filtra. Com estado 'todas', o retorno contém todas as tarefas. Termo ausente (undefined) também não filtra.",
+    "Acentos não são normalizados. O termo 'relatorio' não encontra o título 'Relatório'. O termo 'RELATÓRIO' encontra o título 'Relatório'.",
+    "Espaços internos do termo são mantidos. O termo 'lista  de' (dois espaços) não encontra o título 'lista de tarefas'.",
+    "String.prototype.trim() remove espaço não separável. O termo '\\u00A0teste\\u00A0' encontra o título 'Escrever teste'.",
+    "Estado e termo combinam com E. Com estado 'abertas' e termo 'teste', entrada com id 1 ('Teste A', false), id 2 ('Teste B', true) e id 3 ('Outra', false) resulta em ids [1].",
+    "Duplicatas são mantidas. Entrada com dois objetos de id 1 e titulo 'A' (ambos concluida false), com estado 'todas', resulta em ids [1, 1].",
+    "Lista vazia retorna um array vazio para qualquer estado válido e qualquer termo.",
+    "A função é pura. Após a chamada, a lista recebida tem o mesmo comprimento, a mesma ordem e os mesmos objetos. O valor retornado é um array diferente da entrada (retorno !== tarefas)."
+  ],
+  "duvidas": []
+}

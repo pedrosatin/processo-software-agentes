@@ -1,0 +1,577 @@
+[
+  {
+    "nome": "C01 todas sem termo devolve tudo na ordem",
+    "criterio": "C01",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      },
+      {
+        "id": 4,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "nome": "C02 abertas devolve só não concluídas",
+    "criterio": "C02",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      },
+      {
+        "id": 4,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      1,
+      3,
+      4
+    ]
+  },
+  {
+    "nome": "C03 concluidas devolve só concluídas",
+    "criterio": "C03",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      },
+      {
+        "id": 4,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      2,
+      5,
+      6
+    ]
+  },
+  {
+    "nome": "C04 estado pendentes lança Estado inválido",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "pendentes"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C05 estado ABERTAS lança Estado inválido",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C05 estado com espaços lança Estado inválido",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": " abertas "
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C06 estado inválido com lista vazia lança erro",
+    "criterio": "C06",
+    "tarefas": [],
+    "filtro": {
+      "estado": "xyz"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C07 termo em maiúsculas encontra título em minúsculas",
+    "criterio": "C07",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      },
+      {
+        "id": 4,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "C08 strasse não encontra Straße",
+    "criterio": "C08",
+    "tarefas": [
+      {
+        "id": 4,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "strasse"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C09 relatorio sem acento não encontra Relatório",
+    "criterio": "C09",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C10 termo com espaços nas bordas é aparado",
+    "criterio": "C10",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      },
+      {
+        "id": 4,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "  compr  "
+    },
+    "esperadoIds": [
+      1,
+      5
+    ]
+  },
+  {
+    "nome": "C11 espaço duplo entre palavras não encontra",
+    "criterio": "C11",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "comprar  pão"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C12 termo vazio não filtra",
+    "criterio": "C12",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": ""
+    },
+    "esperadoIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "C12 termo só com espaços não filtra",
+    "criterio": "C12",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "C12 termo ausente não filtra",
+    "criterio": "C12",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "C13 termo no meio do título",
+    "criterio": "C13",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      1,
+      5
+    ]
+  },
+  {
+    "nome": "C14 abertas com termo ignora concluídas",
+    "criterio": "C14",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Comprar leite",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      1
+    ]
+  },
+  {
+    "nome": "C15 concluidas com termo ignora abertas",
+    "criterio": "C15",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "pão"
+    },
+    "esperadoIds": [
+      6
+    ]
+  },
+  {
+    "nome": "C16 termo com maiúsculas acentuadas encontra título misto",
+    "criterio": "C16",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Assar pão",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "PÃO"
+    },
+    "esperadoIds": [
+      1,
+      6
+    ]
+  },
+  {
+    "nome": "C17 acento em forma NFD não encontra NFC",
+    "criterio": "C17",
+    "tarefas": [
+      {
+        "id": 7,
+        "titulo": "Café",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "Café"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C18 filtro sem termo mantém a lista recebida",
+    "criterio": "C18",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 3,
+        "titulo": "Relatório mensal",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      1,
+      3
+    ]
+  },
+  {
+    "nome": "C19 resultado contém os mesmos objetos recebidos",
+    "criterio": "C19",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "pão"
+    },
+    "esperadoIds": [
+      1
+    ]
+  },
+  {
+    "nome": "C20 lista vazia com estado válido devolve vazia",
+    "criterio": "C20",
+    "tarefas": [],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": []
+  }
+]

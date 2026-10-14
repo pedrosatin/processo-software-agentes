@@ -1,0 +1,117 @@
+{
+  "casos": [
+    {
+      "nome": "Estado abertas combinado com termo sem diferenciar maiúsculas",
+      "criterio": "Estado e termo combinam com E. O termo 'TESTE' encontra 'Teste A' sem diferenciar maiúsculas e minúsculas, e a tarefa concluída 'Teste B' fica de fora pelo estado.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Teste A",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Teste B",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "Outra",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "abertas",
+        "termo": "TESTE"
+      },
+      "esperadoIds": [
+        1
+      ]
+    },
+    {
+      "nome": "Acentos não normalizados no termo",
+      "criterio": "Acentos não são normalizados. O termo 'relatorio' não encontra o título 'Relatório mensal' e encontra 'Relatorio antigo'.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Relatório mensal",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Relatorio antigo",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "relatorio"
+      },
+      "esperadoIds": [
+        2
+      ]
+    },
+    {
+      "nome": "Estado inválido com lista vazia",
+      "criterio": "Estado fora da lista lança Error com a mensagem exata 'Estado inválido', inclusive com lista vazia. 'Abertas' com A maiúsculo não é aceito, pois o estado é comparado exatamente.",
+      "tarefas": [],
+      "filtro": {
+        "estado": "Abertas"
+      },
+      "esperadoErro": "Estado inválido"
+    },
+    {
+      "nome": "Termo só com espaços não filtra e mantém duplicatas",
+      "criterio": "Termo só com espaços não filtra, então o estado 'todas' retorna tudo. Duplicatas são mantidas na ordem recebida.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "   "
+      },
+      "esperadoIds": [
+        1,
+        1
+      ]
+    },
+    {
+      "nome": "Trim remove espaço não separável e mantém a ordem recebida",
+      "criterio": "String.prototype.trim() remove o espaço não separável ' ' nas pontas do termo, e a busca por substring encontra 'Teste de API' e 'Escrever teste'. O resultado segue a ordem da lista recebida, não a ordem dos ids.",
+      "tarefas": [
+        {
+          "id": 2,
+          "titulo": "Teste de API",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever teste",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "Outra coisa",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": " teste "
+      },
+      "esperadoIds": [
+        2,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  processo:
+    build: .
+    image: aula-processo-agentes:local
+    environment:
+      MODO: ${MODO:-demonstracao}
+      MODELO: ${MODELO:-gemini-flash-lite-latest}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_API_KEY: ${LLM_API_KEY:-${GEMINI_API_KEY:-}}
+      NPM_CONFIG_UPDATE_NOTIFIER: "false"
+      TZ: America/Sao_Paulo
+    volumes:
+      - ./agentes:/app/agentes:ro
+      - ./cenarios:/app/cenarios:ro
+      - ./entradas:/app/entradas:ro
+      - ./artefatos:/app/artefatos

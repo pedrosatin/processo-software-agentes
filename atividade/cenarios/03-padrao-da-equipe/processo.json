@@ -1,0 +1,26 @@
+{
+  "id": "03-padrao-da-equipe",
+  "titulo": "Padrão de código da equipe",
+  "pedido": "Filtrar tarefas por estado e por termo no título. O termo ignora maiúsculas e minúsculas e espaços nas pontas. Termo vazio ou só com espaços não filtra. O resultado mantém a ordem recebida e a lista recebida não pode ser alterada.",
+  "materiais": {
+    "padraoDeCodigo": {
+      "arquivo": "padrao-de-codigo.md"
+    }
+  },
+  "contexto": {
+    "spec": [],
+    "coder": [],
+    "tester": []
+  },
+  "limiteCorrecoes": 2,
+  "gates": [
+    "padrao-codigo"
+  ],
+  "revisaoNoCiclo": [
+    "padrao-codigo"
+  ],
+  "parametros": {
+    "maxLinhas": 20,
+    "maxTentativas": 1
+  }
+}

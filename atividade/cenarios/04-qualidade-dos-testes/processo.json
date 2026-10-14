@@ -1,0 +1,23 @@
+{
+  "id": "04-qualidade-dos-testes",
+  "titulo": "Qualidade dos testes medida por mutantes",
+  "pedido": "Filtrar tarefas por estado e por termo no título. O termo ignora maiúsculas e minúsculas e espaços nas pontas. Termo vazio ou só com espaços não filtra. O resultado mantém a ordem recebida e a lista recebida não pode ser alterada.",
+  "materiais": {
+    "tecnicasDeTeste": {
+      "arquivo": "tecnicas-de-teste.md"
+    }
+  },
+  "contexto": {
+    "spec": [],
+    "coder": [],
+    "tester": []
+  },
+  "limiteCorrecoes": 2,
+  "gates": [
+    "mutantes"
+  ],
+  "revisaoNoCiclo": [],
+  "parametros": {
+    "minMutantesMortos": 6
+  }
+}

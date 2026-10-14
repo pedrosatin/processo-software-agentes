@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "processo": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["server.mjs", "."]
+    }
+  }
+}

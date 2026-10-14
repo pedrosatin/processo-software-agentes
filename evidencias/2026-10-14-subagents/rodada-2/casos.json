@@ -1,0 +1,292 @@
+[
+  {
+    "nome": "C01 - estado todas sem termo devolve todas as tarefas",
+    "criterio": "C01",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false},
+      {"id": 4, "titulo": "Straße", "concluida": true},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "todas", "termo": ""},
+    "esperadoIds": [1, 2, 3, 4, 5]
+  },
+  {
+    "nome": "C01 - estado todas preserva a ordem da lista recebida",
+    "criterio": "C01",
+    "tarefas": [
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false},
+      {"id": 1, "titulo": "Comprar pão", "concluida": false}
+    ],
+    "filtro": {"estado": "todas"},
+    "esperadoIds": [5, 3, 1]
+  },
+  {
+    "nome": "C02 - estado abertas devolve somente concluida false",
+    "criterio": "C02",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false},
+      {"id": 4, "titulo": "Straße", "concluida": true},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "abertas"},
+    "esperadoIds": [1, 3]
+  },
+  {
+    "nome": "C03 - estado concluidas devolve somente concluida true",
+    "criterio": "C03",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false},
+      {"id": 4, "titulo": "Straße", "concluida": true},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "concluidas"},
+    "esperadoIds": [2, 4, 5]
+  },
+  {
+    "nome": "C04 - termo REVISAR em maiusculas encontra Revisar código",
+    "criterio": "C04",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "REVISAR"},
+    "esperadoIds": [2]
+  },
+  {
+    "nome": "C04 - termo em minusculas encontra titulo com inicial maiuscula",
+    "criterio": "C04",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "revisar"},
+    "esperadoIds": [2]
+  },
+  {
+    "nome": "C05 - termo relatorio sem acento nao encontra Relatorio com acento",
+    "criterio": "C05",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "relatorio"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C05 - termo com acento igual ao titulo encontra a tarefa",
+    "criterio": "C05",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "relatório"},
+    "esperadoIds": [3]
+  },
+  {
+    "nome": "C06 - termo com espacos nas pontas e removido antes de buscar",
+    "criterio": "C06",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "todas", "termo": "  compr  "},
+    "esperadoIds": [1, 5]
+  },
+  {
+    "nome": "C07 - termo vazio nao filtra pelo titulo",
+    "criterio": "C07",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": ""},
+    "esperadoIds": [1, 2, 3]
+  },
+  {
+    "nome": "C07 - termo só com espacos nao filtra pelo titulo",
+    "criterio": "C07",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "   "},
+    "esperadoIds": [1, 2, 3]
+  },
+  {
+    "nome": "C07 - sem campo termo, estado abertas devolve so pelo estado",
+    "criterio": "C07",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "abertas"},
+    "esperadoIds": [1, 3]
+  },
+  {
+    "nome": "C08 - termo pao encontra titulo onde ele aparece no meio ou no fim",
+    "criterio": "C08",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "todas", "termo": "pão"},
+    "esperadoIds": [1, 5]
+  },
+  {
+    "nome": "C09 - termo strasse nao encontra Straße",
+    "criterio": "C09",
+    "tarefas": [
+      {"id": 4, "titulo": "Straße", "concluida": true},
+      {"id": 2, "titulo": "Revisar código", "concluida": true}
+    ],
+    "filtro": {"estado": "todas", "termo": "strasse"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C09 - termo Straße encontra Straße (controle)",
+    "criterio": "C09",
+    "tarefas": [
+      {"id": 4, "titulo": "Straße", "concluida": true},
+      {"id": 2, "titulo": "Revisar código", "concluida": true}
+    ],
+    "filtro": {"estado": "todas", "termo": "Straße"},
+    "esperadoIds": [4]
+  },
+  {
+    "nome": "C10 - termo com dois espacos entre palavras nao encontra titulo com um espaco",
+    "criterio": "C10",
+    "tarefas": [
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "revisar  código"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C10 - termo com um espaco entre palavras encontra o titulo (controle)",
+    "criterio": "C10",
+    "tarefas": [
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "revisar código"},
+    "esperadoIds": [2]
+  },
+  {
+    "nome": "C11 - estado ABERTAS em maiusculas lanca Estado invalido",
+    "criterio": "C11",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false}
+    ],
+    "filtro": {"estado": "ABERTAS"},
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C11 - estado com espacos nas pontas lanca Estado invalido",
+    "criterio": "C11",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false}
+    ],
+    "filtro": {"estado": " abertas "},
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C12 - estado fora da lista lanca Estado invalido com lista nao vazia",
+    "criterio": "C12",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false}
+    ],
+    "filtro": {"estado": "pendentes"},
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C12 - estado fora da lista lanca Estado invalido mesmo com lista vazia",
+    "criterio": "C12",
+    "tarefas": [],
+    "filtro": {"estado": "pendentes"},
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C13 - estado abertas e termo pao devolve so abertas com pao",
+    "criterio": "C13",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "abertas", "termo": "pão"},
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "C13 - estado concluidas e termo pao devolve so concluidas com pao",
+    "criterio": "C13",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false},
+      {"id": 5, "titulo": "Comprar pão de queijo", "concluida": true}
+    ],
+    "filtro": {"estado": "concluidas", "termo": "pão"},
+    "esperadoIds": [5]
+  },
+  {
+    "nome": "C14 - estado valido com lista vazia devolve array vazio",
+    "criterio": "C14",
+    "tarefas": [],
+    "filtro": {"estado": "abertas"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C14 - estado todas com lista vazia e termo devolve array vazio",
+    "criterio": "C14",
+    "tarefas": [],
+    "filtro": {"estado": "todas", "termo": "pão"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C15 - titulo com e decomposto nao e encontrado por termo composto",
+    "criterio": "C15",
+    "tarefas": [
+      {"id": 1, "titulo": "Café", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "café"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C15 - titulo com e composto nao e encontrado por termo decomposto",
+    "criterio": "C15",
+    "tarefas": [
+      {"id": 2, "titulo": "Café", "concluida": false}
+    ],
+    "filtro": {"estado": "todas", "termo": "Café"},
+    "esperadoIds": []
+  },
+  {
+    "nome": "C16 - resultado contem as tarefas da lista recebida com os mesmos ids",
+    "criterio": "C16",
+    "tarefas": [
+      {"id": 1, "titulo": "Comprar pão", "concluida": false},
+      {"id": 2, "titulo": "Revisar código", "concluida": true},
+      {"id": 3, "titulo": "Relatório", "concluida": false}
+    ],
+    "filtro": {"estado": "abertas"},
+    "esperadoIds": [1, 3]
+  }
+]

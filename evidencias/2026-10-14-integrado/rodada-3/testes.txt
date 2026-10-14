@@ -1,0 +1,34 @@
+ok    C01 C01 todas sem termo mantem ordem da lista
+ok    C01 C01 todas sem termo com estados misturados e ids fora de ordem
+ok    C02 C02 abertas sem termo retorna apenas concluida false
+ok    C02 C02 abertas com todas concluidas retorna vazio
+ok    C03 C03 concluidas sem termo retorna apenas concluida true
+ok    C03 C03 concluidas sem tarefas concluidas retorna vazio
+ok    C04 C04 termo em maiusculas casa com titulo em minusculas
+ok    C05 C05 termo strasse nao casa com Straße
+ok    C06 C06 termo sem acento nao casa com titulo acentuado
+ok    C07 C07 termo com espacos nas bordas e aplicado apos trim
+ok    C08 C08 termo somente espacos nao filtra
+ok    C08 C08 termo somente espacos com estado abertas retorna todas abertas
+ok    C09 C09 termo vazio nao filtra
+ok    C09 C09 sem termo informado nao filtra com estado concluidas
+ok    C10 C10 termo no inicio do titulo casa
+ok    C11 C11 termo no meio do titulo casa
+ok    C12 C12 termo com dois espacos entre palavras nao casa com um espaco
+ok    C13 C13 termo com acento nao casa com titulo sem acento
+ok    C14 C14 e com combinante nao casa com e acentuado unico
+ok    C15 C15 abertas com termo ignora concluida que contem termo
+ok    C15 C15 concluidas com termo ignora aberta que contem termo
+ok    C16 C16 estado ABERTAS em maiusculas gera erro
+ok    C16 C16 estado com espacos nas bordas gera erro
+ok    C16 C16 estado pendentes gera erro
+ok    C17 C17 estado invalido com lista vazia gera erro
+ok    C18 C18 estado valido com lista vazia retorna vazio
+ok    C19 C19 todas sem termo retorna resultado com os mesmos elementos
+ok    C20 C20 filtro com resultado retorna objetos da lista de entrada
+ok    C21 C21 chamada nao altera a lista de entrada ordem e tamanho
+ok    C22 C22 termo casa com varias tarefas e resultado segue ordem da lista e nao dos ids
+ok    C22 C22 varias tarefas com estado misto e ids fora de ordem
+
+31 de 31 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

@@ -1,0 +1,21 @@
+{
+  "requisito": "Filtrar tarefas por estado ('todas', 'abertas' ou 'concluidas') e por termo contido no título, combinando os dois filtros com E. O termo é comparado sem diferenciar maiúsculas e minúsculas: título e termo passam por toLowerCase(), sem locale. O termo tem os espaços das pontas removidos por String.prototype.trim(). Acentos e caracteres Unicode são comparados como chegam. Espaços internos do termo são mantidos. Termo ausente, vazio ou só com espaços não filtra. Estado fora da lista lança Error com a mensagem Estado inválido. A função é pura: mantém a ordem recebida, mantém duplicatas e não altera a lista de entrada. Corrige o chamado 4127: a busca por 'revisar' passa a encontrar 'Revisar código', porque o título também passa por toLowerCase(). Nenhuma outra mudança no módulo.",
+  "assinatura": "filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): Tarefa[]",
+  "criterios": [
+    "Com estado 'todas' e sem termo, a função retorna todas as tarefas na ordem recebida. Entrada: [{id: 1, titulo: 'A', concluida: false}, {id: 2, titulo: 'B', concluida: true}]. Resultado: ids [1, 2].",
+    "Com estado 'abertas' e sem termo, retorna somente tarefas com concluida false, na ordem recebida. Com a entrada do critério anterior, resultado: ids [1].",
+    "Com estado 'concluidas' e sem termo, retorna somente tarefas com concluida true, na ordem recebida. Com a entrada do critério 1, resultado: ids [2].",
+    "Estado fora da lista lança Error com a mensagem exata 'Estado inválido'. Entradas: estado 'Abertas', estado ' abertas' e estado 'todos'. Em todas, a função lança Error com message 'Estado inválido'.",
+    "Termo 'revisar' encontra o título 'Revisar código'. Entrada: tarefas [{id: 1, titulo: 'Revisar código', concluida: false}], estado 'todas', termo 'revisar'. Resultado: ids [1].",
+    "Termo 'REVISAR' encontra o título 'revisar código'. Entrada: tarefas [{id: 1, titulo: 'revisar código', concluida: false}], estado 'todas', termo 'REVISAR'. Resultado: ids [1].",
+    "Espaços nas pontas do termo são removidos. Entrada: tarefas [{id: 1, titulo: 'Revisar código', concluida: false}, {id: 2, titulo: 'Testar', concluida: false}], estado 'todas', termo '  revisar  '. Resultado: ids [1].",
+    "Espaços nas pontas do termo seguem String.prototype.trim(), incluindo tabulação, quebra de linha e espaço não separável. Com a mesma entrada do critério anterior e termo '\\t\\nrevisar\\u00A0', resultado: ids [1].",
+    "Termo ausente, termo '' e termo '   ' não filtram por título. Com a entrada do critério 7 e estado 'todas', cada uma das três chamadas retorna ids [1, 2].",
+    "Acentos são comparados como chegam. Entrada: tarefas [{id: 1, titulo: 'Relatório', concluida: false}], estado 'todas', termo 'relatorio'. Resultado: lista vazia.",
+    "Espaços internos do termo são mantidos. Entrada: tarefas [{id: 1, titulo: 'Revisar código', concluida: false}], estado 'todas', termo 'revisar  código' (com dois espaços). Resultado: lista vazia. Com termo 'revisar código' (um espaço), resultado: ids [1].",
+    "Os filtros de estado e de termo se combinam com E. Entrada: tarefas [{id: 1, titulo: 'Revisar código', concluida: true}, {id: 2, titulo: 'Revisar testes', concluida: false}, {id: 3, titulo: 'Escrever docs', concluida: false}], estado 'abertas', termo 'revisar'. Resultado: ids [2].",
+    "A ordem recebida é preservada e duplicatas são mantidas. Entrada: tarefas [{id: 3, titulo: 'X', concluida: false}, {id: 1, titulo: 'X', concluida: false}, {id: 3, titulo: 'X', concluida: false}], estado 'todas', termo 'x'. Resultado: ids [3, 1, 3].",
+    "A lista de entrada não é alterada. Após chamar a função com qualquer filtro válido, a lista recebida tem o mesmo comprimento, a mesma ordem e os mesmos objetos com os mesmos campos que antes da chamada. Verificação: comparar com um clone feito antes da chamada."
+  ],
+  "duvidas": []
+}

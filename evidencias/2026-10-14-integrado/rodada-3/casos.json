@@ -1,0 +1,809 @@
+[
+  {
+    "nome": "C01 todas sem termo mantem ordem da lista",
+    "criterio": "C01",
+    "tarefas": [
+      {
+        "id": 11,
+        "titulo": "A",
+        "concluida": false
+      },
+      {
+        "id": 10,
+        "titulo": "B",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      11,
+      10
+    ]
+  },
+  {
+    "nome": "C01 todas sem termo com estados misturados e ids fora de ordem",
+    "criterio": "C01",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2,
+      5,
+      4
+    ]
+  },
+  {
+    "nome": "C02 abertas sem termo retorna apenas concluida false",
+    "criterio": "C02",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      3,
+      2,
+      4
+    ]
+  },
+  {
+    "nome": "C02 abertas com todas concluidas retorna vazio",
+    "criterio": "C02",
+    "tarefas": [
+      {
+        "id": 7,
+        "titulo": "X",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Y",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C03 concluidas sem termo retorna apenas concluida true",
+    "criterio": "C03",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      1,
+      5
+    ]
+  },
+  {
+    "nome": "C03 concluidas sem tarefas concluidas retorna vazio",
+    "criterio": "C03",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C04 termo em maiusculas casa com titulo em minusculas",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      1,
+      4
+    ]
+  },
+  {
+    "nome": "C05 termo strasse nao casa com Straße",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "strasse"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C06 termo sem acento nao casa com titulo acentuado",
+    "criterio": "C06",
+    "tarefas": [
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Outra",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C07 termo com espacos nas bordas e aplicado apos trim",
+    "criterio": "C07",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "  compr  "
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "C08 termo somente espacos nao filtra",
+    "criterio": "C08",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2,
+      5,
+      4
+    ]
+  },
+  {
+    "nome": "C08 termo somente espacos com estado abertas retorna todas abertas",
+    "criterio": "C08",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "C09 termo vazio nao filtra",
+    "criterio": "C09",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": ""
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2,
+      5,
+      4
+    ]
+  },
+  {
+    "nome": "C09 sem termo informado nao filtra com estado concluidas",
+    "criterio": "C09",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      1,
+      5
+    ]
+  },
+  {
+    "nome": "C10 termo no inicio do titulo casa",
+    "criterio": "C10",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "C11 termo no meio do titulo casa",
+    "criterio": "C11",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "ar p"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "C12 termo com dois espacos entre palavras nao casa com um espaco",
+    "criterio": "C12",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "comprar  pão"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C13 termo com acento nao casa com titulo sem acento",
+    "criterio": "C13",
+    "tarefas": [
+      {
+        "id": 7,
+        "titulo": "Comprar pao",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "pão"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C14 e com combinante nao casa com e acentuado unico",
+    "criterio": "C14",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Café",
+        "concluida": false
+      },
+      {
+        "id": 8,
+        "titulo": "Outra",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "Café"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C15 abertas com termo ignora concluida que contem termo",
+    "criterio": "C15",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 5,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "revisar"
+    },
+    "esperadoIds": [
+      4
+    ]
+  },
+  {
+    "nome": "C15 concluidas com termo ignora aberta que contem termo",
+    "criterio": "C15",
+    "tarefas": [
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Revisar docs",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      1,
+      6
+    ]
+  },
+  {
+    "nome": "C16 estado ABERTAS em maiusculas gera erro",
+    "criterio": "C16",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C16 estado com espacos nas bordas gera erro",
+    "criterio": "C16",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": " abertas "
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C16 estado pendentes gera erro",
+    "criterio": "C16",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "pendentes"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C17 estado invalido com lista vazia gera erro",
+    "criterio": "C17",
+    "tarefas": [],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "C18 estado valido com lista vazia retorna vazio",
+    "criterio": "C18",
+    "tarefas": [],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "C19 todas sem termo retorna resultado com os mesmos elementos",
+    "criterio": "C19",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 4,
+        "titulo": "Revisar testes",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      3,
+      1,
+      4
+    ]
+  },
+  {
+    "nome": "C20 filtro com resultado retorna objetos da lista de entrada",
+    "criterio": "C20",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "s"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "C21 chamada nao altera a lista de entrada ordem e tamanho",
+    "criterio": "C21",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      1
+    ]
+  },
+  {
+    "nome": "C22 termo casa com varias tarefas e resultado segue ordem da lista e nao dos ids",
+    "criterio": "C22",
+    "tarefas": [
+      {
+        "id": 8,
+        "titulo": "Revisar início",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar fim",
+        "concluida": true
+      },
+      {
+        "id": 6,
+        "titulo": "Comprar",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "revisar"
+    },
+    "esperadoIds": [
+      8,
+      2
+    ]
+  },
+  {
+    "nome": "C22 varias tarefas com estado misto e ids fora de ordem",
+    "criterio": "C22",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Testar A",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Testar B",
+        "concluida": false
+      },
+      {
+        "id": 7,
+        "titulo": "Outro",
+        "concluida": false
+      },
+      {
+        "id": 4,
+        "titulo": "Testar C",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "testar"
+    },
+    "esperadoIds": [
+      2,
+      4
+    ]
+  }
+]

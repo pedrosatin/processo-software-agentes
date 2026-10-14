@@ -1,0 +1,22 @@
+{
+  "tentativa": 2,
+  "aprovado": false,
+  "tester": {
+    "total": 5,
+    "aprovados": 5,
+    "falhas": []
+  },
+  "referencia": {
+    "total": 5,
+    "aprovados": 4,
+    "falhas": [
+      {
+        "nome": "Termo em maiúsculas",
+        "criterio": "termo é comparado com o título sem diferenciar maiúsculas e minúsculas",
+        "aprovado": false,
+        "detalhe": "Esperava ids [2] e recebeu []"
+      }
+    ]
+  },
+  "duracaoMs": 2636
+}

@@ -1,0 +1,93 @@
+{
+  "criterios": [
+    {
+      "id": "C01",
+      "texto": "Dado estado \"todas\", sem termo, e uma lista [A(concluida=false), B(concluida=true)], filtrarTarefas retorna [A, B], na mesma ordem da lista recebida."
+    },
+    {
+      "id": "C02",
+      "texto": "Dado estado \"abertas\", sem termo, e uma lista com tarefas abertas e concluídas, filtrarTarefas retorna somente as tarefas com concluida=false."
+    },
+    {
+      "id": "C03",
+      "texto": "Dado estado \"concluidas\", sem termo, e uma lista com tarefas abertas e concluídas, filtrarTarefas retorna somente as tarefas com concluida=true."
+    },
+    {
+      "id": "C04",
+      "texto": "Dado o termo \"REVISAR\" e a tarefa de título \"Revisar código\", a tarefa entra no resultado."
+    },
+    {
+      "id": "C05",
+      "texto": "Dado o termo \"strasse\" e a tarefa de título \"Straße\", a tarefa não entra no resultado."
+    },
+    {
+      "id": "C06",
+      "texto": "Dado o termo \"relatorio\" e a tarefa de título \"Relatório\", a tarefa não entra no resultado."
+    },
+    {
+      "id": "C07",
+      "texto": "Dado o termo \"  compr  \" (com espaços no começo e no fim) e a tarefa de título \"Comprar pão\", a tarefa entra no resultado, pois o termo é aplicado após trim()."
+    },
+    {
+      "id": "C08",
+      "texto": "Dado o termo \"   \" (somente espaços), o filtro por título não é aplicado e todas as tarefas do estado escolhido são retornadas."
+    },
+    {
+      "id": "C09",
+      "texto": "Dado o termo \"\" (vazio) ou sem termo informado, o filtro por título não é aplicado e todas as tarefas do estado escolhido são retornadas."
+    },
+    {
+      "id": "C10",
+      "texto": "Dado o termo \"compr\" e a tarefa de título \"Comprar pão\", a tarefa entra no resultado, pois o termo pode aparecer no início do título."
+    },
+    {
+      "id": "C11",
+      "texto": "Dado o termo \"ar p\" e a tarefa de título \"Comprar pão\", a tarefa entra no resultado, pois o termo pode aparecer no meio do título."
+    },
+    {
+      "id": "C12",
+      "texto": "Dado o termo \"comprar  pão\" (com dois espaços entre as palavras) e a tarefa de título \"Comprar pão\", a tarefa não entra no resultado."
+    },
+    {
+      "id": "C13",
+      "texto": "Dado o termo \"pão\" e a tarefa de título \"Comprar pao\" (sem acento), a tarefa não entra no resultado."
+    },
+    {
+      "id": "C14",
+      "texto": "Dado um termo com \"é\" escrito como e seguido de acento combinante (U+0301) e uma tarefa cujo título tem \"é\" escrito como caractere único (U+00E9), a tarefa não entra no resultado."
+    },
+    {
+      "id": "C15",
+      "texto": "Dado estado \"abertas\" e termo \"revisar\", somente tarefas abertas cujo título contém \"revisar\" (sem diferenciar maiúsculas e minúsculas) entram no resultado; uma tarefa concluída com título \"Revisar código\" não entra."
+    },
+    {
+      "id": "C16",
+      "texto": "Dado estado \"ABERTAS\", \" abertas \" ou \"pendentes\", filtrarTarefas lança Error com a mensagem \"Estado inválido\"."
+    },
+    {
+      "id": "C17",
+      "texto": "Dado estado inválido (por exemplo \"ABERTAS\") e uma lista de tarefas vazia, filtrarTarefas lança Error com a mensagem \"Estado inválido\"."
+    },
+    {
+      "id": "C18",
+      "texto": "Dado estado válido (por exemplo \"abertas\") e uma lista de tarefas vazia, filtrarTarefas retorna um array vazio."
+    },
+    {
+      "id": "C19",
+      "texto": "Dado estado \"todas\" sem termo e uma lista não vazia, o resultado é um array diferente (!==) da lista recebida, mesmo contendo os mesmos elementos."
+    },
+    {
+      "id": "C20",
+      "texto": "Dado qualquer filtro que retorne tarefas, cada objeto do resultado é o mesmo objeto (===) da lista recebida, sem cópia."
+    },
+    {
+      "id": "C21",
+      "texto": "Após chamar filtrarTarefas, a lista recebida mantém o mesmo tamanho, a mesma ordem e os mesmos objetos que tinha antes da chamada."
+    },
+    {
+      "id": "C22",
+      "texto": "Dado um termo que casa com várias tarefas, as tarefas do resultado seguem a ordem em que aparecem na lista recebida."
+    }
+  ],
+  "duvidas": []
+}

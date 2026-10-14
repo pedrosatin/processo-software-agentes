@@ -1,0 +1,122 @@
+{
+  "casos": [
+    {
+      "nome": "Busca por termo encontra título com maiúscula inicial",
+      "criterio": "Termo 'revisar' encontra o título 'Revisar código', porque título e termo passam por toLowerCase() (correção do chamado 4127).",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Revisar código",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "revisar"
+      },
+      "esperadoIds": [
+        1
+      ]
+    },
+    {
+      "nome": "Estado com maiúscula é rejeitado",
+      "criterio": "Estado fora da lista ('todas', 'abertas', 'concluidas') lança Error com a mensagem exata 'Estado inválido'. Estado 'Abertas' não é aceito.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "B",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "Abertas"
+      },
+      "esperadoErro": "Estado inválido"
+    },
+    {
+      "nome": "Estado e termo se combinam com E",
+      "criterio": "Os filtros de estado e de termo se combinam com E. Só a tarefa aberta que contém o termo é retornada.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar testes",
+          "concluida": false
+        },
+        {
+          "id": 3,
+          "titulo": "Escrever docs",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "abertas",
+        "termo": "revisar"
+      },
+      "esperadoIds": [
+        2
+      ]
+    },
+    {
+      "nome": "Filtro por estado abertas sem termo",
+      "criterio": "Com estado 'abertas' e sem termo, retorna somente tarefas com concluida false, na ordem recebida.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "B",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "abertas"
+      },
+      "esperadoIds": [
+        1
+      ]
+    },
+    {
+      "nome": "Ordem recebida e duplicatas são mantidas",
+      "criterio": "A ordem recebida é preservada e duplicatas são mantidas. Tarefas com o mesmo id aparecem em todas as ocorrências.",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "X",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "X",
+          "concluida": false
+        },
+        {
+          "id": 3,
+          "titulo": "X",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "x"
+      },
+      "esperadoIds": [
+        3,
+        1,
+        3
+      ]
+    }
+  ]
+}

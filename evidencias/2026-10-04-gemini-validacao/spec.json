@@ -1,0 +1,14 @@
+{
+  "requisito": "Filtrar uma lista de tarefas com base no estado e opcionalmente por um termo presente no título, preservando a lista de entrada e a ordem original, lançando erro em caso de estado inválido.",
+  "assinatura": "filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): Tarefa[]",
+  "criterios": [
+    "Lança um erro com a mensagem exata 'Estado inválido' quando o estado fornecido não estiver na lista de estados aceitos ('todas', 'abertas', 'concluidas')",
+    "Retorna todas as tarefas sem filtro de título quando o estado for 'todas' e o termo for omitido",
+    "Retorna apenas as tarefas com concluida igual a false quando o estado for 'abertas'",
+    "Retorna apenas as tarefas com concluida igual a true quando o estado for 'concluidas'",
+    "Filtra as tarefas cujo título contém o termo especificado (case-sensitive e sem remoção de acentos), ignorando a verificação de termo quando este for vazio ou contiver apenas espaços",
+    "Mantém a ordem original das tarefas da lista de entrada na lista resultante",
+    "Preserva a lista de entrada intacta, sem mutações"
+  ],
+  "duvidas": []
+}

@@ -1,0 +1,22 @@
+{
+  "requisito": "Filtrar tarefas por estado ('todas', 'abertas' ou 'concluidas') e por termo contido no título, combinando os dois filtros com E. O termo é comparado sem diferenciar maiúsculas e minúsculas, com toLowerCase() sem locale, e os espaços das pontas são removidos com String.prototype.trim(). Acentos e caracteres Unicode são comparados como chegam, sem normalização. Espaços internos do termo são mantidos. Termo ausente, vazio ou só com espaços não filtra. Estado fora da lista lança Error com a mensagem exata Estado inválido. A função é pura: mantém a ordem recebida, mantém duplicatas e não altera a lista recebida.",
+  "assinatura": "filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): Tarefa[]",
+  "criterios": [
+    "Com estado 'todas' e sem termo, a função retorna todas as tarefas na ordem recebida. Entrada: [{id: 1, titulo: 'A', concluida: false}, {id: 2, titulo: 'B', concluida: true}] com filtro {estado: 'todas'}. Resultado: ids [1, 2].",
+    "Com estado 'abertas', retorna somente tarefas com concluida false. Entrada: a mesma lista do critério anterior com filtro {estado: 'abertas'}. Resultado: ids [1].",
+    "Com estado 'concluidas', retorna somente tarefas com concluida true. Entrada: a mesma lista do critério anterior com filtro {estado: 'concluidas'}. Resultado: ids [2].",
+    "Estado fora da lista lança Error com a mensagem exata Estado inválido. Entradas: filtro {estado: 'Abertas'}, filtro {estado: ' abertas'} e filtro {estado: 'pendentes'}. Resultado: erro com essa mensagem nos três casos.",
+    "O termo ignora maiúsculas e minúsculas. Entrada: [{id: 1, titulo: 'Relatório mensal', concluida: false}, {id: 2, titulo: 'Revisão', concluida: false}] com filtro {estado: 'todas', termo: 'RELATÓRIO'}. Resultado: ids [1].",
+    "Espaços nas pontas do termo são removidos antes da comparação. Entrada: a lista do critério anterior com filtro {estado: 'todas', termo: '  revisão  '}. Resultado: ids [2].",
+    "Termo vazio, termo só com espaços e termo ausente não filtram. Entradas: termo '', termo '   ' e filtro sem a propriedade termo, com estado 'todas' sobre a lista do critério anterior. Resultado: ids [1, 2] nos três casos.",
+    "Acentos não são normalizados. Entrada: a lista do critério anterior com filtro {estado: 'todas', termo: 'relatorio'}. Resultado: lista vazia, porque 'relatorio' não encontra 'Relatório'.",
+    "Espaços internos do termo são mantidos. Entrada: [{id: 1, titulo: 'Plano de aula', concluida: false}] com filtro {estado: 'todas', termo: 'plano  de'} (dois espaços). Resultado: lista vazia. Com termo 'plano de' (um espaço), o resultado é ids [1].",
+    "Os dois filtros combinam com E. Entrada: [{id: 1, titulo: 'Relatório', concluida: false}, {id: 2, titulo: 'Relatório', concluida: true}, {id: 3, titulo: 'Revisão', concluida: false}] com filtro {estado: 'abertas', termo: 'rel'}. Resultado: ids [1].",
+    "O resultado segue a ordem da lista recebida. Entrada: [{id: 3, titulo: 'X', concluida: false}, {id: 1, titulo: 'X', concluida: false}, {id: 2, titulo: 'X', concluida: false}] com filtro {estado: 'todas'}. Resultado: ids [3, 1, 2].",
+    "Tarefas com o mesmo id e o mesmo título são mantidas como chegam. Entrada: [{id: 1, titulo: 'X', concluida: false}, {id: 1, titulo: 'X', concluida: false}] com filtro {estado: 'todas'}. Resultado: dois elementos com id 1.",
+    "O trim remove tabulação, quebra de linha e espaço não separável (U+00A0) nas pontas do termo. Entrada: a lista do critério sobre 'Relatório mensal' com filtro {estado: 'todas', termo: '\\tRelatório\\n'} e com termo '\\u00A0relatório\\u00A0'. Resultado: ids [1] nos dois casos.",
+    "A lista recebida não é alterada. Entrada: a lista do critério sobre ordem com filtro {estado: 'abertas'}. Antes e depois da chamada, a lista deve ser igual à lista original, com o mesmo tamanho e os mesmos elementos na mesma ordem.",
+    "Lista vazia retorna lista vazia para qualquer estado válido. Entrada: tarefas [] com filtro {estado: 'todas'}. Resultado: []."
+  ],
+  "duvidas": []
+}

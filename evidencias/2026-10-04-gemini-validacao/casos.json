@@ -1,0 +1,116 @@
+{
+  "casos": [
+    {
+      "nome": "estadoInvalido",
+      "criterio": "Lança um erro com a mensagem exata 'Estado inválido' quando o estado fornecido não estiver na lista de estados aceitos",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Estudar",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "desconhecido"
+      },
+      "esperadoErro": "Estado inválido"
+    },
+    {
+      "nome": "todasSemTermo",
+      "criterio": "Retorna todas as tarefas sem filtro de título quando o estado for 'todas' e o termo for omitido",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Comprar leite",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Pagar contas",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "todas"
+      },
+      "esperadoIds": [
+        1,
+        2
+      ]
+    },
+    {
+      "nome": "apenasAbertas",
+      "criterio": "Retorna apenas as tarefas com concluida igual a false quando o estado for 'abertas'",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Tarefa 1",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Tarefa 2",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "Tarefa 3",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "abertas"
+      },
+      "esperadoIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "nome": "apenasConcluidas",
+      "criterio": "Retorna apenas as tarefas com concluida igual a true quando o estado for 'concluidas'",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Tarefa 1",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Tarefa 2",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "concluidas"
+      },
+      "esperadoIds": [
+        2
+      ]
+    },
+    {
+      "nome": "termoVazioBorda",
+      "criterio": "Filtra as tarefas cujo título contém o termo especificado, ignorando a verificação de termo quando este for vazio ou contiver apenas espaços",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Aprender Testes",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Estudar Código",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "abertas",
+        "termo": "   "
+      },
+      "esperadoIds": [
+        1,
+        2
+      ]
+    }
+  ]
+}

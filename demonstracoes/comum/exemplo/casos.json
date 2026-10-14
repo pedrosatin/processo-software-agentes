@@ -1,0 +1,368 @@
+[
+  {
+    "nome": "todas as tarefas",
+    "criterio": "C01",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "só abertas",
+    "criterio": "C02",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "só concluídas",
+    "criterio": "C03",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      1
+    ]
+  },
+  {
+    "nome": "estado inválido com lista vazia",
+    "criterio": "C04",
+    "tarefas": [],
+    "filtro": {
+      "estado": "arquivadas"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "estado com maiúscula é inválido",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "Abertas"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "trecho do título",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "termo em maiúsculas",
+    "criterio": "C06",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "termo sem acento",
+    "criterio": "C07",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "espaços nas pontas",
+    "criterio": "C08",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "  revisar  "
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "dois espaços internos",
+    "criterio": "C09",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "revisar  código"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "termo só com espaços",
+    "criterio": "C10",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "estado e termo juntos",
+    "criterio": "C11",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "relat"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "ordem da lista recebida",
+    "criterio": "C12",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "lista recebida sem alteração",
+    "criterio": "C13",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Comprar pão",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "relat"
+    },
+    "esperadoIds": [
+      1
+    ]
+  }
+]

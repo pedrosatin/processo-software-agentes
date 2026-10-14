@@ -1,0 +1,27 @@
+ok    C01 C01 estado todas sem termo retorna todas as tarefas
+ok    C02 C02 estado abertas sem termo retorna somente concluida false
+ok    C03 C03 estado concluidas sem termo retorna somente concluida true
+ok    C04 C04 estado todas com termo pão retorna tarefas cujo título contém pão
+ok    C05 C05 estado abertas com termo pão retorna somente abertas que contêm pão
+ok    C06 C06 lista vazia retorna lista vazia
+ok    C06 C06 lista vazia com estado abertas e termo retorna lista vazia
+ok    C07 C07 termo que não aparece em nenhum título retorna lista vazia
+ok    C08 C08 termo minúsculo casa título com maiúscula inicial
+ok    C09 C09 termo em maiúsculas casa título em outra capitalização
+ok    C10 C10 termo strasse não casa Straße porque toLowerCase não converte ß
+ok    C11 C11 termo sem acento não casa título com acento
+ok    C12 C12 termo com espaços nas bordas equivale a termo sem espaços
+ok    C13 C13 termo parcial casa qualquer parte do título
+ok    C14 C14 termo com dois espaços entre palavras não casa título com um espaço
+ok    C15 C15 termo vazio não filtra pelo título
+ok    C15 C15 termo só com espaços não filtra pelo título
+ok    C16 C16 estado em maiúsculas lança Estado inválido
+ok    C16 C16 estado com espaços nas bordas lança Estado inválido
+ok    C17 C17 estado desconhecido lança Estado inválido mesmo com lista vazia
+ok    C18 C18 letra acentuada precomposta não casa termo com acento combinado
+ok    C19 C19 resultado preserva a ordem da lista recebida
+ok    C20 C20 entrada não é alterada pela chamada (mesmos elementos e mesma ordem; verificar após a chamada)
+ok    C21 C21 resultado contém os mesmos objetos da lista recebida (identidade, não cópia; verificar com ===)
+
+24 de 24 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

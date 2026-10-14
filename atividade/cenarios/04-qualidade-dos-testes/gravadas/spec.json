@@ -1,0 +1,24 @@
+{
+  "requisito": "Implementar filtrarTarefas, função pura que filtra uma lista de tarefas do tipo Tarefa = { id: number, titulo: string, concluida: boolean } combinando dois critérios com E. O estado aceita 'todas', 'abertas' (concluida false) ou 'concluidas' (concluida true), comparado exatamente. O termo é opcional e, quando não vazio após remover espaços nas pontas com String.prototype.trim(), filtra os títulos que contêm o termo como substring, com ambos os lados convertidos por toLowerCase() sem locale. Acentos e caracteres Unicode são comparados como chegam, sem normalização. Espaços internos do termo são preservados. O resultado é um novo array na ordem recebida, e a lista de entrada não é alterada. Estado fora da lista lança Error com a mensagem Estado inválido, mesmo quando a lista está vazia.",
+  "assinatura": "filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): Tarefa[]",
+  "criterios": [
+    "Com a lista T = [{ id: 1, titulo: 'Estudar Java', concluida: false }, { id: 2, titulo: 'Relatório final', concluida: true }, { id: 3, titulo: 'estudar testes', concluida: false }] e filtro { estado: 'todas' }, o resultado tem os ids [1, 2, 3] na mesma ordem.",
+    "Com T e filtro { estado: 'abertas' }, o resultado tem os ids [1, 3].",
+    "Com T e filtro { estado: 'concluidas' }, o resultado tem o id [2].",
+    "Com T e filtro { estado: 'todas', termo: 'ESTUDAR' }, o resultado tem os ids [1, 3], porque a comparação ignora maiúsculas e minúsculas.",
+    "Com T e filtro { estado: 'abertas', termo: '  estudar  ' }, o resultado tem os ids [1, 3], porque o termo perde os espaços nas pontas antes da comparação.",
+    "Com T e filtro { estado: 'concluidas', termo: 'estudar' }, o resultado é [], porque os dois critérios precisam valer ao mesmo tempo.",
+    "Com T e filtro { estado: 'todas', termo: 'relatorio' }, o resultado é [], porque 'Relatório final' não contém 'relatorio' sem acento.",
+    "Com T e filtro { estado: 'todas', termo: 'final' }, o resultado tem o id [2].",
+    "Com T e filtro { estado: 'todas', termo: 'estudar java' }, o resultado tem o id [1]. Com termo 'estudar  java', com dois espaços internos, o resultado é [], porque espaços internos são preservados.",
+    "Com T e filtro { estado: 'todas' } ou { estado: 'todas', termo: '' } ou { estado: 'todas', termo: '   ' } ou { estado: 'todas', termo: undefined }, o resultado tem os ids [1, 2, 3], porque termo ausente, vazio ou só com espaços não filtra.",
+    "Com T e filtro { estado: 'todas', termo: '\\u00A0final\\u00A0' }, o resultado tem o id [2], porque String.prototype.trim() remove espaço não separável.",
+    "Com T e filtro { estado: 'Abertas' }, filtro { estado: ' abertas' }, filtro { estado: '' } ou filtro { estado: 'todas ' }, a função lança Error com a mensagem exata 'Estado inválido'.",
+    "Com a lista vazia [] e filtro { estado: 'Abertas' }, a função lança Error com a mensagem exata 'Estado inválido', porque a validação do estado ocorre antes da filtragem.",
+    "Com a lista vazia [] e filtro { estado: 'todas', termo: 'qualquer' }, o resultado é [].",
+    "Depois de qualquer chamada válida, a lista T mantém o mesmo tamanho, a mesma ordem e os mesmos campos de cada tarefa, comparados com um snapshot tomado antes da chamada. O resultado é uma referência diferente de T.",
+    "Com a lista T2 = [{ id: 1, titulo: 'A', concluida: false }, { id: 1, titulo: 'A', concluida: false }] e filtro { estado: 'todas' }, o resultado tem dois elementos, porque tarefas com o mesmo id ou título são mantidas como chegam.",
+    "Com T e filtro { estado: 'todas', termo: 'Ã' }, o resultado é [], porque o termo com acento não é normalizado e o título não contém esse caractere."
+  ],
+  "duvidas": []
+}

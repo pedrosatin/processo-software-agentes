@@ -1,0 +1,120 @@
+{
+  "casos": [
+    {
+      "nome": "Estado todas sem termo retorna todas as tarefas na ordem recebida",
+      "criterio": "Com estado 'todas' e sem termo, a função retorna todas as tarefas na ordem recebida.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "B",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "todas"
+      },
+      "esperadoIds": [
+        1,
+        2
+      ]
+    },
+    {
+      "nome": "Estado abertas retorna somente tarefas não concluídas",
+      "criterio": "Com estado 'abertas', retorna somente tarefas com concluida false.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "B",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "abertas"
+      },
+      "esperadoIds": [
+        1
+      ]
+    },
+    {
+      "nome": "Estado com maiúscula inicial lança erro",
+      "criterio": "Estado fora da lista lança Error com a mensagem exata Estado inválido.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "A",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "B",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "Abertas"
+      },
+      "esperadoErro": "Estado inválido"
+    },
+    {
+      "nome": "Termo ignora diferença entre maiúsculas e minúsculas",
+      "criterio": "O termo ignora maiúsculas e minúsculas, com toLowerCase() sem locale.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Relatório mensal",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisão",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "RELATÓRIO"
+      },
+      "esperadoIds": [
+        1
+      ]
+    },
+    {
+      "nome": "Estado e termo combinados com E",
+      "criterio": "Os dois filtros combinam com E: a tarefa precisa estar aberta e o título precisa conter o termo.",
+      "tarefas": [
+        {
+          "id": 1,
+          "titulo": "Relatório",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Relatório",
+          "concluida": true
+        },
+        {
+          "id": 3,
+          "titulo": "Revisão",
+          "concluida": false
+        }
+      ],
+      "filtro": {
+        "estado": "abertas",
+        "termo": "rel"
+      },
+      "esperadoIds": [
+        1
+      ]
+    }
+  ]
+}

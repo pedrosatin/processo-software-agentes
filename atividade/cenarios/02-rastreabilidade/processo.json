@@ -1,0 +1,21 @@
+{
+  "id": "02-rastreabilidade",
+  "titulo": "Rastreabilidade entre critérios e testes",
+  "pedido": "Filtrar tarefas por estado e por termo no título. O termo ignora maiúsculas e minúsculas e espaços nas pontas. Termo vazio ou só com espaços não filtra. O resultado mantém a ordem recebida e a lista recebida não pode ser alterada.",
+  "materiais": {
+    "politicaDeRastreabilidade": {
+      "arquivo": "politica-rastreabilidade.md"
+    }
+  },
+  "contexto": {
+    "spec": [],
+    "coder": [],
+    "tester": []
+  },
+  "limiteCorrecoes": 2,
+  "gates": [
+    "rastreabilidade"
+  ],
+  "revisaoNoCiclo": [],
+  "parametros": {}
+}

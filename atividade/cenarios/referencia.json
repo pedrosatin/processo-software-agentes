@@ -1,0 +1,236 @@
+{
+  "casos": [
+    {
+      "nome": "Todas preservam a ordem recebida",
+      "criterio": "o resultado mantém a ordem original",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "todas"
+      },
+      "esperadoIds": [
+        3,
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "nome": "Somente abertas",
+      "criterio": "estado abertas retorna tarefas não concluídas",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "abertas"
+      },
+      "esperadoIds": [
+        3,
+        1
+      ]
+    },
+    {
+      "nome": "Termo em maiúsculas",
+      "criterio": "termo ignora maiúsculas e minúsculas",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "concluidas",
+        "termo": "REVISAR"
+      },
+      "esperadoIds": [
+        2
+      ]
+    },
+    {
+      "nome": "Termo com espaços nas pontas",
+      "criterio": "termo ignora espaços nas pontas",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "todas",
+        "termo": "  código  "
+      },
+      "esperadoIds": [
+        2
+      ]
+    },
+    {
+      "nome": "Termo só com espaços",
+      "criterio": "termo vazio ou só com espaços não filtra",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "abertas",
+        "termo": "   "
+      },
+      "esperadoIds": [
+        3,
+        1
+      ]
+    },
+    {
+      "nome": "Estado desconhecido",
+      "criterio": "estado fora da lista lança Error com a mensagem Estado inválido",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "arquivadas"
+      },
+      "esperadoErro": "Estado inválido"
+    },
+    {
+      "nome": "Entrada fora de ordem por id",
+      "criterio": "a lista recebida não é alterada",
+      "tarefas": [
+        {
+          "id": 3,
+          "titulo": "Relatório final",
+          "concluida": false
+        },
+        {
+          "id": 1,
+          "titulo": "Escrever spec",
+          "concluida": false
+        },
+        {
+          "id": 2,
+          "titulo": "Revisar código",
+          "concluida": true
+        },
+        {
+          "id": 4,
+          "titulo": "Ajustar relatório",
+          "concluida": true
+        }
+      ],
+      "filtro": {
+        "estado": "concluidas",
+        "termo": "r"
+      },
+      "esperadoIds": [
+        2,
+        4
+      ]
+    }
+  ]
+}
