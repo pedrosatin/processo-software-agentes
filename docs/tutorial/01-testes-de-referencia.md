@@ -25,7 +25,7 @@ Cada caso roda a função com uma cópia da lista de tarefas, compara os IDs dev
 
 ## Pré-requisitos
 
-Node.js 23.6 ou posterior. Sem Node, use o comando com Docker da seção [Sem Node na máquina](README.md#sem-node-na-máquina).
+Node.js 23.6 ou posterior no host. Sem essa versão, use o Node 22.23 da imagem Docker na seção [Sem Node na máquina](README.md#sem-node-na-máquina).
 
 ## Executar
 

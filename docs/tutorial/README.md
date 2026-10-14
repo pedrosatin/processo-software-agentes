@@ -35,14 +35,16 @@ cd processo-software-agentes
 | Ferramenta | Uso | Como conferir |
 |---|---|---|
 | Docker Desktop | CLI da atividade e, sem Node instalado, os scripts das partes 1 e 2 | `docker --version` |
-| Node.js 23.6 ou posterior | Scripts das partes 1 e 2 direto no terminal | `node --version` |
+| Node.js 23.6 ou posterior no host | Scripts das partes 1 e 2 direto no terminal | `node --version` |
 | Gemini CLI | Host MCP gratuito da parte 2, opcional | `gemini --version` |
 
 Os comandos deste tutorial usam o terminal na raiz do repositório, exceto na parte 3, que roda dentro da pasta `atividade`. Os comandos de `node` e `docker` funcionam no PowerShell e no terminal do Linux ou do macOS. Quando a sintaxe muda entre eles, o texto mostra as duas formas.
 
+A regra dos 23.6 vale para o Node instalado na máquina. A imagem Docker da parte 3 traz Node 22.23 e também executa esses scripts, porque o TypeScript roda sem etapa de compilação nesse caminho.
+
 ## Sem Node na máquina
 
-Os scripts das partes 1 e 2 executam TypeScript sem compilação e precisam de Node recente. Se a máquina não tiver Node, construa a imagem da parte 3 uma vez (`docker compose -p aula-processo build` dentro de `atividade`) e use o Node dela, montando o repositório como volume.
+Se a máquina não tiver Node 23.6 ou posterior, construa a imagem da parte 3 uma vez (`docker compose -p aula-processo build` dentro de `atividade`) e use o Node dela, montando o repositório como volume.
 
 No PowerShell:
 

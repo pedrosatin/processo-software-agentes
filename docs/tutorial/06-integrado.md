@@ -31,7 +31,7 @@ O tester não tem `Read`. Ele recebe o contexto só por `iniciar_etapa`, que dev
 | Item | Observação |
 |---|---|
 | Claude Code | Exige plano pago ou crédito de API |
-| Node.js 23.6 ou posterior | O servidor MCP e o script de testes rodam com Node |
+| Node.js 23.6 ou posterior no host, ou a imagem Docker da parte 3 | O servidor MCP e o script de testes rodam com Node |
 
 Antes, confira o servidor sem modelo, como na [parte 2](02-servidor-mcp.md):
 
@@ -49,10 +49,12 @@ node demonstracoes/mcp-processo/conferir.mjs
    Execute o processo de desenvolvimento para pedido.md.
    ```
 
-Para pular as dúvidas, copie antes `../comum/respostas-exemplo.md` sobre `respostas.md`. A mesma execução roda sem interação:
+Para pular as dúvidas, copie antes `../comum/respostas-exemplo.md` sobre `respostas.md`. A mesma execução roda sem interação, com o servidor e as ferramentas da evidência:
 
 ```bash
-claude -p "Execute o processo de desenvolvimento para pedido.md."
+claude -p "Execute o processo de desenvolvimento para pedido.md." --model haiku --permission-mode dontAsk \
+  --strict-mcp-config --mcp-config .mcp.json \
+  --allowedTools "Read,Write,Agent,mcp__processo__iniciar_etapa,mcp__processo__entregar_spec,mcp__processo__entregar_codigo,mcp__processo__entregar_casos,mcp__processo__executar_testes"
 ```
 
 ## O que aparece na tela
