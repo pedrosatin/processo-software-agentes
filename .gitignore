@@ -1,6 +1,6 @@
 node_modules/
 *.zip
-atividade/artefatos/*
-!atividade/artefatos/.gitkeep
+demonstracoes/cli/artefatos/*
+!demonstracoes/cli/artefatos/.gitkeep
 demonstracoes/*/saida/
 demonstracoes/*/.conferencia-*/

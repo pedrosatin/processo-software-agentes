@@ -72,7 +72,7 @@ failed to construct executor: failed to resolve components: unknown component: t
 
 O erro está em [erro-host.txt](agy-integrado-r1/erro-host.txt). A execução principal foi interrompida durante o diagnóstico. A correção prepara os papéis com `define_subagent(enable_mcp_tools: true)`, conforme a [referência de ferramentas](https://antigravity.google/docs/hooks#agent-collaboration) e as correções de dispatcher e herança MCP no [changelog](https://antigravity.google/docs/changelog?tab=cli). Os retestes com sufixo `corrigido` pararam nas dúvidas na rodada 1 e completaram a rodada 2 com 28 de 28 casos do tester e 14 de 14 da referência. O coder devolveu a falta da assinatura no contexto recebido pelo servidor, e a conversa principal repassou a assinatura do pedido antes da entrega.
 
-## Limites do modo API do CLI da atividade
+## Limites do modo API do CLI do processo
 
 Os testes HTTP locais cobrem modelo inexistente, catálogo, configuração explícita, formato JSON recusado e chamadas simultâneas de coder e tester. Eles não chamam o Gemini real. Depois dos ensaios de hosts, o fluxo API foi executado com uma chave do AI Studio: a base chegou aos testes e à reprovação esperada do gate, e uma cópia ajustada terminou aprovada. Os detalhes e os limites dessa validação estão no [relato específico](../2026-10-15-cli-api). O alias padrão e um modelo substituto listado não garantem gratuidade ou cota da conta. Os modos `demonstracao` e `manual` continuam como caminhos sem exigir assinatura paga.
 
