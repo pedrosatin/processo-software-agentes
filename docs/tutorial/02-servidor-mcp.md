@@ -56,50 +56,58 @@ O script trabalha numa pasta temporária `.conferencia-*` dentro da demonstraç�
 
 ### O que alterar para experimentar
 
-Converse com o servidor sem o script. Cada linha enviada é uma mensagem JSON-RPC. Dentro de `demonstracoes/mcp-processo`, peça a etapa do coder antes da especificação e depois a etapa do spec.
+Converse com o servidor sem o script. Cada linha enviada é uma mensagem JSON-RPC. Primeiro faça a inicialização da conexão. Depois peça a etapa do coder antes da especificação e a etapa do spec. Esse início segue o [ciclo de vida do MCP](https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle).
 
 No Linux ou no macOS:
 
 ```bash
 cd demonstracoes/mcp-processo
 printf '%s\n' \
-  '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"iniciar_etapa","arguments":{"papel":"coder"}}}' \
-  '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"iniciar_etapa","arguments":{"papel":"spec"}}}' \
+  '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"aula","version":"1.0.0"}}}' \
+  '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+  '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"iniciar_etapa","arguments":{"papel":"coder"}}}' \
+  '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"iniciar_etapa","arguments":{"papel":"spec"}}}' \
   | node server.mjs .
 ```
 
-No PowerShell, grave as duas linhas JSON num arquivo `chamadas.jsonl` e rode `Get-Content chamadas.jsonl | node server.mjs .`.
+No PowerShell, grave as quatro linhas JSON num arquivo `chamadas.jsonl` e rode `Get-Content chamadas.jsonl | node server.mjs .`.
+
+A captura destaca as duas respostas de ferramentas. O comando atual imprime também a resposta de inicialização.
 
 ![Recusa do coder e instrução do spec devolvidas pelo servidor](img/mcp-jsonrpc.png)
 
-A primeira resposta tem `"isError": true` e a mensagem "A especificação ainda não foi aprovada." A segunda traz a instrução do papel spec e o contexto, com o conteúdo de `pedido.md` e `respostas.md`. Esse é o texto que o modelo do host recebe quando chama `iniciar_etapa`. As duas chamadas não gravam nada em `saida/`.
+Depois da resposta de inicialização, a chamada do coder recebe `"isError": true` e a mensagem "A especificação ainda não foi aprovada." A chamada do spec traz a instrução do papel e o contexto, com o conteúdo de `pedido.md` e `respostas.md`. Esse é o texto que o modelo do host recebe quando chama `iniciar_etapa`. As duas chamadas não gravam nada em `saida/`.
 
 Outras chamadas para testar à mão:
 
 | Mensagem | Resultado esperado |
 |---|---|
-| `{"jsonrpc":"2.0","id":3,"method":"tools/list"}` | Lista das cinco ferramentas com o esquema de entrada de cada uma |
+| `{"jsonrpc":"2.0","id":4,"method":"tools/list"}` | Lista das cinco ferramentas com o esquema de entrada de cada uma |
 | `iniciar_etapa` com `"papel":"revisor"` | Recusa com a mensagem "Papel desconhecido." |
 | `entregar_spec` com critérios C01, C02 e uma dúvida | Estado `parado` e gravação de `saida/spec.md` e `saida/spec.json` |
 
 Depois de chamar ferramentas que gravam, apague a pasta `saida/` da demonstração.
 
-## Execução com um host
+## Execução com Antigravity ou Codex
+
+1. Na raiz do repositório, rode `cd demonstracoes/mcp-processo`.
+2. Inicie `agy` ou `codex` e aceite a confiança na pasta quando solicitado.
+3. No Antigravity, confira `/mcp`. No Codex, rode `codex mcp list` no terminal desta pasta. Deve aparecer `processo`, configurado em `.agents/mcp_config.json` ou `.codex/config.toml`, respectivamente.
+4. Peça `Execute o processo com o servidor processo: spec, coder, tester e testes.`
+5. Com `respostas.md` vazio, o spec deve registrar dúvidas. Responda no arquivo ou copie `../comum/respostas-exemplo.md` sobre ele (`cp` em bash, `Copy-Item` no PowerShell), e repita o pedido.
+6. Confira as chamadas a `iniciar_etapa`, as entregas e `executar_testes`. O resultado deve ter `aprovado: true`. Depois rode `node ../comum/testar.mjs` no terminal para conferir os artefatos.
+
+Se o agente disser que o servidor não está conectado, pare e confira a confiança na pasta, o comando `node --version` e os arquivos de configuração. A conferência determinística acima continua disponível enquanto a conexão é resolvida. Os resultados dos hosts ficam no [relato de 15/10](../../evidencias/2026-10-15-agy-codex).
+
+## Execução com Claude Code
 
 ### Pré-requisitos
 
-Um host com suporte a MCP. A pasta traz a configuração para dois deles:
-
-| Host | Arquivo | Custo |
-|---|---|---|
-| Gemini CLI | `.gemini/settings.json` | Nível gratuito com login de conta Google pessoal |
-| Claude Code | `.mcp.json` | Plano pago ou crédito de API |
-
-O Gemini CLI é o caminho gratuito. Instale com `npm install -g @google/gemini-cli` e faça o login na primeira execução.
+Claude Code instalado, com acesso ao modelo pela sua conta ou por crédito de API. A configuração do servidor fica em `.mcp.json`. Para executar sem assinatura paga, use o caminho Antigravity descrito acima, conforme a cota disponível na conta.
 
 ### Executar
 
-1. Abra o terminal em `demonstracoes/mcp-processo` e inicie o host (`gemini` ou `claude`).
+1. Abra o terminal em `demonstracoes/mcp-processo` e inicie o Claude Code com `claude`.
 2. Confira a conexão com o comando `/mcp`. O servidor `processo` aparece com as cinco ferramentas.
 3. Peça:
 
@@ -133,8 +141,6 @@ Os três papéis rodaram na mesma conversa, com o mesmo modelo. O servidor contr
 
 Ao final, `saida/` contém `spec.md`, `spec.json`, `filtrarTarefas.ts` e `casos.json`. O arquivo `falhas.txt` existe só enquanto algum caso falha, e o servidor o apaga quando os testes aprovam.
 
-O Gemini CLI não foi testado como host nessa data. A configuração em `.gemini/settings.json` aponta para o mesmo servidor.
-
 Para conferir o resultado sem confiar no relato do modelo, rode na mesma pasta:
 
 ```bash
@@ -142,3 +148,19 @@ node ../comum/testar.mjs
 ```
 
 Para recomeçar, apague `saida/` e restaure `respostas.md` com `git checkout -- respostas.md`.
+
+## Node não encontrado pelo host
+
+O terminal e o processo que inicia o MCP podem receber ambientes diferentes. Se `codex mcp list` listar o servidor, mas a conexão falhar, localize o executável de Node com `command -v node` no Linux/macOS ou `(Get-Command node).Source` no PowerShell. Gerenciadores de versão podem devolver um shim. Use o caminho do executável de Node instalado no campo `command` de `.codex/config.toml`, mantendo `args` como estão, e reinicie o agente. No Windows, use barras `/` no caminho TOML ou escape as barras invertidas.
+
+No ensaio isolado de 15/10, a conexão nativa funcionou ao indicar `/usr/bin/node` explicitamente para aquela execução. Esse caminho é específico da máquina do ensaio. A listagem do servidor, sozinha, não comprova que as ferramentas foram chamadas.
+
+## Conferir os contratos das ferramentas
+
+O servidor valida os argumentos antes de executar cada ferramenta. Ele recusa campos ausentes, tipos incorretos, propriedades extras, valores fora de `enum` e arrays abaixo de `minItems`. O validador cobre o subconjunto de JSON Schema usado neste exemplo. Para conferir as recusas sem modelo, execute na raiz:
+
+```bash
+node --test demonstracoes/mcp-processo/contratos.test.mjs
+```
+
+O teste envia oito entradas inválidas pelo transporte real, confere o erro JSON-RPC `-32602` e verifica que nenhum arquivo foi gravado. Depois envia uma especificação válida e confere que a conexão continua respondendo. Os doze controles de `conferir.mjs` avaliam o fluxo do processo separadamente.

@@ -12,24 +12,24 @@ filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): T
 
 | Pasta | Conteúdo |
 |---|---|
-| [demonstracoes/skills](demonstracoes/skills) | Uma Skill por papel no Claude Code |
-| [demonstracoes/subagents](demonstracoes/subagents) | Um subagent por papel, coordenado pelo `CLAUDE.md` |
+| [demonstracoes/skills](demonstracoes/skills) | Uma Skill por papel em Antigravity, Codex e Claude Code |
+| [demonstracoes/subagents](demonstracoes/subagents) | Um subagent por papel, coordenado por `AGENTS.md` ou `CLAUDE.md` |
 | [demonstracoes/mcp-processo](demonstracoes/mcp-processo) | Um servidor MCP que conduz as etapas |
 | [atividade](atividade) | Um CLI em TypeScript que chama a API do modelo para cada papel |
 | [demonstracoes/integrado](demonstracoes/integrado) | Subagents, Skills e o servidor MCP combinados |
 | [demonstracoes/comum](demonstracoes/comum) | Pedido, respostas de exemplo, script de testes e artefatos de referência |
 | [evidencias](evidencias) | Relatos de execuções reais, com fluxo observado, resultados e limitações |
 
-Cada pasta tem um README com os comandos. O [tutorial](docs/tutorial/README.md) mostra a execução de cada demonstração passo a passo, com capturas de tela.
+Cada pasta tem um README com os comandos. O [tutorial](docs/tutorial/README.md) mostra a execução de cada demonstração passo a passo, com capturas de tela. O guia [Antes de executar](docs/tutorial/00-como-estudar.md) explica os papéis, a leitura dos resultados e como repetir a conferência cruzada.
 
 ## Requisitos
 
 | Uso | Requisito |
 |---|---|
 | Demonstrações e testes | Node.js 23.6 ou posterior, que executa TypeScript sem compilação |
-| Skills, subagents e exemplo integrado | Claude Code |
-| Servidor MCP | Claude Code, Gemini CLI ou outro host com MCP |
-| CLI da pasta `atividade` | Docker, ou Node.js 22.13 ou posterior, e uma chave gratuita do Google AI Studio |
+| Skills, subagents e exemplo integrado | Antigravity CLI (`agy`), Codex CLI ou Claude Code |
+| Servidor MCP | Antigravity CLI, Codex CLI, Claude Code ou outro host com MCP |
+| CLI da pasta `atividade` | Docker, ou Node.js 22.13 ou posterior, e, apenas no modo `api`, uma chave do Google AI Studio com cota gratuita disponível |
 
 ## Conferir sem modelo
 

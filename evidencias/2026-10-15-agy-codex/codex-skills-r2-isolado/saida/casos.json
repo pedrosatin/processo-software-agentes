@@ -1,0 +1,749 @@
+[
+  {
+    "nome": "Todas inclui abertas e concluídas",
+    "criterio": "C01",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Abertas exclui concluídas",
+    "criterio": "C02",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "Concluídas exclui abertas",
+    "criterio": "C03",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Estado inválido 'invalido'",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "invalido"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido 'invalido' com lista vazia",
+    "criterio": "C04",
+    "tarefas": [],
+    "filtro": {
+      "estado": "invalido"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido 'ABERTAS'",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido 'ABERTAS' com lista vazia",
+    "criterio": "C04",
+    "tarefas": [],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido ' abertas '",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": " abertas "
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido ' abertas ' com lista vazia",
+    "criterio": "C04",
+    "tarefas": [],
+    "filtro": {
+      "estado": " abertas "
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido ''",
+    "criterio": "C04",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": ""
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Estado inválido '' com lista vazia",
+    "criterio": "C04",
+    "tarefas": [],
+    "filtro": {
+      "estado": ""
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Termo sem restrição None",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Termo sem restrição ''",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": ""
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Termo sem restrição ' \\t\\n\\r\\xa0\\ufeff '",
+    "criterio": "C05",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": " \t\n\r ﻿ "
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Trim remove espaços nas extremidades",
+    "criterio": "C06",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "\t Revisar  "
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "Espaços internos são preservados",
+    "criterio": "C06",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar  código",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "Revisar  código"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "Busca ignora caixa",
+    "criterio": "C07",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "Busca encontra trecho no meio e final",
+    "criterio": "C07",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "SAR"
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "Lowercase não converte eszett para ss",
+    "criterio": "C07",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Straße",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "STRASSE",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "strasse"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "Acentos contam na busca",
+    "criterio": "C08",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "Relatório",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Relatorio",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "Não normaliza Unicode 'café'",
+    "criterio": "C09",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "café",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "café",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "café"
+    },
+    "esperadoIds": [
+      1
+    ]
+  },
+  {
+    "nome": "Não normaliza Unicode 'café'",
+    "criterio": "C09",
+    "tarefas": [
+      {
+        "id": 1,
+        "titulo": "café",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "café",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "café"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "Combina estado aberto e termo",
+    "criterio": "C10",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "Combina estado concluído e termo",
+    "criterio": "C10",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "revisar"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "nome": "Mantém ordem original sem ordenar ids",
+    "criterio": "C11",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "revisar"
+    },
+    "esperadoIds": [
+      3,
+      2
+    ]
+  },
+  {
+    "nome": "Preserva entrada e objetos após filtragem",
+    "criterio": "C12",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "revisar"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "Resultado conserva referências dos objetos selecionados",
+    "criterio": "C13",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Array novo quando todas entram",
+    "criterio": "C14",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      3,
+      1,
+      2
+    ]
+  },
+  {
+    "nome": "Array novo quando lista vazia",
+    "criterio": "C14",
+    "tarefas": [],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "Array novo quando há seleção parcial",
+    "criterio": "C14",
+    "tarefas": [
+      {
+        "id": 3,
+        "titulo": "Revisar código",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Enviar relatório",
+        "concluida": true
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar testes",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      3
+    ]
+  },
+  {
+    "nome": "Lista vazia com estado todas",
+    "criterio": "C15",
+    "tarefas": [],
+    "filtro": {
+      "estado": "todas",
+      "termo": "revisar"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "Lista vazia com estado abertas",
+    "criterio": "C15",
+    "tarefas": [],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "revisar"
+    },
+    "esperadoIds": []
+  },
+  {
+    "nome": "Lista vazia com estado concluidas",
+    "criterio": "C15",
+    "tarefas": [],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "revisar"
+    },
+    "esperadoIds": []
+  }
+]

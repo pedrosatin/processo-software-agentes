@@ -21,7 +21,7 @@ casos.json         casos do tester, cada um com o critério que verifica
 filtrarTarefas.ts  função entregue pelo coder
 ```
 
-Cada caso roda a função com uma cópia da lista de tarefas, compara os IDs devolvidos com `esperadoIds` (ou a mensagem de erro com `esperadoErro`) e confere se a lista recebida continuou igual. No fim, o script lista os critérios da especificação que não têm nenhum caso.
+Cada caso roda a função com uma cópia da lista de tarefas. O script compara os IDs devolvidos com `esperadoIds` ou a mensagem de erro com `esperadoErro`. Quando a função retorna sem lançar erro, também confere se a lista recebida continuou igual. Os casos que esperam erro conferem a mensagem, sem verificar a lista depois da exceção. No fim, o script lista os critérios da especificação que não têm nenhum caso.
 
 ## Pré-requisitos
 
@@ -39,7 +39,7 @@ node demonstracoes/comum/testar.mjs demonstracoes/comum/exemplo
 
 ## Como ler o resultado
 
-Cada linha traz `ok` ou `falha`, o critério e o nome do caso. O critério C04 tem dois casos, por isso são 14 casos para 13 critérios. A última linha confirma que todos os casos também conferem a lista recebida.
+Cada linha traz `ok` ou `falha`, o critério e o nome do caso. O critério C04 tem dois casos, por isso são 14 casos para 13 critérios. A última linha informa a checagem adicional da lista nos casos em que a função retorna sem erro.
 
 | Código de saída | Significado |
 |---|---|

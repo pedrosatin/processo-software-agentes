@@ -1,0 +1,593 @@
+[
+  {
+    "criterio": "C01",
+    "esperadoIds": [
+      45,
+      12,
+      88,
+      3
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "nome": "C01 - Estado todas com tarefas abertas e concluídas misturadas fora de ordem",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 45,
+        "titulo": "Lavar roupa"
+      },
+      {
+        "concluida": true,
+        "id": 12,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": false,
+        "id": 88,
+        "titulo": "Fazer almoço"
+      },
+      {
+        "concluida": true,
+        "id": 3,
+        "titulo": "Limpar casa"
+      }
+    ]
+  },
+  {
+    "criterio": "C01",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "todas"
+    },
+    "nome": "C01 - Limite: lista vazia com estado todas",
+    "tarefas": []
+  },
+  {
+    "criterio": "C02",
+    "esperadoIds": [
+      21,
+      14
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "nome": "C02 - Estado abertas com lista misturada fora de ordem",
+    "tarefas": [
+      {
+        "concluida": true,
+        "id": 50,
+        "titulo": "Estudar matemática"
+      },
+      {
+        "concluida": false,
+        "id": 21,
+        "titulo": "Escrever relatório"
+      },
+      {
+        "concluida": true,
+        "id": 99,
+        "titulo": "Enviar e-mail"
+      },
+      {
+        "concluida": false,
+        "id": 14,
+        "titulo": "Revisar código"
+      }
+    ]
+  },
+  {
+    "criterio": "C02",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "nome": "C02 - Limite: lista vazia com estado abertas",
+    "tarefas": []
+  },
+  {
+    "criterio": "C02",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "nome": "C02 - Nenhuma tarefa aberta na lista",
+    "tarefas": [
+      {
+        "concluida": true,
+        "id": 10,
+        "titulo": "Tarefa concluída 1"
+      },
+      {
+        "concluida": true,
+        "id": 20,
+        "titulo": "Tarefa concluída 2"
+      }
+    ]
+  },
+  {
+    "criterio": "C03",
+    "esperadoIds": [
+      33,
+      11
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "nome": "C03 - Estado concluidas com lista misturada fora de ordem",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 77,
+        "titulo": "Planejar viagem"
+      },
+      {
+        "concluida": true,
+        "id": 33,
+        "titulo": "Comprar passagens"
+      },
+      {
+        "concluida": false,
+        "id": 55,
+        "titulo": "Fazer malas"
+      },
+      {
+        "concluida": true,
+        "id": 11,
+        "titulo": "Reservar hotel"
+      }
+    ]
+  },
+  {
+    "criterio": "C03",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "nome": "C03 - Limite: lista vazia com estado concluidas",
+    "tarefas": []
+  },
+  {
+    "criterio": "C03",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "nome": "C03 - Nenhuma tarefa concluida na lista",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Tarefa aberta 1"
+      },
+      {
+        "concluida": false,
+        "id": 2,
+        "titulo": "Tarefa aberta 2"
+      }
+    ]
+  },
+  {
+    "criterio": "C04",
+    "esperadoErro": "Estado inválido",
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "nome": "C04 - Estado em maiúsculas ABERTAS lança erro",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Tarefa 1"
+      }
+    ]
+  },
+  {
+    "criterio": "C04",
+    "esperadoErro": "Estado inválido",
+    "filtro": {
+      "estado": "TODAS"
+    },
+    "nome": "C04 - Limite: estado em maiúsculas TODAS lança erro",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Tarefa 1"
+      }
+    ]
+  },
+  {
+    "criterio": "C05",
+    "esperadoErro": "Estado inválido",
+    "filtro": {
+      "estado": " abertas "
+    },
+    "nome": "C05 - Estado com espaços no início e fim lança erro",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Tarefa 1"
+      }
+    ]
+  },
+  {
+    "criterio": "C06",
+    "esperadoErro": "Estado inválido",
+    "filtro": {
+      "estado": "invalido"
+    },
+    "nome": "C06 - Lista vazia com estado inválido lança erro",
+    "tarefas": []
+  },
+  {
+    "criterio": "C07",
+    "esperadoIds": [
+      4
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "nome": "C07 - Termo em maiúsculas encontra tarefa com minúsculas/maiúsculas",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 9,
+        "titulo": "Outra tarefa qualquer"
+      },
+      {
+        "concluida": true,
+        "id": 4,
+        "titulo": "Revisar código"
+      }
+    ]
+  },
+  {
+    "criterio": "C08",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "todas",
+      "termo": "strasse"
+    },
+    "nome": "C08 - Termo strasse não encontra título Straße sem conversão de locale",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Straße"
+      }
+    ]
+  },
+  {
+    "criterio": "C09",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "nome": "C09 - Termo sem acento relatorio não encontra título com acento Relatório",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 15,
+        "titulo": "Relatório"
+      }
+    ]
+  },
+  {
+    "criterio": "C10",
+    "esperadoIds": [
+      8
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "  comprar  "
+    },
+    "nome": "C10 - Termo com espaços nas bordas é trimado e encontra título",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 8,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": true,
+        "id": 2,
+        "titulo": "Outro item"
+      }
+    ]
+  },
+  {
+    "criterio": "C11",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "todas",
+      "termo": "comprar  pão"
+    },
+    "nome": "C11 - Termo com espaços extras no meio não encontra título com espaço simples",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "comprar pão"
+      }
+    ]
+  },
+  {
+    "criterio": "C12",
+    "esperadoIds": [
+      70,
+      10
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "nome": "C12 - Termo ausente no filtro retorna tarefas filtradas apenas por estado",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 70,
+        "titulo": "Documentar API"
+      },
+      {
+        "concluida": true,
+        "id": 30,
+        "titulo": "Criar testes"
+      },
+      {
+        "concluida": false,
+        "id": 10,
+        "titulo": "Corrigir bugs"
+      }
+    ]
+  },
+  {
+    "criterio": "C13",
+    "esperadoIds": [
+      2
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": ""
+    },
+    "nome": "C13 - Limite: termo vazio string vazia não filtra por título",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 5,
+        "titulo": "Tarefa aberta"
+      },
+      {
+        "concluida": true,
+        "id": 2,
+        "titulo": "Tarefa concluída"
+      }
+    ]
+  },
+  {
+    "criterio": "C14",
+    "esperadoIds": [
+      60,
+      20
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "   "
+    },
+    "nome": "C14 - Limite: termo com apenas espaços não filtra por título",
+    "tarefas": [
+      {
+        "concluida": true,
+        "id": 60,
+        "titulo": "Tarefa primeira"
+      },
+      {
+        "concluida": false,
+        "id": 20,
+        "titulo": "Tarefa segunda"
+      }
+    ]
+  },
+  {
+    "criterio": "C15",
+    "esperadoIds": [
+      22
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "compr"
+    },
+    "nome": "C15 - Termo como trecho/subcadeia encontra a tarefa",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 22,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": false,
+        "id": 11,
+        "titulo": "Vender bicicleta"
+      }
+    ]
+  },
+  {
+    "criterio": "C15",
+    "esperadoIds": [
+      35,
+      12
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "Comprar pão"
+    },
+    "nome": "C15 - Limite: termo igual ao título inteiro",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 35,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": false,
+        "id": 12,
+        "titulo": "Comprar pão doce"
+      }
+    ]
+  },
+  {
+    "criterio": "C16",
+    "esperadoIds": [],
+    "filtro": {
+      "estado": "todas",
+      "termo": "é"
+    },
+    "nome": "C16 - Termo Unicode decomposto não encontra caractere pré-composto",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "é"
+      }
+    ]
+  },
+  {
+    "criterio": "C17",
+    "esperadoIds": [
+      42,
+      84
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "relatório"
+    },
+    "nome": "C17 - Filtragem combinada atendendo simultaneamente a estado e termo",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 91,
+        "titulo": "Relatório financeiro"
+      },
+      {
+        "concluida": true,
+        "id": 42,
+        "titulo": "Relatório de vendas"
+      },
+      {
+        "concluida": false,
+        "id": 13,
+        "titulo": "Organizar mesa"
+      },
+      {
+        "concluida": true,
+        "id": 84,
+        "titulo": "Relatório anual"
+      }
+    ]
+  },
+  {
+    "criterio": "C18",
+    "esperadoIds": [
+      99,
+      12,
+      54,
+      3
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "nome": "C18 - Preservação da ordem relativa original da lista recebida",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 99,
+        "titulo": "Zebra"
+      },
+      {
+        "concluida": false,
+        "id": 12,
+        "titulo": "Abelha"
+      },
+      {
+        "concluida": false,
+        "id": 54,
+        "titulo": "Macaco"
+      },
+      {
+        "concluida": false,
+        "id": 3,
+        "titulo": "Elefante"
+      }
+    ]
+  },
+  {
+    "criterio": "C19",
+    "esperadoIds": [
+      80,
+      40
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "nome": "C19 - Imutabilidade da lista de entrada após execução",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 80,
+        "titulo": "Primeira"
+      },
+      {
+        "concluida": true,
+        "id": 25,
+        "titulo": "Segunda"
+      },
+      {
+        "concluida": false,
+        "id": 40,
+        "titulo": "Terceira"
+      }
+    ]
+  },
+  {
+    "criterio": "C20",
+    "esperadoIds": [
+      7,
+      4
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "nome": "C20 - Preservação das referências dos objetos originais das tarefas",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 7,
+        "titulo": "Objeto original mantido"
+      },
+      {
+        "concluida": true,
+        "id": 4,
+        "titulo": "Outro objeto mantido"
+      }
+    ]
+  },
+  {
+    "criterio": "C21",
+    "esperadoIds": [
+      15
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "nome": "C21 - Retorno de nova instância de array distinta da lista de entrada",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 15,
+        "titulo": "Tarefa teste array novo"
+      }
+    ]
+  }
+]

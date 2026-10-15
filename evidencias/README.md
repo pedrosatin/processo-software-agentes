@@ -10,6 +10,8 @@ Registros de execuções reais do processo spec, coder e tester sobre a função
 | 14/10/2026 | [Servidor MCP](2026-10-14-mcp) | O host segue a ordem que o servidor libera? | Rodada 1 parada pelo servidor com 5 dúvidas. Rodada 2 com 23 de 23 casos e 14 de 14 na suíte de referência |
 | 14/10/2026 | [Subagents, Skills e MCP integrados](2026-10-14-integrado) | O processo completa dúvida, teste e correção? | 7 dúvidas, depois 1 dúvida nova, depois 4 de 31 casos, correção pelo coder e 31 de 31 |
 | 14/10/2026 | [CLI em modo demonstração](2026-10-14-cli-demonstracao) | Um gate em código reprova uma entrega com testes aprovados? | Tester 5 de 5, referência 7 de 7, gate de rastreabilidade reprovado |
+| 15/10/2026 | [Antigravity e Codex](2026-10-15-agy-codex) | Os exemplos funcionam nos dois hosts, com ambiente isolado? | Parada nas dúvidas e testes cruzados por montagem; falhas e retestes documentados |
+| 15/10/2026 | [CLI com Gemini API](2026-10-15-cli-api) | O cliente recebe respostas reais e chega aos testes e gates? | Base: 5/5, 7/7 e gate reprovado. Cópia ajustada: 5/5, 7/7 e gate aprovado |
 
 ## Leitura conjunta
 
@@ -41,3 +43,16 @@ Os experimentos usam modelos, ferramentas e instruções diferentes. Eles mostra
 ```bash
 node evidencias/transcrever.mjs stream.jsonl > transcricao.md
 ```
+
+## Streams de Antigravity e Codex
+
+`transcrever-harness.mjs` extrai comandos, ferramentas e mensagens finais desses hosts, com caminhos e identificadores removidos. O argumento opcional de sessão nativa do Codex exporta somente nomes de papéis das delegações, sem prompts opacos nem raciocínio.
+
+```bash
+node evidencias/transcrever-harness.mjs stream.jsonl
+node --test evidencias/transcrever-harness.test.mjs
+```
+
+## Limite da checagem da lista
+
+Os registros antigos de `demonstracoes/comum/testar.mjs` trazem o rodapé "Cada caso também confere que a lista recebida não foi alterada". A checagem da lista acontece quando a função retorna sem lançar erro. Nos casos que esperam erro, o script confere a mensagem, sem verificar mutação anterior à exceção. Os registros originais foram preservados; a saída atual do script e a [parte 1](../docs/tutorial/01-testes-de-referencia.md) explicitam esse limite.

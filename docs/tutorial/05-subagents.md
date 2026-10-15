@@ -1,6 +1,29 @@
-# Parte 5. Subagents do Claude Code
+# Parte 5. Subagents
 
 [Voltar ao índice](README.md)
+
+## Executar com Antigravity ou Codex
+
+Na raiz do repositório:
+
+```bash
+cd demonstracoes/subagents
+```
+
+| Agente | Iniciar | Definições dos papéis | Instrução da conversa principal |
+|---|---|---|---|
+| Antigravity | `agy` | `.agents/agents/spec.md`, `coder.md`, `tester.md` | `AGENTS.md` |
+| Codex | `codex` | `.codex/agents/spec.toml`, `coder.toml`, `tester.toml` | `AGENTS.md` |
+
+1. Inicie um dos agentes nesta pasta e aceite a confiança no repositório quando solicitado.
+2. Peça `Execute o processo de desenvolvimento para pedido.md.`
+3. Com `respostas.md` vazio, confira a delegação ao spec e as dúvidas em `saida/spec.md`. O processo deve parar para você responder.
+4. Edite `respostas.md` ou copie o exemplo com `cp ../comum/respostas-exemplo.md respostas.md` (`Copy-Item` no PowerShell). Peça o processo novamente.
+5. Confira se coder e tester foram delegados separadamente e receberam apenas o caminho da especificação. Rode `node ../comum/testar.mjs` no terminal para verificar os arquivos efetivamente entregues.
+
+Os números de casos variam entre execuções. Uma mensagem final do modelo não comprova a delegação nem a aprovação: confira as chamadas aos subagentes e a saída do script. Os ensaios de 15/10 e seus limites ficam no [relato](../../evidencias/2026-10-15-agy-codex).
+
+## Caminho com Claude Code e registro de 14/10
 
 ## O que a demonstração mostra
 

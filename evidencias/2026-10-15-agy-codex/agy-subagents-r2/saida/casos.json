@@ -1,0 +1,144 @@
+[
+  {
+    "nome": "Retorna todas as tarefas quando estado é todas e sem termo",
+    "criterio": "C01",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar o carro", "concluida": true }
+    ],
+    "filtro": { "estado": "todas" },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Retorna apenas tarefas abertas quando estado é abertas",
+    "criterio": "C02",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar o carro", "concluida": true },
+      { "id": 3, "titulo": "Estudar TypeScript", "concluida": false }
+    ],
+    "filtro": { "estado": "abertas" },
+    "esperadoIds": [1, 3]
+  },
+  {
+    "nome": "Retorna apenas tarefas concluídas quando estado é concluidas",
+    "criterio": "C03",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar o carro", "concluida": true },
+      { "id": 3, "titulo": "Pagar contas", "concluida": true }
+    ],
+    "filtro": { "estado": "concluidas" },
+    "esperadoIds": [2, 3]
+  },
+  {
+    "nome": "Lança erro para estado inválido com tarefas na lista",
+    "criterio": "C04",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false }
+    ],
+    "filtro": { "estado": "invalido" },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Lança erro para estado inválido com lista vazia",
+    "criterio": "C04",
+    "tarefas": [],
+    "filtro": { "estado": "pendente" },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Não filtra por título quando termo é vazio",
+    "criterio": "C05",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar o carro", "concluida": true }
+    ],
+    "filtro": { "estado": "todas", "termo": "" },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Não filtra por título quando termo contém apenas espaços",
+    "criterio": "C05",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar o carro", "concluida": true }
+    ],
+    "filtro": { "estado": "todas", "termo": "   " },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Filtra por termo presente em qualquer posição do título",
+    "criterio": "C06",
+    "tarefas": [
+      { "id": 1, "titulo": "Relatório mensal", "concluida": false },
+      { "id": 2, "titulo": "Enviar relatório hoje", "concluida": true },
+      { "id": 3, "titulo": "Revisar", "concluida": false }
+    ],
+    "filtro": { "estado": "todas", "termo": "relatório" },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Busca sem diferenciar maiúsculas de minúsculas",
+    "criterio": "C07",
+    "tarefas": [
+      { "id": 1, "titulo": "COMPRAR LEITE", "concluida": false },
+      { "id": 2, "titulo": "comprar pão", "concluida": false },
+      { "id": 3, "titulo": "Vender carro", "concluida": false }
+    ],
+    "filtro": { "estado": "todas", "termo": "ComPrAr" },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Busca considerando acentos sem normalização",
+    "criterio": "C08",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar maçã", "concluida": false },
+      { "id": 2, "titulo": "Comprar maca", "concluida": false }
+    ],
+    "filtro": { "estado": "todas", "termo": "maçã" },
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "Remove espaços no início e fim do termo mantendo espaços internos",
+    "criterio": "C09",
+    "tarefas": [
+      { "id": 1, "titulo": "comprar café em grãos", "concluida": false },
+      { "id": 2, "titulo": "comprar café moído", "concluida": false },
+      { "id": 3, "titulo": "cafeteira nova", "concluida": true }
+    ],
+    "filtro": { "estado": "todas", "termo": "  café em  " },
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "Filtra simultaneamente por estado e termo",
+    "criterio": "C10",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar pão", "concluida": false },
+      { "id": 2, "titulo": "Comprar leite", "concluida": true },
+      { "id": 3, "titulo": "Lavar roupa", "concluida": false }
+    ],
+    "filtro": { "estado": "abertas", "termo": "Comprar" },
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "Mantém ordem original da lista recebida",
+    "criterio": "C11",
+    "tarefas": [
+      { "id": 3, "titulo": "Tarefa C", "concluida": false },
+      { "id": 1, "titulo": "Tarefa A", "concluida": false },
+      { "id": 2, "titulo": "Tarefa B", "concluida": false }
+    ],
+    "filtro": { "estado": "todas" },
+    "esperadoIds": [3, 1, 2]
+  },
+  {
+    "nome": "Retorna novo array com referências aos mesmos objetos",
+    "criterio": "C12",
+    "tarefas": [
+      { "id": 1, "titulo": "Tarefa 1", "concluida": false }
+    ],
+    "filtro": { "estado": "todas" },
+    "esperadoIds": [1]
+  }
+]

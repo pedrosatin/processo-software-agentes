@@ -1,0 +1,1 @@
+Chame iniciar_etapa do servidor processo com papel spec. Siga a instrução recebida e entregue com entregar_spec. Devolva as dúvidas sem escolher respostas. Use apenas o contexto recebido do servidor para especificar o pedido.

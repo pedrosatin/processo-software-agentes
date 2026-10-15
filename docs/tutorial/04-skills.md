@@ -1,6 +1,33 @@
-# Parte 4. Skills do Claude Code
+# Parte 4. Skills
 
 [Voltar ao índice](README.md)
+
+## Executar com Antigravity ou Codex
+
+Na raiz do repositório, entre nesta demonstração:
+
+```bash
+cd demonstracoes/skills
+```
+
+Abra **um** dos agentes com `agy` ou `codex`. As Skills dessas ferramentas ficam em `.agents/skills/`, com uma pasta por papel. Não é preciso copiar as Skills para a sua pasta pessoal.
+
+| Etapa | Antigravity, dentro do `agy` | Codex, dentro do `codex` |
+|---|---|---|
+| Especificar o pedido | `/spec` | `$spec` |
+| Executar o processo | `/processo` | `$processo` |
+| Chamar apenas o coder | `/coder` | `$coder` |
+| Chamar apenas o tester | `/tester` | `$tester` |
+
+1. Comece por spec com `respostas.md` vazio. Abra `saida/spec.md`: ele deve conter critérios e dúvidas sobre as decisões que faltam no pedido.
+2. Responda às dúvidas em `respostas.md`. Para usar as respostas do exemplo, execute `cp ../comum/respostas-exemplo.md respostas.md` no terminal, ou `Copy-Item ../comum/respostas-exemplo.md respostas.md` no PowerShell.
+3. Volte ao agente e peça o processo completo pelo comando da tabela. Se aparecer outra dúvida, responda e repita. Não avance com dúvidas abertas.
+4. Depois da entrega, rode `node ../comum/testar.mjs` no terminal desta pasta. O código de saída deve ser 0 e todos os casos devem passar.
+5. Confira as delegações: a Skill processo pede um subagente para coder e outro para tester, sem repassar o resumo da conversa. O tester deve ler só a especificação para escrever os casos.
+
+No Antigravity e no Codex, a separação é pedida pelas instruções de `.agents/skills/processo/SKILL.md`. O campo `context: fork` apresentado abaixo pertence à configuração do Claude Code. Os registros e as limitações dos novos ensaios ficam no [relato de 15/10](../../evidencias/2026-10-15-agy-codex).
+
+## Caminho com Claude Code e registro de 14/10
 
 ## O que a demonstração mostra
 
@@ -24,7 +51,7 @@ allowed-tools: Read Write
 ---
 ```
 
-`context: fork` roda a Skill num subagente sem o histórico da conversa. `allowed-tools` limita as ferramentas do papel. Na Skill `processo`, `disable-model-invocation: true` impede que o modelo a inicie por conta própria, e ela só começa quando a pessoa digita `/processo`.
+`context: fork` roda a Skill num subagente sem o histórico da conversa. `allowed-tools` pré-aprova as ferramentas listadas, sem limitar por si só todas as ferramentas disponíveis. As recusas do ensaio histórico dependiam também de `--permission-mode dontAsk` e da lista `--allowedTools` do comando. Na Skill `processo`, `disable-model-invocation: true` impede que o modelo a inicie por conta própria, e ela só começa quando a pessoa digita `/processo`.
 
 ## Pré-requisitos
 
@@ -102,7 +129,7 @@ Confira você mesmo os arquivos gravados:
 | Apagar uma resposta de `respostas.md` e rodar `/spec` | O spec volta a registrar a dúvida correspondente |
 | Responder diferente, por exemplo "Acentos não contam" | Os critérios e o código mudam, e a suíte de referência de `comum/exemplo` passa a reprovar o código |
 | Remover `context: fork` da Skill `tester` | O tester roda na conversa principal e passa a ver o histórico da conversa, inclusive o relato do coder |
-| Tirar `Write` de `allowed-tools` do coder | O coder fica sem a ferramenta de gravação e não entrega `saida/filtrarTarefas.ts` |
+| Tirar `Write` de `allowed-tools` do coder | A Skill deixa de pré-aprovar a gravação. O resultado depende das demais permissões da sessão |
 
 Para recomeçar, apague `saida/` e restaure `respostas.md` com `git checkout -- respostas.md`.
 
@@ -116,3 +143,5 @@ claude -p "/spec" --model haiku --permission-mode dontAsk \
 ```
 
 `--permission-mode dontAsk` recusa sem perguntar qualquer chamada fora da lista. Essas recusas aparecem nas transcrições.
+
+A diferença entre pré-aprovar e restringir ferramentas está documentada em [Skills do Claude Code](https://code.claude.com/docs/en/skills#pre-approve-tools-for-a-skill).

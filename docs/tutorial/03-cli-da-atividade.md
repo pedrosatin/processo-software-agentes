@@ -90,7 +90,7 @@ Cada linha JSON é um evento, gravado também em `eventos.jsonl`.
 | `gate` | Resultado de cada gate, com a lista de apontamentos em `detalhes` |
 | `fim` | Resumo da execução |
 
-A tabela final resume a execução. Os casos do tester passam (`5/5`), a suíte de referência passa (`7/7`), e mesmo assim o encerramento é `reprovado`. O gate `rastreabilidade` falhou com 21 apontamentos. Os 15 critérios do spec não começam com ID, o spec passou do limite de cinco critérios, e os cinco casos não citam ID. O código está correto, e a entrega reprova por uma regra do processo que nenhum teste de comportamento verifica. A mesma execução está descrita como experimento em [evidencias/2026-10-14-cli-demonstracao](../../evidencias/2026-10-14-cli-demonstracao).
+A tabela final resume a execução. Os casos do tester passam (`5/5`), a suíte de referência passa (`7/7`), e mesmo assim o encerramento é `reprovado`. O gate `rastreabilidade` falhou com 21 apontamentos. Os 15 critérios do spec não começam com ID, o spec passou do limite de cinco critérios, e os cinco casos não citam ID. O código passou nos casos do tester e da referência, e a entrega reprova por uma regra do processo que nenhum teste de comportamento verifica. A mesma execução está descrita como experimento em [evidencias/2026-10-14-cli-demonstracao](../../evidencias/2026-10-14-cli-demonstracao).
 
 No modo demonstração nenhum modelo é chamado. A coluna `chamadas` conta os pedidos aos agentes, respondidos pelos arquivos de `gravadas/`.
 
@@ -202,7 +202,7 @@ Na execução mostrada acima, as três respostas salvas foram cópias dos arquiv
 
 ## 6. Modo api, com chave gratuita
 
-Este tutorial não executou o modo `api`. Os passos seguem o [README da atividade](../../atividade/README.md).
+O modo `api` foi executado com Gemini em 15/10/2026. No cenário 2, a base passou em 5/5 casos do tester e 7/7 da referência, com reprovação do gate de rastreabilidade. Uma cópia ajustada do professor passou também no gate. O alias padrão respondeu sem fallback; a segunda execução usou `gemini-3.5-flash-lite` explicitamente. Veja a montagem, os modelos e os resultados no [relato do ensaio real](../../evidencias/2026-10-15-cli-api).
 
 1. Crie uma chave no [Google AI Studio](https://aistudio.google.com/apikey) com sua conta Google. O nível gratuito não pede cartão.
 2. Crie o arquivo `atividade/.env` com a linha `GEMINI_API_KEY=sua-chave`. O Docker Compose lê esse arquivo, e o `.gitignore` da pasta impede que ele entre em commits.
@@ -212,7 +212,7 @@ Este tutorial não executou o modo `api`. Os passos seguem o [README da atividad
 docker compose -p aula-processo run --rm processo executar --cenario 2 --rotulo api --modo api
 ```
 
-O modelo padrão é `gemini-flash-lite-latest`. Respostas 429 e 503, de limite ou sobrecarga do nível gratuito, são repetidas após 2, 5 e 10 segundos. O evento `uso` registra os tokens de entrada e saída de cada chamada. Sem a chave, o CLI termina com código 2 e um evento `erro` com a mensagem `MODO=api exige GEMINI_API_KEY ou LLM_API_KEY no ambiente`.
+O modelo padrão é `gemini-flash-lite-latest`. Se o alias padrão retornar 404 no endpoint padrão Gemini, o CLI consulta `/models` e prioriza um Flash-Lite estável, com um Flash estável como segunda opção. Ele registra `modelo-substituido`. A lista não informa gratuidade ou cota. Confira o modelo e os limites no AI Studio antes de usar a API. Para fixar um modelo, defina `MODELO` diferente do alias padrão no `.env`. Com esse modelo fixo ou com `LLM_BASE_URL` explícito, o CLI informa o 404 sem trocar o modelo. Se o provedor recusar `response_format`, o CLI repete uma vez sem esse campo e registra `formato-json-desligado`. Respostas 429 e 503, de limite ou sobrecarga do nível gratuito, são repetidas após 2, 5 e 10 segundos. O evento `uso` registra os tokens de entrada e saída de cada chamada. Sem a chave, o CLI termina com código 2 e um evento `erro` com a mensagem `MODO=api exige GEMINI_API_KEY ou LLM_API_KEY no ambiente`.
 
 ## O que alterar para experimentar
 
@@ -245,4 +245,4 @@ Para conferir o executor depois de mudanças no código do CLI:
 docker compose -p aula-processo run --rm --entrypoint npm processo test
 ```
 
-O comando roda os nove testes do verificador e dos contratos e termina com `# pass 9`.
+O comando roda os testes do verificador, dos contratos e do cliente do modo `api` e deve terminar sem falhas.

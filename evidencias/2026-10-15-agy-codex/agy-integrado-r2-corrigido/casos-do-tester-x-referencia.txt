@@ -1,0 +1,31 @@
+ok    C01 C01 - Estado todas com tarefas abertas e concluídas misturadas fora de ordem
+ok    C01 C01 - Limite: lista vazia com estado todas
+ok    C02 C02 - Estado abertas com lista misturada fora de ordem
+ok    C02 C02 - Limite: lista vazia com estado abertas
+ok    C02 C02 - Nenhuma tarefa aberta na lista
+ok    C03 C03 - Estado concluidas com lista misturada fora de ordem
+ok    C03 C03 - Limite: lista vazia com estado concluidas
+ok    C03 C03 - Nenhuma tarefa concluida na lista
+ok    C04 C04 - Estado em maiúsculas ABERTAS lança erro
+ok    C04 C04 - Limite: estado em maiúsculas TODAS lança erro
+ok    C05 C05 - Estado com espaços no início e fim lança erro
+ok    C06 C06 - Lista vazia com estado inválido lança erro
+ok    C07 C07 - Termo em maiúsculas encontra tarefa com minúsculas/maiúsculas
+ok    C08 C08 - Termo strasse não encontra título Straße sem conversão de locale
+ok    C09 C09 - Termo sem acento relatorio não encontra título com acento Relatório
+ok    C10 C10 - Termo com espaços nas bordas é trimado e encontra título
+ok    C11 C11 - Termo com espaços extras no meio não encontra título com espaço simples
+ok    C12 C12 - Termo ausente no filtro retorna tarefas filtradas apenas por estado
+ok    C13 C13 - Limite: termo vazio string vazia não filtra por título
+ok    C14 C14 - Limite: termo com apenas espaços não filtra por título
+ok    C15 C15 - Termo como trecho/subcadeia encontra a tarefa
+ok    C15 C15 - Limite: termo igual ao título inteiro
+ok    C16 C16 - Termo Unicode decomposto não encontra caractere pré-composto
+ok    C17 C17 - Filtragem combinada atendendo simultaneamente a estado e termo
+ok    C18 C18 - Preservação da ordem relativa original da lista recebida
+ok    C19 C19 - Imutabilidade da lista de entrada após execução
+ok    C20 C20 - Preservação das referências dos objetos originais das tarefas
+ok    C21 C21 - Retorno de nova instância de array distinta da lista de entrada
+
+28 de 28 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

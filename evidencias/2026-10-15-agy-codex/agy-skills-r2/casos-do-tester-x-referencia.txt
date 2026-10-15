@@ -1,0 +1,14 @@
+ok    C01 Retornar todas as tarefas na ordem original quando estado é todas e sem termo
+ok    C02 Retornar apenas tarefas abertas (não concluídas)
+ok    C03 Retornar apenas tarefas concluídas
+ok    C04 Lançar erro com mensagem 'Estado inválido' para estado inválido
+ok    C05 Buscar termo no título sem diferenciar maiúsculas e minúsculas em qualquer posição
+ok    C06 Diferenciar acentuação exata no título
+ok    C07 Remover espaços no início e no fim do termo antes de comparar com o título
+ok    C08 Termo vazio não filtra por título
+ok    C08 Termo composto apenas por espaços não filtra por título
+ok    C09 Filtrar por estado e termo simultaneamente atendendo a ambos
+ok    C10 Não modificar array de entrada e retornar novo array com referências originais
+
+11 de 11 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

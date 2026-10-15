@@ -1,0 +1,116 @@
+[
+  {
+    "nome": "Retornar todas as tarefas na ordem original quando estado é todas e sem termo",
+    "criterio": "C01",
+    "tarefas": [
+      { "id": 1, "titulo": "Primeira tarefa", "concluida": false },
+      { "id": 2, "titulo": "Segunda tarefa", "concluida": true },
+      { "id": 3, "titulo": "Terceira tarefa", "concluida": false }
+    ],
+    "filtro": { "estado": "todas" },
+    "esperadoIds": [1, 2, 3]
+  },
+  {
+    "nome": "Retornar apenas tarefas abertas (não concluídas)",
+    "criterio": "C02",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar carro", "concluida": true },
+      { "id": 3, "titulo": "Pagar contas", "concluida": false }
+    ],
+    "filtro": { "estado": "abertas" },
+    "esperadoIds": [1, 3]
+  },
+  {
+    "nome": "Retornar apenas tarefas concluídas",
+    "criterio": "C03",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar leite", "concluida": false },
+      { "id": 2, "titulo": "Lavar carro", "concluida": true },
+      { "id": 3, "titulo": "Pagar contas", "concluida": true }
+    ],
+    "filtro": { "estado": "concluidas" },
+    "esperadoIds": [2, 3]
+  },
+  {
+    "nome": "Lançar erro com mensagem 'Estado inválido' para estado inválido",
+    "criterio": "C04",
+    "tarefas": [
+      { "id": 1, "titulo": "Estudar", "concluida": false }
+    ],
+    "filtro": { "estado": "pendente" },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "nome": "Buscar termo no título sem diferenciar maiúsculas e minúsculas em qualquer posição",
+    "criterio": "C05",
+    "tarefas": [
+      { "id": 1, "titulo": "Comprar MERCADO hoje", "concluida": false },
+      { "id": 2, "titulo": "Ir ao supermercado", "concluida": false },
+      { "id": 3, "titulo": "Fazer almoço", "concluida": false }
+    ],
+    "filtro": { "estado": "todas", "termo": "mercado" },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Diferenciar acentuação exata no título",
+    "criterio": "C06",
+    "tarefas": [
+      { "id": 1, "titulo": "Revisar relatório", "concluida": false },
+      { "id": 2, "titulo": "Revisar relatorio", "concluida": false }
+    ],
+    "filtro": { "estado": "todas", "termo": "relatório" },
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "Remover espaços no início e no fim do termo antes de comparar com o título",
+    "criterio": "C07",
+    "tarefas": [
+      { "id": 1, "titulo": "Estudar TypeScript", "concluida": false },
+      { "id": 2, "titulo": "Descansar um pouco", "concluida": false }
+    ],
+    "filtro": { "estado": "todas", "termo": "   TypeScript   " },
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "Termo vazio não filtra por título",
+    "criterio": "C08",
+    "tarefas": [
+      { "id": 1, "titulo": "Tarefa 1", "concluida": false },
+      { "id": 2, "titulo": "Tarefa 2", "concluida": true }
+    ],
+    "filtro": { "estado": "todas", "termo": "" },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Termo composto apenas por espaços não filtra por título",
+    "criterio": "C08",
+    "tarefas": [
+      { "id": 1, "titulo": "Tarefa 1", "concluida": false },
+      { "id": 2, "titulo": "Tarefa 2", "concluida": true }
+    ],
+    "filtro": { "estado": "todas", "termo": "   " },
+    "esperadoIds": [1, 2]
+  },
+  {
+    "nome": "Filtrar por estado e termo simultaneamente atendendo a ambos",
+    "criterio": "C09",
+    "tarefas": [
+      { "id": 1, "titulo": "Fazer compras", "concluida": false },
+      { "id": 2, "titulo": "Fazer almoço", "concluida": true },
+      { "id": 3, "titulo": "Limpar a casa", "concluida": false }
+    ],
+    "filtro": { "estado": "abertas", "termo": "fazer" },
+    "esperadoIds": [1]
+  },
+  {
+    "nome": "Não modificar array de entrada e retornar novo array com referências originais",
+    "criterio": "C10",
+    "tarefas": [
+      { "id": 1, "titulo": "Tarefa 1", "concluida": false },
+      { "id": 2, "titulo": "Tarefa 2", "concluida": true }
+    ],
+    "filtro": { "estado": "todas" },
+    "esperadoIds": [1, 2]
+  }
+]

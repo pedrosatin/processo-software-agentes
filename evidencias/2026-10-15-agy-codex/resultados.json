@@ -1,0 +1,268 @@
+[
+  {
+    "ensaio": "agy-mcp-processo-r1",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 2,
+    "papeis_delegados": [],
+    "encerramento": "saida_cli=0 duracao=107s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "1bf27dbf43a99b07f2989b8524ca762459ec66680fdc81979d09fb4ca489c44d"
+  },
+  {
+    "ensaio": "agy-mcp-processo-r2",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "10 de 10 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "10 de 10 casos aprovados",
+    "mcp_nativo_stream_principal": 7,
+    "papeis_delegados": [],
+    "encerramento": "saida_cli=0 duracao=137s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "2048161b6915a7d742faea5287ad02e79ae8e551e8c2627247529b24316246be"
+  },
+  {
+    "ensaio": "agy-skills-r1",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [],
+    "encerramento": "saida_cli=0 duracao=60s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "127387746227e48ae89278a911b405846486c51b357bcbc1080749e80351e6fc"
+  },
+  {
+    "ensaio": "agy-skills-r2",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "11 de 11 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "11 de 11 casos aprovados",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      "self",
+      "self"
+    ],
+    "encerramento": "saida_cli=0 duracao=201s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "3c57ec824901e81a33efe817847f438300ce7f330511a8b46cd417bef9b74cbb"
+  },
+  {
+    "ensaio": "agy-subagents-r1",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      "spec"
+    ],
+    "encerramento": "saida_cli=0 duracao=92s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "d04c8ce3aff73a60a0b87a8a6ff6434fecf7707adaa1d0122266a43f3564cb0c"
+  },
+  {
+    "ensaio": "agy-subagents-r2",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "14 de 14 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "14 de 14 casos aprovados",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      "spec",
+      "coder",
+      "tester"
+    ],
+    "encerramento": "saida_cli=0 duracao=177s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "ab71d72f0e8c19212fcc79c6a78cf3aeaea1f363e9f7028398c5a2a51949af06"
+  },
+  {
+    "ensaio": "agy-integrado-r1",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "Interrompido durante diagnóstico do host",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      "spec"
+    ],
+    "encerramento": "saida_cli=1 duracao=236s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "eecc58823bff017a8538be119d16bdb38076e9aa594ca2fd47e4022b8d52df3d"
+  },
+  {
+    "ensaio": "codex-skills-r1-final-isolado",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [],
+    "encerramento": "saida_cli=0 duracao=30s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "120ebac780fd1c22b4fd562185495bcc1d3d0b0aa31ff14f42e4a21bbbf0244b"
+  },
+  {
+    "ensaio": "codex-skills-r2-isolado",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "33 de 33 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "33 de 33 casos aprovados",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      {
+        "papel": "coder",
+        "tipo": "padrão"
+      },
+      {
+        "papel": "tester",
+        "tipo": "padrão"
+      }
+    ],
+    "encerramento": "saida_cli=0 duracao=104s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "31baf2395efaed86eae1221a8a4a07ae53117801504b0ca1ef6af77c4b524fcb"
+  },
+  {
+    "ensaio": "codex-subagents-r1-isolado",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      {
+        "papel": "spec",
+        "tipo": "spec"
+      }
+    ],
+    "encerramento": "saida_cli=0 duracao=45s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "772a0d78c3f9730957622a60f622610f1808aae6a7aad5315a4a092d7310a065"
+  },
+  {
+    "ensaio": "codex-subagents-r2-isolado",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "32 de 32 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "32 de 32 casos aprovados",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      {
+        "papel": "spec",
+        "tipo": "spec"
+      },
+      {
+        "papel": "coder",
+        "tipo": "coder"
+      },
+      {
+        "papel": "tester",
+        "tipo": "tester"
+      }
+    ],
+    "encerramento": "saida_cli=0 duracao=70s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "b611964662de389602bdb9c1cfb561f94f4a0f63c116b82099d138d68ba38448"
+  },
+  {
+    "ensaio": "codex-mcp-processo-r1-node-explicito",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 2,
+    "papeis_delegados": [],
+    "encerramento": "saida_cli=0 duracao=19s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "c02cb8eb96993fe9017ce3882bd8cec130015f07be4f9b6838955e790e93ab53"
+  },
+  {
+    "ensaio": "codex-mcp-processo-r2-node-explicito",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "20 de 20 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "20 de 20 casos aprovados",
+    "mcp_nativo_stream_principal": 7,
+    "papeis_delegados": [],
+    "encerramento": "saida_cli=0 duracao=37s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "d11a5b56f1df8d575b1ca6edbdb78591e5a67eb02e489f1eccd483e8243e0742"
+  },
+  {
+    "ensaio": "codex-integrado-r1-node-explicito",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      {
+        "papel": "spec",
+        "tipo": "spec"
+      }
+    ],
+    "encerramento": "saida_cli=0 duracao=62s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "7ff7fe5c3bd846a94d1cffcf79391c714b1d032a2d97ff3865e0004179d57ad2"
+  },
+  {
+    "ensaio": "codex-integrado-r2-node-explicito",
+    "modelo": "gpt-6.1-sol",
+    "resultado": "42 de 42 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "42 de 42 casos aprovados",
+    "mcp_nativo_stream_principal": 1,
+    "papeis_delegados": [
+      {
+        "papel": "spec",
+        "tipo": "spec"
+      },
+      {
+        "papel": "coder",
+        "tipo": "coder"
+      },
+      {
+        "papel": "tester",
+        "tipo": "tester"
+      }
+    ],
+    "encerramento": "saida_cli=0 duracao=95s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "51f7c85605109e980f9104e6f8978838d56b6170d811830effed1a8a7229172d"
+  },
+  {
+    "ensaio": "agy-integrado-r1-corrigido",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "Parou na spec com dúvidas",
+    "referencia": "não executada",
+    "casos_tester_x_referencia": "não executada",
+    "mcp_nativo_stream_principal": 0,
+    "papeis_delegados": [
+      "processo-spec"
+    ],
+    "encerramento": "saida_cli=0 duracao=271s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "13c78dbfaa395cd8df93738f4813cdc841bd4301327cb780619331c7bda49155"
+  },
+  {
+    "ensaio": "agy-integrado-r2-corrigido",
+    "modelo": "gemini-3.8-flash-medium",
+    "resultado": "28 de 28 casos aprovados",
+    "referencia": "14 de 14 casos aprovados",
+    "casos_tester_x_referencia": "28 de 28 casos aprovados",
+    "mcp_nativo_stream_principal": 1,
+    "papeis_delegados": [
+      "processo-spec",
+      "processo-coder",
+      "processo-tester"
+    ],
+    "encerramento": "saida_cli=0 duracao=317s",
+    "base_commit": "346843b",
+    "sha256_stream_original": "bcfb214ba99a5de16ab914a5e75bd767acfff06348bbffe1a2fe28a8a84583d4"
+  }
+]

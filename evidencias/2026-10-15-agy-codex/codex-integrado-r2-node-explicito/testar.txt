@@ -1,0 +1,46 @@
+ok    C01 Todas mantém tarefas de estados misturados
+ok    C02 Abertas exclui concluídas
+ok    C02 Abertas sem correspondências
+ok    C03 Concluídas exclui abertas
+ok    C03 Concluídas sem correspondências
+ok    C04 Estado inválido "ABERTAS" com lista preenchida
+ok    C04 Estado inválido "ABERTAS" com lista vazia
+ok    C04 Estado inválido " abertas " com lista preenchida
+ok    C04 Estado inválido " abertas " com lista vazia
+ok    C04 Estado inválido "inexistente" com lista preenchida
+ok    C04 Estado inválido "inexistente" com lista vazia
+ok    C04 Estado inválido "" com lista preenchida
+ok    C04 Estado inválido "" com lista vazia
+ok    C05 Busca ignora caixa com REVISAR
+ok    C06 Busca não equivale ß a ss
+ok    C07 Busca diferencia acento
+ok    C08 Busca remove espaços nas extremidades
+ok    C09 Busca preserva espaços internos
+ok    C10 Termo vazio e estado todas
+ok    C10 Termo com espaços e estado todas
+ok    C10 Termo vazio e estado abertas
+ok    C10 Termo com espaços e estado abertas
+ok    C10 Termo vazio e estado concluidas
+ok    C10 Termo com espaços e estado concluidas
+ok    C11 Substring no início do título
+ok    C11 Substring no meio do título
+ok    C11 Substring no fim do título
+ok    C11 Termo igual ao título inteiro
+ok    C12 Nenhum título contém Revisar
+ok    C13 Busca não normaliza Unicode decomposto
+ok    C14 Estado e termo restringem conjuntamente
+ok    C14 Termo corresponde apenas a concluída e aberta não corresponde
+ok    C15 Correspondências espaçadas mantêm ordem recebida
+ok    C16 Filtragem parcial preserva entrada
+ok    C16 Filtro sem correspondência preserva entrada
+ok    C17 Objetos correspondentes preservam identidade
+ok    C18 Array novo quando todas entram
+ok    C18 Array novo com entrada vazia
+ok    C18 Array novo na seleção parcial
+ok    C19 Lista vazia com estado todas
+ok    C19 Lista vazia com estado abertas
+ok    C19 Lista vazia com estado concluidas
+
+42 de 42 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.
+saida=0

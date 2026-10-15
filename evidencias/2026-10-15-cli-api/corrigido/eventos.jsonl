@@ -1,0 +1,10 @@
+{"horario": "2026-10-15T18:24:37.511Z", "evento": "inicio", "cenario": "02-rastreabilidade", "rotulo": "api-real-corrigido", "modo": "api", "versaoAgentes": {"spec": "b20cd0d0", "coder": "1bc9a88c", "tester": "ceaa2fbc"}}
+{"horario": "2026-10-15T18:24:37.513Z", "evento": "chamada", "agente": "spec", "tentativa": 0}
+{"horario": "2026-10-15T18:24:42.054Z", "evento": "uso", "agente": "spec", "modelo": "gemini-3.5-flash-lite", "tokensEntrada": 873, "tokensSaida": 248}
+{"horario": "2026-10-15T18:24:42.056Z", "evento": "chamada", "agente": "tester", "tentativa": 0}
+{"horario": "2026-10-15T18:24:42.058Z", "evento": "chamada", "agente": "coder", "tentativa": 0}
+{"horario": "2026-10-15T18:24:43.810Z", "evento": "uso", "agente": "coder", "modelo": "gemini-3.5-flash-lite", "tokensEntrada": 419, "tokensSaida": 389}
+{"horario": "2026-10-15T18:24:46.964Z", "evento": "uso", "agente": "tester", "modelo": "gemini-3.5-flash-lite", "tokensEntrada": 676, "tokensSaida": 625}
+{"horario": "2026-10-15T18:24:47.116Z", "evento": "verificacao", "tentativa": 0, "tester": "5/5", "revisao": {}}
+{"horario": "2026-10-15T18:24:47.189Z", "evento": "gate", "gate": "rastreabilidade", "aprovado": true, "detalhes": []}
+{"horario": "2026-10-15T18:24:47.190Z", "evento": "fim", "cenario": "02-rastreabilidade", "rotulo": "api-real-corrigido", "modo": "api", "modelo": "gemini-3.5-flash-lite", "versaoAgentes": {"spec": "b20cd0d0", "coder": "1bc9a88c", "tester": "ceaa2fbc"}, "encerramento": "aprovado", "chamadasAoModelo": 3, "tentativas": 1, "tester": "5/5", "referencia": "7/7", "falsoNegativo": false, "gates": {"rastreabilidade": true}, "duracaoMs": 9682}

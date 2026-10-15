@@ -1,0 +1,123 @@
+[
+  {
+    "papel": "processo-spec",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/iniciar_etapa.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_spec.json"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "iniciar_etapa"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/package.json"
+      },
+      {
+        "ferramenta": "list_resources"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "<fora do repositorio>"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_codigo.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/executar_testes.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_casos.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "<fora do repositorio>"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/README.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/comum/respostas-exemplo.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/mcp-processo/server.mjs"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/comum/testar.mjs"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/pedido.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/respostas.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/.claude/agents/spec.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/.claude/skills/criterios.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/CLAUDE.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/.claude/skills/criterios.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/comum/pedido.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/mcp-processo/README.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/mcp-processo/conferir.mjs"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/README.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/.claude/skills/spec.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/README.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/.claude/agents/spec.md"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "entregar_spec"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  }
+]

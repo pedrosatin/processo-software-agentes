@@ -1,0 +1,21 @@
+[
+  {
+    "gate": "rastreabilidade",
+    "aprovado": false,
+    "detalhes": [
+      "Critério sem ID no início: \"Deve retornar todas as tarefas quando o estado for 'todas' e\"",
+      "Critério sem ID no início: \"Deve retornar apenas tarefas abertas (concluida === false) q\"",
+      "Critério sem ID no início: \"Deve retornar apenas tarefas concluidas (concluida === true)\"",
+      "Critério sem ID no início: \"Deve lançar um erro com a mensagem 'Estado inválido' caso o \"",
+      "Critério sem ID no início: \"Deve filtrar as tarefas cujo título contenha o termo forneci\"",
+      "Critério sem ID no início: \"Deve ignorar o filtro de termo caso este seja indefinido, va\"",
+      "Critério sem ID no início: \"Deve manter a ordem original das tarefas da lista recebida s\"",
+      "O spec tem 7 critérios e o tester entrega cinco casos",
+      "Caso \"filtrarTodasSemTermo\" não cita um ID de critério existente",
+      "Caso \"filtrarAbertas\" não cita um ID de critério existente",
+      "Caso \"filtrarPorTermo\" não cita um ID de critério existente",
+      "Caso \"estadoInvalidoErro\" não cita um ID de critério existente",
+      "Caso \"ignorarTermoBranco\" não cita um ID de critério existente"
+    ]
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "criterios": [
+    {
+      "id": "C01",
+      "texto": "Com lista contendo tarefas abertas e tarefas concluídas e filtro com estado 'todas', retorna todas as tarefas da lista."
+    },
+    {
+      "id": "C02",
+      "texto": "Com lista de tarefas e filtro com estado 'abertas', retorna apenas as tarefas com concluida false."
+    },
+    {
+      "id": "C03",
+      "texto": "Com lista de tarefas e filtro com estado 'concluidas', retorna apenas as tarefas com concluida true."
+    },
+    {
+      "id": "C04",
+      "texto": "Com filtro contendo estado fora da lista aceita como 'ABERTAS', lança Error com a mensagem 'Estado inválido'."
+    },
+    {
+      "id": "C05",
+      "texto": "Com filtro contendo estado com espaços como ' abertas ', lança Error com a mensagem 'Estado inválido'."
+    },
+    {
+      "id": "C06",
+      "texto": "Com lista de tarefas vazia e estado fora da lista aceita como 'invalido', lança Error com a mensagem 'Estado inválido'."
+    },
+    {
+      "id": "C07",
+      "texto": "Com termo em maiúsculas 'REVISAR', encontra a tarefa com título 'Revisar código'."
+    },
+    {
+      "id": "C08",
+      "texto": "Com termo 'strasse', não encontra a tarefa com título 'Straße' devido à conversão sem locale."
+    },
+    {
+      "id": "C09",
+      "texto": "Com termo sem acento 'relatorio', não encontra a tarefa com título 'Relatório' pois acentos contam."
+    },
+    {
+      "id": "C10",
+      "texto": "Com termo contendo espaços no início e no fim como '  comprar  ', encontra a tarefa com título 'Comprar pão'."
+    },
+    {
+      "id": "C11",
+      "texto": "Com termo contendo espaços extras entre palavras como 'comprar  pão', não encontra a tarefa com título 'comprar pão'."
+    },
+    {
+      "id": "C12",
+      "texto": "Com termo ausente no filtro, não filtra por título e retorna as tarefas que atendem ao estado."
+    },
+    {
+      "id": "C13",
+      "texto": "Com termo vazio '' no filtro, não filtra por título e retorna as tarefas que atendem ao estado."
+    },
+    {
+      "id": "C14",
+      "texto": "Com termo composto apenas por espaços '   ' no filtro, não filtra por título e retorna as tarefas que atendem ao estado."
+    },
+    {
+      "id": "C15",
+      "texto": "Com termo contendo trecho do título como 'compr', encontra a tarefa com título 'Comprar pão'."
+    },
+    {
+      "id": "C16",
+      "texto": "Com termo em codificação Unicode decomposta 'e\\u0301', não encontra a tarefa com título em codificação pré-composta 'é'."
+    },
+    {
+      "id": "C17",
+      "texto": "Com filtro contendo estado e termo, retorna apenas tarefas que atendem simultaneamente ao estado e ao termo especificados."
+    },
+    {
+      "id": "C18",
+      "texto": "O resultado segue a mesma ordem relativa das tarefas presentes na lista recebida."
+    },
+    {
+      "id": "C19",
+      "texto": "A lista de tarefas recebida como entrada não é modificada após a execução da função."
+    },
+    {
+      "id": "C20",
+      "texto": "O resultado traz as próprias referências dos objetos de tarefas da lista recebida, sem criar cópias."
+    },
+    {
+      "id": "C21",
+      "texto": "O resultado retornado é sempre uma nova instância de array, com referência distinta da lista recebida."
+    }
+  ],
+  "duvidas": []
+}

@@ -1,0 +1,1 @@
+Chame iniciar_etapa do servidor processo com papel coder. Siga a instrução recebida e entregue com entregar_codigo. Use apenas a especificação e as falhas recebidas do servidor. Se faltar a assinatura da função, devolva a pendência à conversa principal.
