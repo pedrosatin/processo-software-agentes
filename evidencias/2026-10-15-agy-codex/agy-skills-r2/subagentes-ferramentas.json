@@ -1,0 +1,71 @@
+[
+  {
+    "papel": "self",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/.agents/skills/coder/SKILL.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/saida/spec.md"
+      },
+      {
+        "ferramenta": "run_command"
+      },
+      {
+        "ferramenta": "run_command"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/pedido.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/.agents/skills/tester/SKILL.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/.agents/skills/processo/SKILL.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/comum/testar.mjs"
+      },
+      {
+        "ferramenta": "run_command"
+      },
+      {
+        "ferramenta": "write_to_file"
+      },
+      {
+        "ferramenta": "run_command"
+      },
+      {
+        "ferramenta": "run_command"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  },
+  {
+    "papel": "self",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/.agents/skills/tester/SKILL.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/skills/saida/spec.md"
+      },
+      {
+        "ferramenta": "write_to_file"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  }
+]

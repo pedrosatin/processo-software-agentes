@@ -1,0 +1,1112 @@
+[
+  {
+    "criterio": "C01",
+    "nome": "Todas mantém tarefas de estados misturados",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      9,
+      2,
+      7,
+      1
+    ]
+  },
+  {
+    "criterio": "C02",
+    "nome": "Abertas exclui concluídas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      9,
+      1
+    ]
+  },
+  {
+    "criterio": "C02",
+    "nome": "Abertas sem correspondências",
+    "tarefas": [
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C03",
+    "nome": "Concluídas exclui abertas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      2,
+      7
+    ]
+  },
+  {
+    "criterio": "C03",
+    "nome": "Concluídas sem correspondências",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \"ABERTAS\" com lista preenchida",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \"ABERTAS\" com lista vazia",
+    "tarefas": [],
+    "filtro": {
+      "estado": "ABERTAS"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \" abertas \" com lista preenchida",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": " abertas "
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \" abertas \" com lista vazia",
+    "tarefas": [],
+    "filtro": {
+      "estado": " abertas "
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \"inexistente\" com lista preenchida",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "inexistente"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \"inexistente\" com lista vazia",
+    "tarefas": [],
+    "filtro": {
+      "estado": "inexistente"
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \"\" com lista preenchida",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": ""
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C04",
+    "nome": "Estado inválido \"\" com lista vazia",
+    "tarefas": [],
+    "filtro": {
+      "estado": ""
+    },
+    "esperadoErro": "Estado inválido"
+  },
+  {
+    "criterio": "C05",
+    "nome": "Busca ignora caixa com REVISAR",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "esperadoIds": [
+      2
+    ]
+  },
+  {
+    "criterio": "C06",
+    "nome": "Busca não equivale ß a ss",
+    "tarefas": [
+      {
+        "id": 8,
+        "titulo": "Straße",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "strasse"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C07",
+    "nome": "Busca diferencia acento",
+    "tarefas": [
+      {
+        "id": 8,
+        "titulo": "Relatório",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C08",
+    "nome": "Busca remove espaços nas extremidades",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "  compr  "
+    },
+    "esperadoIds": [
+      9,
+      7
+    ]
+  },
+  {
+    "criterio": "C09",
+    "nome": "Busca preserva espaços internos",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "comprar  pão"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C10",
+    "nome": "Termo vazio e estado todas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": ""
+    },
+    "esperadoIds": [
+      9,
+      2,
+      7,
+      1
+    ]
+  },
+  {
+    "criterio": "C10",
+    "nome": "Termo com espaços e estado todas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      9,
+      2,
+      7,
+      1
+    ]
+  },
+  {
+    "criterio": "C10",
+    "nome": "Termo vazio e estado abertas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": ""
+    },
+    "esperadoIds": [
+      9,
+      1
+    ]
+  },
+  {
+    "criterio": "C10",
+    "nome": "Termo com espaços e estado abertas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      9,
+      1
+    ]
+  },
+  {
+    "criterio": "C10",
+    "nome": "Termo vazio e estado concluidas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": ""
+    },
+    "esperadoIds": [
+      2,
+      7
+    ]
+  },
+  {
+    "criterio": "C10",
+    "nome": "Termo com espaços e estado concluidas",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas",
+      "termo": "   "
+    },
+    "esperadoIds": [
+      2,
+      7
+    ]
+  },
+  {
+    "criterio": "C11",
+    "nome": "Substring no início do título",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      9,
+      7
+    ]
+  },
+  {
+    "criterio": "C11",
+    "nome": "Substring no meio do título",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "prar"
+    },
+    "esperadoIds": [
+      9,
+      7
+    ]
+  },
+  {
+    "criterio": "C11",
+    "nome": "Substring no fim do título",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "pão"
+    },
+    "esperadoIds": [
+      9
+    ]
+  },
+  {
+    "criterio": "C11",
+    "nome": "Termo igual ao título inteiro",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "Comprar pão"
+    },
+    "esperadoIds": [
+      9
+    ]
+  },
+  {
+    "criterio": "C12",
+    "nome": "Nenhum título contém Revisar",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "Revisar"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C13",
+    "nome": "Busca não normaliza Unicode decomposto",
+    "tarefas": [
+      {
+        "id": 6,
+        "titulo": "é",
+        "concluida": true
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "é"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C14",
+    "nome": "Estado e termo restringem conjuntamente",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      9
+    ]
+  },
+  {
+    "criterio": "C14",
+    "nome": "Termo corresponde apenas a concluída e aberta não corresponde",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "Revisar"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C15",
+    "nome": "Correspondências espaçadas mantêm ordem recebida",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      9,
+      7
+    ]
+  },
+  {
+    "criterio": "C16",
+    "nome": "Filtragem parcial preserva entrada",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "compr"
+    },
+    "esperadoIds": [
+      9
+    ]
+  },
+  {
+    "criterio": "C16",
+    "nome": "Filtro sem correspondência preserva entrada",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "ausente"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C17",
+    "nome": "Objetos correspondentes preservam identidade",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": [
+      2,
+      7
+    ]
+  },
+  {
+    "criterio": "C18",
+    "nome": "Array novo quando todas entram",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": [
+      9,
+      2,
+      7,
+      1
+    ]
+  },
+  {
+    "criterio": "C18",
+    "nome": "Array novo com entrada vazia",
+    "tarefas": [],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C18",
+    "nome": "Array novo na seleção parcial",
+    "tarefas": [
+      {
+        "id": 9,
+        "titulo": "Comprar pão",
+        "concluida": false
+      },
+      {
+        "id": 2,
+        "titulo": "Revisar código",
+        "concluida": true
+      },
+      {
+        "id": 7,
+        "titulo": "Comprar leite",
+        "concluida": true
+      },
+      {
+        "id": 1,
+        "titulo": "Organizar mesa",
+        "concluida": false
+      }
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": [
+      9,
+      1
+    ]
+  },
+  {
+    "criterio": "C19",
+    "nome": "Lista vazia com estado todas",
+    "tarefas": [],
+    "filtro": {
+      "estado": "todas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C19",
+    "nome": "Lista vazia com estado abertas",
+    "tarefas": [],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "esperadoIds": []
+  },
+  {
+    "criterio": "C19",
+    "nome": "Lista vazia com estado concluidas",
+    "tarefas": [],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "esperadoIds": []
+  }
+]

@@ -1,0 +1,17 @@
+ok    C01 Retorna todas as tarefas quando estado é todas e sem termo
+ok    C02 Retorna apenas tarefas abertas quando estado é abertas
+ok    C03 Retorna apenas tarefas concluídas quando estado é concluidas
+ok    C04 Lança erro para estado inválido com tarefas na lista
+ok    C04 Lança erro para estado inválido com lista vazia
+ok    C05 Não filtra por título quando termo é vazio
+ok    C05 Não filtra por título quando termo contém apenas espaços
+ok    C06 Filtra por termo presente em qualquer posição do título
+ok    C07 Busca sem diferenciar maiúsculas de minúsculas
+ok    C08 Busca considerando acentos sem normalização
+ok    C09 Remove espaços no início e fim do termo mantendo espaços internos
+ok    C10 Filtra simultaneamente por estado e termo
+ok    C11 Mantém ordem original da lista recebida
+ok    C12 Retorna novo array com referências aos mesmos objetos
+
+14 de 14 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

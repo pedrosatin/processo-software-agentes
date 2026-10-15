@@ -1,0 +1,21 @@
+{
+  "cenario": "02-rastreabilidade",
+  "rotulo": "api-real-corrigido",
+  "modo": "api",
+  "modelo": "gemini-3.5-flash-lite",
+  "versaoAgentes": {
+    "spec": "b20cd0d0",
+    "coder": "1bc9a88c",
+    "tester": "ceaa2fbc"
+  },
+  "encerramento": "aprovado",
+  "chamadasAoModelo": 3,
+  "tentativas": 1,
+  "tester": "5/5",
+  "referencia": "7/7",
+  "falsoNegativo": false,
+  "gates": {
+    "rastreabilidade": true
+  },
+  "duracaoMs": 9682
+}

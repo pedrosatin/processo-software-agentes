@@ -1,27 +1,39 @@
 # Tutorial das demonstrações
 
-Passo a passo para executar cada demonstração deste repositório no laboratório. Todas implementam a mesma função, `filtrarTarefas`, com os papéis spec, coder e tester. As três primeiras partes rodam sem gasto. Elas funcionam sem modelo e sem chave, e o modo `api` do CLI usa a chave gratuita do Google AI Studio. As partes 4 a 6 usam o Claude Code, que é pago, e trazem os registros de execução para quem não tem acesso.
+Passo a passo para executar cada demonstração deste repositório no laboratório. Todas implementam `filtrarTarefas`, com os papéis spec, coder e tester. As partes 1 e 3 têm caminhos sem modelo: testes de referência e modo `demonstracao`. O modo `manual` aceita respostas produzidas em um chat com acesso gratuito. O modo `api` depende da cota e do modelo disponíveis na conta do Google AI Studio. As demais partes usam um agente de código:
+
+| Agente | Comando | Custo | Arquivos que lê na pasta |
+|---|---|---|---|
+| Antigravity CLI | `agy` | Plano Individual gratuito, com limite semanal de uso | `AGENTS.md`, `.agents/skills/`, `.agents/agents/`, `.agents/mcp_config.json` |
+| Codex CLI | `codex` | Disponibilidade e limites conforme a conta do ChatGPT; confira antes de começar | `AGENTS.md`, `.agents/skills/`, `.codex/agents/`, `.codex/config.toml` |
+| Claude Code | `claude` | Plano pago ou crédito de API | `CLAUDE.md`, `.claude/skills/`, `.claude/agents/`, `.mcp.json` |
+
+O Antigravity é o caminho sem custo. O Antigravity e o Codex leem o mesmo `AGENTS.md` e a mesma pasta `.agents/skills/`. Os subagents e a configuração MCP variam por ferramenta. No integrado do Antigravity, a conversa principal cria agentes temporários com as orientações de `papeis-agy/` e incorpora o conteúdo das Skills, como explica a parte 6.
+
+Leia [Antes de executar](00-como-estudar.md) para entender os papéis, o fluxo, a conferência cruzada e os limites dos ensaios.
 
 ## Ordem sugerida
 
-| Parte | Demonstração | Precisa de modelo | Custo |
-|---|---|---|---|
-| [1](01-testes-de-referencia.md) | Script de testes e artefatos de referência, em `demonstracoes/comum` | Não | Nenhum |
-| [2](02-servidor-mcp.md) | Servidor MCP do processo, em `demonstracoes/mcp-processo` | Não para a conferência. Sim com um host | Nenhum com o Gemini CLI no nível gratuito |
-| [3](03-cli-da-atividade.md) | CLI da atividade, em `atividade` | Não nos modos `demonstracao` e `manual`. Sim no modo `api` | Nenhum. O modo `api` usa a chave gratuita do AI Studio |
-| [4](04-skills.md) | Skills do Claude Code, em `demonstracoes/skills` | Sim | Claude Code exige plano pago ou crédito de API |
-| [5](05-subagents.md) | Subagents do Claude Code, em `demonstracoes/subagents` | Sim | Idem |
-| [6](06-integrado.md) | Subagents, Skills e MCP combinados, em `demonstracoes/integrado` | Sim | Idem |
+| Parte | Demonstração | Precisa de modelo |
+|---|---|---|
+| [1](01-testes-de-referencia.md) | Script de testes e artefatos de referência, em `demonstracoes/comum` | Não |
+| [2](02-servidor-mcp.md) | Servidor MCP do processo, em `demonstracoes/mcp-processo` | Não para a conferência. Sim com um agente |
+| [3](03-cli-da-atividade.md) | CLI da atividade, em `atividade` | Não nos modos `demonstracao` e `manual`. Sim no modo `api`, conforme acesso e cota da conta |
+| [4](04-skills.md) | Skills, em `demonstracoes/skills` | Sim |
+| [5](05-subagents.md) | Subagents, em `demonstracoes/subagents` | Sim |
+| [6](06-integrado.md) | Subagents, Skills e MCP combinados, em `demonstracoes/integrado` | Sim |
 
-As partes 4, 5 e 6 dependem do Claude Code, que não tem uso gratuito. Sem assinatura, acompanhe essas partes pela execução do professor no projetor ou pelos registros. Cada demonstração que usa modelo foi executada com o Claude Code e o modelo Haiku em 14/10/2026, e o tutorial mostra trechos reais dessas execuções. Os prints com o selo "registro de 14/10/2026" vêm das transcrições. Os demais prints vêm de execuções feitas para este tutorial, com os mesmos comandos indicados no texto.
+Os registros de Claude Code com Haiku são de 14/10/2026. Os ensaios de Antigravity e Codex, seus resultados e limites estão no [relato de 15/10](../../evidencias/2026-10-15-agy-codex). Os prints antigos continuam identificados como registros de 14/10 e representam aquela ferramenta e execução. A contagem de casos pode mudar em uma nova execução.
 
-| Parte | Relato da execução |
+| Parte | Relatos das execuções |
 |---|---|
-| 2, com host | [evidencias/2026-10-14-mcp](../../evidencias/2026-10-14-mcp) |
-| 3 | [evidencias/2026-10-14-cli-demonstracao](../../evidencias/2026-10-14-cli-demonstracao) |
-| 4 | [evidencias/2026-10-14-skills](../../evidencias/2026-10-14-skills) |
-| 5 | [evidencias/2026-10-14-subagents](../../evidencias/2026-10-14-subagents) |
-| 6 | [evidencias/2026-10-14-integrado](../../evidencias/2026-10-14-integrado) |
+| 2, com agente | [Claude Code](../../evidencias/2026-10-14-mcp), [Antigravity e Codex](../../evidencias/2026-10-15-agy-codex) |
+| 3 | [Modo demonstração](../../evidencias/2026-10-14-cli-demonstracao), [Gemini API real](../../evidencias/2026-10-15-cli-api) |
+| 4 | [Claude Code](../../evidencias/2026-10-14-skills), [Antigravity e Codex](../../evidencias/2026-10-15-agy-codex) |
+| 5 | [Claude Code](../../evidencias/2026-10-14-subagents), [Antigravity e Codex](../../evidencias/2026-10-15-agy-codex) |
+| 6 | [Claude Code](../../evidencias/2026-10-14-integrado), [Antigravity e Codex](../../evidencias/2026-10-15-agy-codex) |
+
+A [conferência de formatos e práticas](07-padroes-e-limites.md) relaciona os exemplos às especificações oficiais e explica as simplificações do laboratório.
 
 ## Preparação
 
@@ -35,12 +47,17 @@ cd processo-software-agentes
 | Ferramenta | Uso | Como conferir |
 |---|---|---|
 | Docker Desktop | CLI da atividade e, sem Node instalado, os scripts das partes 1 e 2 | `docker --version` |
-| Node.js 23.6 ou posterior no host | Scripts das partes 1 e 2 direto no terminal | `node --version` |
-| Gemini CLI | Host MCP gratuito da parte 2, opcional | `gemini --version` |
+| Node.js 23.6 ou posterior no host | Agentes das partes 2, 4, 5 e 6 e scripts direto no terminal | `node --version` |
+| Antigravity CLI | Agente das partes 2, 4, 5 e 6, sem custo | `agy --version` |
+| Codex CLI | Alternativa ao Antigravity, opcional | `codex --version` |
 
-Os comandos deste tutorial usam o terminal na raiz do repositório, exceto na parte 3, que roda dentro da pasta `atividade`. Os comandos de `node` e `docker` funcionam no PowerShell e no terminal do Linux ou do macOS. Quando a sintaxe muda entre eles, o texto mostra as duas formas.
+Instale o Antigravity CLI pelas instruções de [antigravity.google/docs/cli](https://antigravity.google/docs/cli/) e faça login com a conta Google na primeira execução. O Codex CLI se instala com `npm install -g @openai/codex` e pede login com a conta do ChatGPT. O Codex só aplica a configuração da pasta (`.codex/`) depois que você aceita confiar no repositório, na primeira vez que abre `codex` dentro dele.
 
-A regra dos 23.6 vale para o Node instalado na máquina. A imagem Docker da parte 3 traz Node 22.23 e também executa esses scripts, porque o TypeScript roda sem etapa de compilação nesse caminho.
+Cada parte informa a pasta em que o comando deve rodar. Comece os comandos de entrada na raiz do repositório. Nas partes com agente, entre na pasta da demonstração antes de iniciar o host. A parte 3 roda dentro de `atividade`. Os comandos de `node` e `docker` funcionam no PowerShell e no terminal do Linux ou do macOS. Quando a sintaxe muda entre eles, o texto mostra as duas formas.
+
+A regra dos 23.6 vale para o Node instalado na máquina. O Dockerfile da parte 3 usa a imagem `node:22-alpine`. O ensaio das capturas usou Node 22.23. A versão exata pode mudar quando a imagem é reconstruída, pois a tag não fixa uma revisão.
+
+As configurações MCP incluídas chamam `node` no host. O caminho Docker abaixo cobre os scripts determinísticos; para conectar um agente ao MCP com os arquivos incluídos, instale Node também na máquina.
 
 ## Sem Node na máquina
 
@@ -58,8 +75,14 @@ No Linux ou no macOS:
 docker run --rm -v "$PWD:/repo" -w /repo --entrypoint node aula-processo-agentes:local demonstracoes/comum/testar.mjs demonstracoes/comum/exemplo
 ```
 
-A imagem traz o Node 22.23, que já executa TypeScript sem compilação. Troque o caminho do script para rodar `demonstracoes/mcp-processo/conferir.mjs` da mesma forma.
+Confira a versão da imagem com `docker run --rm --entrypoint node aula-processo-agentes:local --version`. A revisão Node 22.23 usada nas capturas já executa TypeScript sem compilação. Troque o caminho do script para rodar `demonstracoes/mcp-processo/conferir.mjs` da mesma forma.
 
 ## Arquivos gerados
 
-As execuções gravam em `atividade/artefatos/` e em `demonstracoes/*/saida/`. As duas pastas estão no `.gitignore` e não entram em commits. Para recomeçar uma demonstração com Claude Code, apague a pasta `saida/` dela e restaure `respostas.md` com `git checkout -- respostas.md`.
+As execuções gravam em `atividade/artefatos/` e em `demonstracoes/*/saida/`. As duas pastas estão no `.gitignore` e não entram em commits. Para recomeçar uma demonstração, apague a pasta `saida/` dela e restaure `respostas.md` com `git checkout -- respostas.md`.
+
+## Fontes e limites de acesso
+
+Documentação consultada em 15/10/2026: [instalação do Antigravity CLI](https://antigravity.google/docs/getting-started?tab=cli), [planos e acesso ao CLI](https://antigravity.google/docs/plans/), [Skills do Antigravity](https://antigravity.google/docs/skills/) e [subagentes do Codex](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+
+O plano Individual do Antigravity oferece uso sem assinatura e cota semanal. Não há garantia de concluir todas as demonstrações dentro da cota de uma conta. Se o limite acabar, acompanhe os registros ou execute o modo `demonstracao` da parte 3. A atividade não exige assinatura paga. Os ensaios usam a conta do professor e não comprovam a cota de uma conta gratuita recém-criada.

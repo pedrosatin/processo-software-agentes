@@ -1,5 +1,11 @@
 # Processo com Skills
 
+## Antigravity e Codex
+
+A execução com `agy` e `codex`, os arquivos de configuração, as duas rodadas e a conferência dos resultados estão no [tutorial](../../docs/tutorial/README.md). Use a parte correspondente a esta pasta. Os registros de 15/10 ficam em [evidencias/2026-10-15-agy-codex](../../evidencias/2026-10-15-agy-codex).
+
+## Claude Code
+
 Uma Skill por papel em `.claude/skills/`: `spec`, `coder` e `tester`. A Skill `processo` executa as três em ordem e roda os testes.
 
 | Skill | Lê | Grava | Contexto |

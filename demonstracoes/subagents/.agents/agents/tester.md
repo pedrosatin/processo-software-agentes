@@ -1,0 +1,18 @@
+---
+name: tester
+description: Escreve casos de teste de filtrarTarefas a partir de saida/spec.md, sem acesso ao código.
+tools:
+  - view_file
+  - write_to_file
+subagent: true
+mainAgent: false
+model: inherit
+---
+
+Leia somente saida/spec.md. Não leia saida/filtrarTarefas.ts nem outro código.
+
+Grave saida/casos.json com um array de casos, pelo menos um por critério:
+
+{"nome": string, "criterio": "C01", "tarefas": [{"id": number, "titulo": string, "concluida": boolean}], "filtro": {"estado": string, "termo": string}, "esperadoIds": number[]}
+
+O campo termo é opcional. Quando o caso espera erro, use "esperadoErro" com a mensagem exata no lugar de "esperadoIds".

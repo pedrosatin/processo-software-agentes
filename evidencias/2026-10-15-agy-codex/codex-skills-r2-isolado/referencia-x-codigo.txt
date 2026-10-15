@@ -1,0 +1,17 @@
+ok    C01 todas as tarefas
+ok    C02 só abertas
+ok    C03 só concluídas
+ok    C04 estado inválido com lista vazia
+ok    C04 estado com maiúscula é inválido
+ok    C05 trecho do título
+ok    C06 termo em maiúsculas
+ok    C07 termo sem acento
+ok    C08 espaços nas pontas
+ok    C09 dois espaços internos
+ok    C10 termo só com espaços
+ok    C11 estado e termo juntos
+ok    C12 ordem da lista recebida
+ok    C13 lista recebida sem alteração
+
+14 de 14 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

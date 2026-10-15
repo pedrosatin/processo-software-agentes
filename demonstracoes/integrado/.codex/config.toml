@@ -1,0 +1,4 @@
+[mcp_servers.processo]
+command = "node"
+args = ["../mcp-processo/server.mjs", "."]
+default_tools_approval_mode = "approve"

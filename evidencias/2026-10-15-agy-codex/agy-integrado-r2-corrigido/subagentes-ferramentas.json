@@ -1,0 +1,134 @@
+[
+  {
+    "papel": "processo-spec",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/iniciar_etapa.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_spec.json"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "iniciar_etapa"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/package.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "<fora do repositorio>"
+      },
+      {
+        "ferramenta": "list_resources"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_codigo.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_casos.json"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "entregar_spec"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  },
+  {
+    "papel": "processo-coder",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/iniciar_etapa.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_codigo.json"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "iniciar_etapa"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/saida/filtrarTarefas.ts"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "<fora do repositorio>"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/integrado/saida/especificacao.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_spec.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_casos.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/executar_testes.json"
+      },
+      {
+        "ferramenta": "send_message"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "entregar_codigo"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  },
+  {
+    "papel": "processo-tester",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/iniciar_etapa.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/entregar_casos.json"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "iniciar_etapa"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "metadados-mcp/processo/executar_testes.json"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "<fora do repositorio>"
+      },
+      {
+        "ferramenta": "call_mcp_tool",
+        "servidor": "processo",
+        "tool": "entregar_casos"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  }
+]

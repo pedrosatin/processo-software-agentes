@@ -1,0 +1,24 @@
+ok    C01 Todos os estados
+ok    C02 Somente abertas
+ok    C03 Somente concluidas
+ok    C04 Rejeita estado "ABERTAS"
+ok    C04 Rejeita estado " abertas "
+ok    C04 Rejeita estado "invalido"
+ok    C04 Rejeita estado ""
+ok    C05 Substring sem distinguir caixa
+ok    C05 Lowercase não faz case folding
+ok    C06 Acentos contam
+ok    C06 Unicode não é normalizado
+ok    C07 Trim nas extremidades
+ok    C07 Espaços internos contam
+ok    C08 Termo sem restrição undefined
+ok    C08 Termo sem restrição ""
+ok    C08 Termo sem restrição " \t\n"
+ok    C09 Interseção de estado e termo
+ok    C10 Preserva ordem e entrada
+ok    C11 Array novo e mesmos objetos
+ok    C12 Lista vazia
+
+20 de 20 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.
+saida=0

@@ -1,0 +1,14 @@
+[
+  {
+    "papel": "spec",
+    "tipo": "spec"
+  },
+  {
+    "papel": "coder",
+    "tipo": "coder"
+  },
+  {
+    "papel": "tester",
+    "tipo": "tester"
+  }
+]

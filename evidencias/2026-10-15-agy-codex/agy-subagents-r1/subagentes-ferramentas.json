@@ -1,0 +1,45 @@
+[
+  {
+    "papel": "spec",
+    "chamadas": [
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/pedido.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/respostas.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/saida/spec.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/comum/testar.mjs"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/AGENTS.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/.agents/agents/spec.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/.agents/agents/coder.md"
+      },
+      {
+        "ferramenta": "view_file",
+        "arquivo": "demonstracoes/subagents/.agents/agents/tester.md"
+      },
+      {
+        "ferramenta": "write_to_file"
+      },
+      {
+        "ferramenta": "send_message"
+      }
+    ]
+  }
+]

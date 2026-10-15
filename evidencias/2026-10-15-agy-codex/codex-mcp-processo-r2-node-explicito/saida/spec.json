@@ -1,0 +1,53 @@
+{
+  "criterios": [
+    {
+      "id": "C01",
+      "texto": "Com estado todas, o resultado inclui tarefas abertas e concluídas."
+    },
+    {
+      "id": "C02",
+      "texto": "Com estado abertas, o resultado inclui somente tarefas com concluida false."
+    },
+    {
+      "id": "C03",
+      "texto": "Com estado concluidas, o resultado inclui somente tarefas com concluida true."
+    },
+    {
+      "id": "C04",
+      "texto": "Com estado diferente exatamente de todas, abertas ou concluidas, lança Error com mensagem Estado inválido, inclusive para lista vazia."
+    },
+    {
+      "id": "C05",
+      "texto": "Com termo informado, encontra sua ocorrência em qualquer parte do título, convertendo ambos com toLowerCase() do JavaScript sem locale."
+    },
+    {
+      "id": "C06",
+      "texto": "Com termo contendo acentos ou codificações Unicode distintas, a busca preserva essas diferenças, sem remover acentos nem normalizar Unicode."
+    },
+    {
+      "id": "C07",
+      "texto": "Com espaços nas extremidades do termo, remove-os com trim() do JavaScript e preserva os espaços internos na busca."
+    },
+    {
+      "id": "C08",
+      "texto": "Com termo ausente, vazio ou somente espaços, não restringe tarefas pelo título."
+    },
+    {
+      "id": "C09",
+      "texto": "Com estado e termo informados, retorna somente as tarefas que atendem aos dois filtros."
+    },
+    {
+      "id": "C10",
+      "texto": "Com qualquer lista recebida, mantém sua ordem e não altera a lista de entrada."
+    },
+    {
+      "id": "C11",
+      "texto": "Com qualquer filtro válido, retorna sempre um array novo contendo os próprios objetos da entrada, inclusive quando todas as tarefas entram."
+    },
+    {
+      "id": "C12",
+      "texto": "Com lista vazia e estado válido, retorna um array vazio."
+    }
+  ],
+  "duvidas": []
+}

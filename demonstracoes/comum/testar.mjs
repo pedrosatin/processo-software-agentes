@@ -47,7 +47,7 @@ const principal = async () => {
   } else {
     resultados.forEach(r => console.log(`${r.passou ? 'ok   ' : 'falha'} ${r.criterio} ${r.nome}${r.detalhe ? `: ${r.detalhe}` : ''}`))
     console.log(`\n${resultados.filter(r => r.passou).length} de ${resultados.length} casos aprovados`)
-    console.log('Cada caso também confere que a lista recebida não foi alterada.')
+    console.log('Nos casos em que a função retorna sem erro, o script também confere que a lista recebida não foi alterada.')
     if (semCaso.length > 0) console.log(`Critérios sem caso: ${semCaso.join(', ')}`)
   }
   return aprovado ? 0 : 1

@@ -30,7 +30,9 @@ npm run processo -- executar --cenario 1 --rotulo antes
 | `api` | Endpoint compatível com Chat Completions | `GEMINI_API_KEY` ou `LLM_API_KEY`, `LLM_BASE_URL`, `MODELO` |
 | `manual` | Arquivo de resposta criado pelo aluno | Nenhuma |
 
-O modo `api` usa por padrão o Gemini com `gemini-flash-lite-latest`. Para Groq, defina `LLM_BASE_URL=https://api.groq.com/openai/v1`, `LLM_API_KEY` e `MODELO`. Respostas 429 e 503 são repetidas após 2, 5 e 10 segundos.
+O modo `api` usa por padrão o Gemini com `gemini-flash-lite-latest`. Se o alias padrão retornar 404 no endpoint padrão Gemini, o CLI consulta `/models`, prioriza um Flash-Lite estável e registra `modelo-substituido`. Sem Flash-Lite, tenta um Flash estável. Um `MODELO` diferente do padrão ou `LLM_BASE_URL` explícito permanece fixo e o erro pede a revisão da configuração. A listagem do provedor não confirma gratuidade ou cota, que devem ser conferidas no AI Studio. Quando o provedor recusa `response_format`, a chamada é repetida sem esse campo e o evento `formato-json-desligado` é registrado. Para Groq, defina `LLM_BASE_URL=https://api.groq.com/openai/v1`, `LLM_API_KEY` e `MODELO`. Respostas 429 e 503 são repetidas após 2, 5 e 10 segundos.
+
+Ensaio real do modo `api` com Gemini em 15/10/2026: [montagem e resultados](../evidencias/2026-10-15-cli-api). A base do cenário 2 chegou aos testes e reprovou o gate de rastreabilidade; uma cópia ajustada terminou aprovada.
 
 As gravadas reproduzem a linha de base com as instruções originais. Instruções alteradas exigem o modo `api` ou `manual`.
 
@@ -59,7 +61,7 @@ Os testes do verificador também ficam na imagem Docker:
 docker compose -p aula-processo run --rm --entrypoint npm processo test
 ```
 
-`npm test` executa os testes do verificador e dos contratos. O verificador aceita tarefas diferentes com IDs repetidos e compara os valores dos objetos devolvidos com os da entrada.
+`npm test` executa os testes do verificador, dos contratos e do cliente do modo `api`, este com um provedor falso em `127.0.0.1`. O verificador aceita tarefas diferentes com IDs repetidos e compara os valores dos objetos devolvidos com os da entrada.
 
 O arquivo `entradas/respostas.md` define a busca por qualquer trecho do título com `includes()`. Essa definição resolve a dúvida entre busca por trecho, palavra ou título inteiro antes da implementação.
 

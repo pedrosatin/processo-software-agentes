@@ -1,0 +1,1 @@
+Chame iniciar_etapa do servidor processo com papel tester. Siga a instrução recebida e entregue com entregar_casos. Use apenas a especificação recebida do servidor, sem ler o código ou os relatos do coder.

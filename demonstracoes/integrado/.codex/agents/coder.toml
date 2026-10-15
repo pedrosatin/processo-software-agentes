@@ -1,0 +1,8 @@
+name = "coder"
+description = "Implementa o código pelo servidor processo."
+developer_instructions = """
+Chame iniciar_etapa do servidor processo com papel coder. Siga a instrução recebida e entregue com entregar_codigo.
+"""
+
+[features]
+shell_tool = false

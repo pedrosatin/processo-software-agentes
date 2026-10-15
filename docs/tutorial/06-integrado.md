@@ -2,6 +2,37 @@
 
 [Voltar ao índice](README.md)
 
+## Estado dos novos hosts
+
+Os retestes de 15/10 completaram o processo nos dois hosts: Antigravity, 28 de 28 casos do tester e 14 de 14 da referência; Codex, 42 de 42 e 14 de 14. No Antigravity foi preciso trocar a definição inicial de agentes Markdown por agentes temporários com MCP habilitado. No Codex do ensaio, foi preciso indicar o executável Node explicitamente na sessão. Consulte as falhas, os retestes e os limites de isolamento no [relato de 15/10](../../evidencias/2026-10-15-agy-codex).
+
+## Executar com Antigravity ou Codex
+
+Na raiz do repositório:
+
+```bash
+cd demonstracoes/integrado
+```
+
+| Agente | Iniciar | Subagentes | Skills | Servidor MCP |
+|---|---|---|---|---|
+| Antigravity | `agy` | Papéis em `papeis-agy/`, criados com `define_subagent` | `.agents/skills/`, incorporadas na definição | `.agents/mcp_config.json` |
+| Codex | `codex` | `.codex/agents/` | `.agents/skills/` | `.codex/config.toml` |
+
+1. Inicie um dos agentes nesta pasta. No Codex, aceite confiar no repositório para carregar sua configuração. Confira `codex mcp list` no terminal. No Antigravity, confira `/mcp` na conversa. O servidor `processo` precisa aparecer.
+2. Peça `Execute o processo de desenvolvimento para pedido.md.` Com `respostas.md` vazio, o spec deve devolver dúvidas à conversa principal.
+3. Responda em `respostas.md`, ou copie o exemplo com `cp ../comum/respostas-exemplo.md respostas.md` (`Copy-Item` no PowerShell), e peça o processo de novo.
+4. Confira delegações para spec, coder e tester, chamadas ao servidor e o resultado de `executar_testes`. Se uma ferramenta não estiver conectada, resolva a conexão antes de continuar. Chamar `node server.mjs` pelo shell não demonstra a integração nativa do host.
+5. Confira os arquivos em `saida/` e rode `node ../comum/testar.mjs` no terminal desta pasta.
+
+No Antigravity, o `AGENTS.md` orienta a conversa principal a criar `processo-spec`, `processo-coder` e `processo-tester` com `define_subagent`, `enable_mcp_tools: true`, `enable_write_tools: false` e `enable_subagent_tools: false`. A conversa principal lê as Skills de critérios e casos e incorpora seu conteúdo em `system_prompt` na definição de cada papel. Esse caminho combina o conteúdo das Skills com os subagentes; não usa o campo nativo `skills` dos agentes Markdown.
+
+As restrições diferem entre ferramentas. Desligar gravação no Antigravity não elimina as ferramentas de leitura, e habilitar MCP não separa as cinco ferramentas por papel. A independência do tester depende também da instrução e deve ser conferida nas chamadas observadas. No Codex, `features.shell_tool = false` desliga o shell dos papéis, e a instrução pede MCP e Skill. Essas configurações não equivalem à lista de duas ferramentas MCP do papel no Claude Code. Os limites e resultados de cada ensaio estão no [relato de 15/10](../../evidencias/2026-10-15-agy-codex).
+
+Fontes do caminho Antigravity: [argumentos de define_subagent](https://antigravity.google/docs/hooks#agent-collaboration) e [correções de herança MCP no changelog](https://antigravity.google/docs/changelog?tab=cli).
+
+## Caminho com Claude Code e registro de 14/10
+
 ## O que a demonstração mostra
 
 A pasta [demonstracoes/integrado](../../demonstracoes/integrado) junta as peças das partes 2, 4 e 5:
@@ -31,7 +62,7 @@ O tester não tem `Read`. Ele recebe o contexto só por `iniciar_etapa`, que dev
 | Item | Observação |
 |---|---|
 | Claude Code | Exige plano pago ou crédito de API |
-| Node.js 23.6 ou posterior no host, ou a imagem Docker da parte 3 | O servidor MCP e o script de testes rodam com Node |
+| Node.js 23.6 ou posterior no host | O servidor MCP e o script de testes rodam com Node |
 
 Antes, confira o servidor sem modelo, como na [parte 2](02-servidor-mcp.md):
 

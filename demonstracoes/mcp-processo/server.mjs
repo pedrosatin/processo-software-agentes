@@ -206,6 +206,36 @@ const ferramentas = [
   }
 ]
 
+// Valida o subconjunto de JSON Schema usado pelas cinco ferramentas deste exemplo.
+// Não é um validador genérico: novos tipos de schema exigem ampliar esta função.
+const validarEntrada = (valor, schema, caminho = 'argumentos') => {
+  if (schema.enum && !schema.enum.includes(valor)) return `${caminho}: valor fora da lista permitida.`
+  if (schema.type === 'object') {
+    if (valor === null || typeof valor !== 'object' || Array.isArray(valor)) return `${caminho}: esperado objeto.`
+    for (const nome of schema.required ?? []) {
+      if (!Object.hasOwn(valor, nome)) return `${caminho}.${nome}: campo obrigatório.`
+    }
+    for (const [nome, item] of Object.entries(valor)) {
+      if (!Object.hasOwn(schema.properties, nome)) {
+        if (schema.additionalProperties === false) return `${caminho}.${nome}: campo não permitido.`
+        continue
+      }
+      const falha = validarEntrada(item, schema.properties[nome], `${caminho}.${nome}`)
+      if (falha) return falha
+    }
+  } else if (schema.type === 'array') {
+    if (!Array.isArray(valor)) return `${caminho}: esperado array.`
+    if (valor.length < (schema.minItems ?? 0)) return `${caminho}: quantidade mínima de ${schema.minItems} item(ns).`
+    for (const [indice, item] of valor.entries()) {
+      const falha = validarEntrada(item, schema.items, `${caminho}[${indice}]`)
+      if (falha) return falha
+    }
+  } else if (typeof valor !== schema.type || (schema.type === 'number' && !Number.isFinite(valor))) {
+    return `${caminho}: esperado ${schema.type}.`
+  }
+  return null
+}
+
 // Protocolo JSON-RPC: uma mensagem por linha na entrada e na saída padrão
 const resposta = (id, result) => ({ jsonrpc: '2.0', id, result })
 const erro = (id, code, message) => ({ jsonrpc: '2.0', id, error: { code, message } })
@@ -229,8 +259,11 @@ const tratar = async ({ id, method, params = {} }) => {
   if (method !== 'tools/call') return erro(id, -32601, 'Método desconhecido')
   const ferramenta = ferramentas.find(item => item.name === params.name)
   if (!ferramenta) return erro(id, -32602, 'Ferramenta desconhecida')
+  const argumentos = params.arguments === undefined ? {} : params.arguments
+  const falhaDeEntrada = validarEntrada(argumentos, ferramenta.inputSchema)
+  if (falhaDeEntrada) return erro(id, -32602, falhaDeEntrada)
   try {
-    return resposta(id, await ferramenta.executar(params.arguments ?? {}))
+    return resposta(id, await ferramenta.executar(argumentos))
   } catch (falha) {
     return resposta(id, recusa(falha instanceof Error ? falha.message : String(falha)))
   }

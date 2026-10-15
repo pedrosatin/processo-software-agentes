@@ -1,0 +1,223 @@
+[
+  {
+    "criterio": "C01",
+    "esperadoIds": [
+      1,
+      2,
+      3
+    ],
+    "filtro": {
+      "estado": "todas"
+    },
+    "nome": "Todas as tarefas sem termo",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": false,
+        "id": 2,
+        "titulo": "Revisar código"
+      },
+      {
+        "concluida": true,
+        "id": 3,
+        "titulo": "Enviar relatório"
+      }
+    ]
+  },
+  {
+    "criterio": "C02",
+    "esperadoIds": [
+      1
+    ],
+    "filtro": {
+      "estado": "abertas"
+    },
+    "nome": "Apenas tarefas abertas",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": true,
+        "id": 2,
+        "titulo": "Revisar código"
+      }
+    ]
+  },
+  {
+    "criterio": "C03",
+    "esperadoIds": [
+      2
+    ],
+    "filtro": {
+      "estado": "concluidas"
+    },
+    "nome": "Apenas tarefas concluídas",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": true,
+        "id": 2,
+        "titulo": "Revisar código"
+      }
+    ]
+  },
+  {
+    "criterio": "C04",
+    "esperadoIds": [
+      1
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "REVISAR"
+    },
+    "nome": "Busca insensível a maiúsculas e minúsculas",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Revisar código"
+      },
+      {
+        "concluida": false,
+        "id": 2,
+        "titulo": "Outra tarefa"
+      }
+    ]
+  },
+  {
+    "criterio": "C05",
+    "esperadoIds": [
+      2
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "relatorio"
+    },
+    "nome": "Busca sensível a acentos",
+    "tarefas": [
+      {
+        "concluida": true,
+        "id": 1,
+        "titulo": "Enviar relatório"
+      },
+      {
+        "concluida": true,
+        "id": 2,
+        "titulo": "Outro relatorio sem acento"
+      }
+    ]
+  },
+  {
+    "criterio": "C06",
+    "esperadoIds": [
+      1
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "  código fonte  "
+    },
+    "nome": "Trim nos extremos do termo mantendo espaços internos",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Revisar código fonte"
+      },
+      {
+        "concluida": false,
+        "id": 2,
+        "titulo": "Outra tarefa"
+      }
+    ]
+  },
+  {
+    "criterio": "C07",
+    "esperadoIds": [
+      1,
+      2
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "   "
+    },
+    "nome": "Termo só com espaços não filtra pelo título",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": false,
+        "id": 2,
+        "titulo": "Revisar código"
+      }
+    ]
+  },
+  {
+    "criterio": "C08",
+    "esperadoIds": [
+      1
+    ],
+    "filtro": {
+      "estado": "todas",
+      "termo": "mpr"
+    },
+    "nome": "Termo em qualquer parte do título",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Comprar pão"
+      },
+      {
+        "concluida": false,
+        "id": 2,
+        "titulo": "Revisar código"
+      }
+    ]
+  },
+  {
+    "criterio": "C09",
+    "esperadoIds": [
+      1
+    ],
+    "filtro": {
+      "estado": "abertas",
+      "termo": "Revisar"
+    },
+    "nome": "Filtro por estado e termo combinados",
+    "tarefas": [
+      {
+        "concluida": false,
+        "id": 1,
+        "titulo": "Revisar código"
+      },
+      {
+        "concluida": true,
+        "id": 2,
+        "titulo": "Revisar documentação"
+      }
+    ]
+  },
+  {
+    "criterio": "C10",
+    "esperadoErro": "Estado inválido",
+    "filtro": {
+      "estado": "invalido"
+    },
+    "nome": "Estado inválido lança erro",
+    "tarefas": []
+  }
+]

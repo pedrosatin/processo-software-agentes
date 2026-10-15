@@ -1,0 +1,13 @@
+ok    C01 Todas as tarefas sem termo
+ok    C02 Apenas tarefas abertas
+ok    C03 Apenas tarefas concluídas
+ok    C04 Busca insensível a maiúsculas e minúsculas
+ok    C05 Busca sensível a acentos
+ok    C06 Trim nos extremos do termo mantendo espaços internos
+ok    C07 Termo só com espaços não filtra pelo título
+ok    C08 Termo em qualquer parte do título
+ok    C09 Filtro por estado e termo combinados
+ok    C10 Estado inválido lança erro
+
+10 de 10 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.

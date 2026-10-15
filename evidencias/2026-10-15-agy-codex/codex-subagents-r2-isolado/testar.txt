@@ -1,0 +1,36 @@
+ok    C01 Todas sem termo
+ok    C02 Somente abertas
+ok    C03 Somente concluídas
+ok    C04 Prefixo compr encontra Comprar pão
+ok    C04 Trecho interno do título
+ok    C05 Comparação ignora caixa
+ok    C06 Sem equivalência de sharp s
+ok    C07 Acentos contam
+ok    C08 Remove espaços nas pontas
+ok    C09 Espaço duplo interno conta
+ok    C10 Termo ausente respeita estado
+ok    C10 Termo vazio respeita estado
+ok    C10 Termo só com espaços respeita estado
+ok    C10 Trim JavaScript remove tabulação e quebra de linha
+ok    C11 Sem normalização Unicode
+ok    C12 Combina estado e termo
+ok    C13 Estado inválido 'invalido'
+ok    C13 Estado inválido com lista vazia 'invalido'
+ok    C13 Estado inválido 'ABERTAS'
+ok    C13 Estado inválido com lista vazia 'ABERTAS'
+ok    C13 Estado inválido ' abertas '
+ok    C13 Estado inválido com lista vazia ' abertas '
+ok    C13 Estado inválido ''
+ok    C13 Estado inválido com lista vazia ''
+ok    C14 Mantém ordem original sem ordenar ids
+ok    C15 Filtragem não altera entrada
+ok    C16 Resultado usa objetos recebidos
+ok    C17 Novo array quando todas entram
+ok    C17 Novo array para entrada vazia
+ok    C18 Lista vazia com estado válido
+ok    C18 Nenhum título atende
+ok    C18 Nenhuma tarefa atende ao estado
+
+32 de 32 casos aprovados
+Cada caso também confere que a lista recebida não foi alterada.
+saida=0

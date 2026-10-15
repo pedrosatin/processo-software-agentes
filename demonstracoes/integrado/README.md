@@ -1,5 +1,13 @@
 # Exemplo integrado
 
+## Antigravity e Codex
+
+Retestes completos em 15/10: Antigravity com agentes temporários definidos com MCP habilitado, Codex com seu agente por papel. A configuração inicial de Antigravity falhou ao usar `call_mcp_tool` em `tools` de um agente Markdown e foi substituída. Veja os resultados e os limites de isolamento no relato.
+
+A execução com `agy` e `codex`, os arquivos de configuração, as duas rodadas e a conferência dos resultados estão no [tutorial](../../docs/tutorial/README.md). Use a parte correspondente a esta pasta. Os registros de 15/10 ficam em [evidencias/2026-10-15-agy-codex](../../evidencias/2026-10-15-agy-codex).
+
+## Claude Code
+
 Combina as formas mostradas nas outras pastas:
 
 | Peça | Arquivo | Função |
