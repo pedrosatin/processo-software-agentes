@@ -8,15 +8,15 @@ No cenário de rastreabilidade, um critério de saída escrito em código reprov
 
 | Item | Valor |
 |---|---|
-| Programa | [CLI da atividade](../../atividade), em TypeScript |
-| Cenário | [02-rastreabilidade](../../atividade/cenarios/02-rastreabilidade) |
+| Programa | [CLI do processo](../../demonstracoes/cli), em TypeScript |
+| Cenário | [02-rastreabilidade](../../demonstracoes/cli/cenarios/02-rastreabilidade) |
 | Modo | `demonstracao`, padrão do CLI. As respostas dos agentes vêm de `cenarios/02-rastreabilidade/gravadas/` |
 | Instruções dos agentes | Originais, em [agentes/](agentes), versões `7eebf5ba`, `1bc9a88c` e `9d7e3510` |
-| Gate | `rastreabilidade`, em [atividade/src/gates.ts](../../atividade/src/gates.ts) |
+| Gate | `rastreabilidade`, em [demonstracoes/cli/src/gates.ts](../../demonstracoes/cli/src/gates.ts) |
 
 No modo demonstração nenhum modelo é chamado e não há chave de API. As gravadas reproduzem a linha de base, com as instruções originais. O que esta execução mede é o comportamento do CLI e do gate sobre essas respostas.
 
-O cenário traz a política do cliente em [politica-rastreabilidade.md](../../atividade/cenarios/02-rastreabilidade/politica-rastreabilidade.md): critérios com ID `C1`, `C2`, no máximo cinco critérios, cada caso citando o ID do critério que verifica. Na linha de base, `contexto.spec` e `contexto.tester` estão vazios em `processo.json`, e nenhum agente recebe a política.
+O cenário traz a política do cliente em [politica-rastreabilidade.md](../../demonstracoes/cli/cenarios/02-rastreabilidade/politica-rastreabilidade.md): critérios com ID `C1`, `C2`, no máximo cinco critérios, cada caso citando o ID do critério que verifica. Na linha de base, `contexto.spec` e `contexto.tester` estão vazios em `processo.json`, e nenhum agente recebe a política.
 
 ## Fluxo observado
 
@@ -88,7 +88,7 @@ Esse é o ponto de partida da atividade. O aluno decide quais agentes precisam d
 
 ## Como reproduzir
 
-Na pasta [atividade](../../atividade), com Node 22.13 ou posterior:
+Na pasta [demonstracoes/cli](../../demonstracoes/cli), com Node 22.13 ou posterior:
 
 ```bash
 npm ci

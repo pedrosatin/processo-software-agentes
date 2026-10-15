@@ -13,6 +13,8 @@ Registros de execuções reais do processo spec, coder e tester sobre a função
 | 15/10/2026 | [Antigravity e Codex](2026-10-15-agy-codex) | Os exemplos funcionam nos dois hosts, com ambiente isolado? | Parada nas dúvidas e testes cruzados por montagem; falhas e retestes documentados |
 | 15/10/2026 | [CLI com Gemini API](2026-10-15-cli-api) | O cliente recebe respostas reais e chega aos testes e gates? | Base: 5/5, 7/7 e gate reprovado. Cópia ajustada: 5/5, 7/7 e gate aprovado |
 
+O CLI agora fica em [demonstracoes/cli](../demonstracoes/cli). Os caminhos nas transcrições históricas preservam o nome `atividade/` usado na época; os comandos de reprodução nos READMEs apontam para a pasta atual.
+
 ## Leitura conjunta
 
 ```text

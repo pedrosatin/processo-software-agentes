@@ -1,10 +1,10 @@
-# Parte 3. CLI da atividade
+# Parte 3. CLI do processo
 
 [Voltar ao índice](README.md)
 
 ## O que a demonstração mostra
 
-A pasta [atividade](../../atividade) tem um CLI em TypeScript que executa spec, coder e tester sobre `filtrarTarefas` e avalia o resultado com gates, os critérios de saída de cada cenário. O processo de cada cenário está em `cenarios/<id>/processo.json`, e as instruções dos três agentes estão em `agentes/`.
+A pasta [demonstracoes/cli](../../demonstracoes/cli) tem um CLI em TypeScript que executa spec, coder e tester sobre `filtrarTarefas` e avalia o resultado com gates, os critérios de saída de cada cenário. O processo de cada cenário está em `cenarios/<id>/processo.json`, e as instruções dos três agentes estão em `agentes/`.
 
 ```text
 pedido + entradas/respostas.md
@@ -35,10 +35,10 @@ O CLI tem três modos de resposta:
 
 ## Pré-requisitos
 
-Docker Desktop aberto. Os comandos rodam dentro da pasta `atividade`:
+Docker Desktop aberto. Os comandos rodam dentro da pasta `demonstracoes/cli`:
 
 ```bash
-cd atividade
+cd demonstracoes/cli
 ```
 
 Construa a imagem uma vez. A primeira construção baixa a imagem do Node e instala as dependências.
@@ -131,7 +131,7 @@ No cenário 4, os cinco casos do tester passam e matam só 3 dos 7 mutantes. Os 
 
 ## 3. Ver os arquivos da execução
 
-O CLI imprime `Execução gravada em /app/artefatos/...`. Esse é o caminho dentro do contêiner. Na sua máquina, a mesma pasta fica em `atividade/artefatos/<cenário>/<data-hora>-<rótulo>/`.
+O CLI imprime `Execução gravada em /app/artefatos/...`. Esse é o caminho dentro do contêiner. Na sua máquina, a mesma pasta fica em `demonstracoes/cli/artefatos/<cenário>/<data-hora>-<rótulo>/`.
 
 ```bash
 ls -R artefatos/02-rastreabilidade/20261014-162718-antes
@@ -178,7 +178,7 @@ O modo manual troca a chamada ao modelo por arquivos. O CLI grava o pedido de ca
 
 ### Executar
 
-Abra dois terminais na pasta `atividade`. No primeiro:
+Abra dois terminais na pasta `demonstracoes/cli`. No primeiro:
 
 ```bash
 docker compose -p aula-processo run --rm processo executar --cenario 2 --rotulo manual --modo manual
@@ -188,7 +188,7 @@ O CLI para no evento `aguardando-resposta` do spec:
 
 ![CLI aguardando a resposta do spec](img/cli-manual-aguardando.png)
 
-O caminho `/app/artefatos/...` corresponde a `atividade/artefatos/...` na sua máquina. Abra o pedido no editor:
+O caminho `/app/artefatos/...` corresponde a `demonstracoes/cli/artefatos/...` na sua máquina. Abra o pedido no editor:
 
 ![Início do arquivo spec-0-pedido.md](img/cli-manual-pedido.png)
 
@@ -205,7 +205,7 @@ Na execução mostrada acima, as três respostas salvas foram cópias dos arquiv
 O modo `api` foi executado com Gemini em 15/10/2026. No cenário 2, a base passou em 5/5 casos do tester e 7/7 da referência, com reprovação do gate de rastreabilidade. Uma cópia ajustada do professor passou também no gate. O alias padrão respondeu sem fallback; a segunda execução usou `gemini-3.5-flash-lite` explicitamente. Veja a montagem, os modelos e os resultados no [relato do ensaio real](../../evidencias/2026-10-15-cli-api).
 
 1. Crie uma chave no [Google AI Studio](https://aistudio.google.com/apikey) com sua conta Google. O nível gratuito não pede cartão.
-2. Crie o arquivo `atividade/.env` com a linha `GEMINI_API_KEY=sua-chave`. O Docker Compose lê esse arquivo, e o `.gitignore` da pasta impede que ele entre em commits.
+2. Crie o arquivo `demonstracoes/cli/.env` com a linha `GEMINI_API_KEY=sua-chave`. O Docker Compose lê esse arquivo, e o `.gitignore` da pasta impede que ele entre em commits.
 3. Execute com `--modo api`:
 
 ```bash

@@ -34,6 +34,6 @@ Para repetir os ensaios e interpretar seus limites, siga o [guia Antes de execut
 
 ## O que permanece específico do laboratório
 
-O MCP local trabalha com arquivos numa pasta de demonstração. Ele tem prazo de execução dos testes e retira as variáveis do servidor do ambiente do filho. O CLI da atividade acrescenta restrições do Permission Model do Node. As duas montagens têm controles diferentes, descritos nos respectivos READMEs, e não oferecem a mesma fronteira de execução.
+O MCP local trabalha com arquivos numa pasta de demonstração. Ele tem prazo de execução dos testes e retira as variáveis do servidor do ambiente do filho. O CLI do processo acrescenta restrições do Permission Model do Node. As duas montagens têm controles diferentes, descritos nos respectivos READMEs, e não oferecem a mesma fronteira de execução.
 
 As configurações e os testes publicados permitem estudar esses mecanismos. Uso em outro projeto exige avaliar o acesso a arquivos e serviços, as permissões dos hosts e os limites da conta usada. Os relatos não comprovam segurança para código malicioso, confiabilidade estatística ou custo típico de produção.

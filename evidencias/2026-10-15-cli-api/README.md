@@ -33,7 +33,7 @@ Os fallbacks continuam cobertos pelos testes HTTP locais. Este ensaio real não 
 
 ## Reproduzir
 
-Siga a [parte 3 do tutorial](../../docs/tutorial/03-cli-da-atividade.md). Use uma chave própria no ambiente e mantenha o modelo disponível na sua conta. Para usar Node em um clone novo, entre no diretório `atividade` e instale as dependências uma vez com `npm ci`, como no [README da atividade](../../atividade/README.md#executar-com-node). Depois execute o cenário 2:
+Siga a [parte 3 do tutorial](../../docs/tutorial/03-cli.md). Use uma chave própria no ambiente e mantenha o modelo disponível na sua conta. Para usar Node em um clone novo, entre no diretório `demonstracoes/cli` e instale as dependências uma vez com `npm ci`, como no [README do CLI](../../demonstracoes/cli/README.md#executar-com-node). Depois execute o cenário 2:
 
 ```bash
 npm run processo -- executar --cenario 2 --rotulo antes --modo api
