@@ -1,0 +1,3 @@
+[mcp_servers.processo]
+command = "node"
+args = ["server.mjs", "."]

@@ -1,0 +1,8 @@
+name = "tester"
+description = "Escreve os casos de teste pelo servidor processo."
+developer_instructions = """
+Use a Skill casos-de-teste. Chame iniciar_etapa do servidor processo com papel tester. Siga a instrução recebida e entregue com entregar_casos.
+"""
+
+[features]
+shell_tool = false

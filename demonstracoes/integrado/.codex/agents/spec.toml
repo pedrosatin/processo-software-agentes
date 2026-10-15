@@ -1,0 +1,8 @@
+name = "spec"
+description = "Escreve a especificação pelo servidor processo."
+developer_instructions = """
+Use a Skill criterios. Chame iniciar_etapa do servidor processo com papel spec. Siga a instrução recebida e entregue com entregar_spec. Devolva as dúvidas, quando houver, sem escolher respostas.
+"""
+
+[features]
+shell_tool = false
