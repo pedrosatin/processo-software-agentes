@@ -1,0 +1,130 @@
+{
+  "funcao": "buscarPorTag",
+  "comparar": "ids",
+  "casos": [
+    {
+      "nome": "tag igual",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "tags": [
+              "backend"
+            ]
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "tags": [
+              "front"
+            ]
+          }
+        ],
+        "backend"
+      ],
+      "esperado": [
+        1
+      ]
+    },
+    {
+      "nome": "maiúsculas",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "tags": [
+              "Backend"
+            ]
+          }
+        ],
+        "BACKEND"
+      ],
+      "esperado": [
+        1
+      ]
+    },
+    {
+      "nome": "com cerquilha e espaços",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "tags": [
+              "bug"
+            ]
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "tags": [
+              "bug",
+              "ux"
+            ]
+          }
+        ],
+        " #bug "
+      ],
+      "esperado": [
+        1,
+        2
+      ]
+    },
+    {
+      "nome": "parte da tag não encontra",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "tags": [
+              "backend"
+            ]
+          }
+        ],
+        "back"
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "sem tags",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "tags": []
+          }
+        ],
+        "bug"
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "busca vazia",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "tags": [
+              "bug"
+            ]
+          }
+        ],
+        " # "
+      ],
+      "esperadoErro": "Tag inválida"
+    }
+  ]
+}

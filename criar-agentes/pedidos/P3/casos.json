@@ -1,0 +1,112 @@
+{
+  "funcao": "tarefasAtrasadas",
+  "comparar": "ids",
+  "casos": [
+    {
+      "nome": "prazo anterior",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-01"
+          }
+        ],
+        "2026-11-05"
+      ],
+      "esperado": [
+        1
+      ]
+    },
+    {
+      "nome": "prazo igual a hoje",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-05"
+          }
+        ],
+        "2026-11-05"
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "concluída e sem prazo",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true,
+            "prazo": "2026-10-01"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false
+          }
+        ],
+        "2026-11-05"
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "ordem por prazo",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-03"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prazo": "2026-10-20"
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false,
+            "prazo": "2026-11-03"
+          }
+        ],
+        "2026-11-05"
+      ],
+      "esperado": [
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "nome": "lista vazia",
+      "entrada": [
+        [],
+        "2026-11-05"
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "data inválida",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-01"
+          }
+        ],
+        "05/11/2026"
+      ],
+      "esperadoErro": "Data inválida"
+    }
+  ]
+}

@@ -18,6 +18,7 @@ filtrarTarefas(tarefas: Tarefa[], filtro: { estado: string, termo?: string }): T
 | [demonstracoes/cli](demonstracoes/cli) | Um CLI em TypeScript que chama a API do modelo para cada papel |
 | [demonstracoes/integrado](demonstracoes/integrado) | Subagents, Skills e o servidor MCP combinados |
 | [demonstracoes/comum](demonstracoes/comum) | Pedido, respostas de exemplo, script de testes e artefatos de referência |
+| [criar-agentes](criar-agentes) | Kit para criar os agentes spec e coder em Antigravity, Codex ou Claude Code e avaliá-los com casos de referência |
 | [evidencias](evidencias) | Relatos de execuções reais, com fluxo observado, resultados e limitações |
 
 Cada pasta tem um README com os comandos. O [tutorial](docs/tutorial/README.md) mostra a execução de cada demonstração passo a passo, com capturas de tela. O guia [Antes de executar](docs/tutorial/00-como-estudar.md) explica os papéis, a leitura dos resultados e como repetir a conferência cruzada.

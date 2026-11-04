@@ -1,0 +1,121 @@
+{
+  "funcao": "paginarTarefas",
+  "comparar": "ids",
+  "casos": [
+    {
+      "nome": "primeira página",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false
+          }
+        ],
+        1,
+        2
+      ],
+      "esperado": [
+        1,
+        2
+      ]
+    },
+    {
+      "nome": "última página incompleta",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false
+          }
+        ],
+        2,
+        2
+      ],
+      "esperado": [
+        3
+      ]
+    },
+    {
+      "nome": "página depois do fim",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          }
+        ],
+        3,
+        2
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "página zero",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          }
+        ],
+        0,
+        2
+      ],
+      "esperadoErro": "Página inválida"
+    },
+    {
+      "nome": "tamanho zero",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          }
+        ],
+        1,
+        0
+      ],
+      "esperadoErro": "Tamanho inválido"
+    },
+    {
+      "nome": "tamanho fracionário",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          }
+        ],
+        1,
+        1.5
+      ],
+      "esperadoErro": "Tamanho inválido"
+    }
+  ]
+}

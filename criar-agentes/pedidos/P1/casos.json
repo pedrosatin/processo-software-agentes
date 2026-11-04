@@ -1,0 +1,140 @@
+{
+  "funcao": "ordenarPorPrioridade",
+  "comparar": "ids",
+  "casos": [
+    {
+      "nome": "três prioridades",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prioridade": "baixa"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prioridade": "alta"
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false,
+            "prioridade": "media"
+          }
+        ]
+      ],
+      "esperado": [
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "nome": "empate mantém a ordem",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prioridade": "media"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prioridade": "media"
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false,
+            "prioridade": "alta"
+          }
+        ]
+      ],
+      "esperado": [
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "nome": "concluída vai para o fim",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true,
+            "prioridade": "alta"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prioridade": "baixa"
+          }
+        ]
+      ],
+      "esperado": [
+        2,
+        1
+      ]
+    },
+    {
+      "nome": "concluídas ordenadas entre si",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true,
+            "prioridade": "baixa"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": true,
+            "prioridade": "alta"
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false,
+            "prioridade": "media"
+          }
+        ]
+      ],
+      "esperado": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "nome": "lista vazia",
+      "entrada": [
+        []
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "prioridade inválida",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prioridade": "urgente"
+          }
+        ]
+      ],
+      "esperadoErro": "Prioridade inválida"
+    }
+  ]
+}

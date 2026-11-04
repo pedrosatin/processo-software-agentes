@@ -1,0 +1,133 @@
+{
+  "funcao": "proximasTarefas",
+  "comparar": "ids",
+  "casos": [
+    {
+      "nome": "dentro do intervalo",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-06"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prazo": "2026-11-20"
+          }
+        ],
+        "2026-11-05",
+        7
+      ],
+      "esperado": [
+        1
+      ]
+    },
+    {
+      "nome": "pontas incluídas",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-12"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prazo": "2026-11-05"
+          }
+        ],
+        "2026-11-05",
+        7
+      ],
+      "esperado": [
+        2,
+        1
+      ]
+    },
+    {
+      "nome": "virada de mês",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-12-02"
+          }
+        ],
+        "2026-11-28",
+        4
+      ],
+      "esperado": [
+        1
+      ]
+    },
+    {
+      "nome": "atrasada, concluída e sem prazo",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-01"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": true,
+            "prazo": "2026-11-06"
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false
+          }
+        ],
+        "2026-11-05",
+        7
+      ],
+      "esperado": []
+    },
+    {
+      "nome": "zero dias",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false,
+            "prazo": "2026-11-05"
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false,
+            "prazo": "2026-11-06"
+          }
+        ],
+        "2026-11-05",
+        0
+      ],
+      "esperado": [
+        1
+      ]
+    },
+    {
+      "nome": "dias negativos",
+      "entrada": [
+        [],
+        "2026-11-05",
+        -1
+      ],
+      "esperadoErro": "Dias inválidos"
+    }
+  ]
+}

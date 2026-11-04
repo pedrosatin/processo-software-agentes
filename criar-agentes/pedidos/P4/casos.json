@@ -1,0 +1,63 @@
+{
+  "funcao": "validarTitulo",
+  "comparar": "valor",
+  "casos": [
+    {
+      "nome": "título válido",
+      "entrada": [
+        "Revisar código"
+      ],
+      "esperado": {
+        "ok": true
+      }
+    },
+    {
+      "nome": "só espaços",
+      "entrada": [
+        "   "
+      ],
+      "esperado": {
+        "ok": false,
+        "erro": "Título obrigatório"
+      }
+    },
+    {
+      "nome": "curto depois do trim",
+      "entrada": [
+        "  ab  "
+      ],
+      "esperado": {
+        "ok": false,
+        "erro": "Título curto"
+      }
+    },
+    {
+      "nome": "exatamente 3",
+      "entrada": [
+        "abc"
+      ],
+      "esperado": {
+        "ok": true
+      }
+    },
+    {
+      "nome": "exatamente 80",
+      "entrada": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "esperado": {
+        "ok": true
+      }
+    },
+    {
+      "nome": "81 caracteres",
+      "entrada": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "esperado": {
+        "ok": false,
+        "erro": "Título longo"
+      }
+    }
+  ]
+}

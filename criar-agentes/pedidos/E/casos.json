@@ -1,0 +1,108 @@
+{
+  "funcao": "percentualConcluido",
+  "comparar": "valor",
+  "casos": [
+    {
+      "nome": "lista vazia",
+      "entrada": [
+        []
+      ],
+      "esperado": 0
+    },
+    {
+      "nome": "uma de duas",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": 50
+    },
+    {
+      "nome": "uma de três",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": false
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": 33
+    },
+    {
+      "nome": "duas de três",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": true
+          },
+          {
+            "id": 3,
+            "titulo": "c",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": 67
+    },
+    {
+      "nome": "todas concluídas",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": true
+          },
+          {
+            "id": 2,
+            "titulo": "b",
+            "concluida": true
+          }
+        ]
+      ],
+      "esperado": 100
+    },
+    {
+      "nome": "nenhuma concluída",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "a",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": 0
+    }
+  ]
+}
