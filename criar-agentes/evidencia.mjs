@@ -52,9 +52,11 @@ const principal = async () => {
         ? `respostas.md ainda não foi preenchido. Copie as respostas de pedidos/${pedido.id}/respostas.md, acrescente a sua decisão para dúvidas novas, e rode o spec de novo.`
         : `respostas.md tem ${respostas.trim().length} caracteres e precisa de mais de 40. Escreva as respostas ou a sua decisão com mais detalhe.`],
     [!testes.erro, testes.erro ?? `${arquivoCodigo} exporta ${pedido.funcao}`,
-      'O coder precisa gravar o arquivo com a função exportada. Se o harness escreveu o código na conversa principal, a delegação ao coder não aconteceu.'],
+      /não existe/.test(testes.erro ?? '')
+        ? 'O arquivo ainda não existe. Rode o processo até o coder gravar o código, e confira na tela a delegação ao coder.'
+        : 'O coder precisa gravar o arquivo com a função exportada, sem imports e com TypeScript simples (sem enum). A mensagem acima diz o que falhou.'],
     [!testes.erro && aprovados === testes.resultados.length, `${aprovados} de ${pedido.casos.length} casos de referência aprovados`,
-      'Leia as linhas "falha em" abaixo. Cada uma diz o resultado esperado e o recebido. Peça ao coder para corrigir a partir delas.'],
+      testes.erro ? 'Os casos só rodam depois que o coder grava o código.' : 'Leia as linhas "falha em" abaixo. Cada uma diz o resultado esperado e o recebido. Peça ao coder para corrigir a partir delas.'],
   ]
 
   const evidencia = {

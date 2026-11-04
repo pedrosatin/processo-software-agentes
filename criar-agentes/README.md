@@ -29,7 +29,7 @@ pedido.md ──> spec ──> saida/spec.md ──> (dúvidas? a pessoa respond
 | Codex CLI | Opcional. `npm install -g @openai/codex` e login com a conta do ChatGPT. Depende do plano da conta |
 | Claude Code | Opcional. Exige plano pago ou crédito de API |
 
-Sem Node na máquina, troque `node` por `docker run --rm -it -v "${PWD}:/w" -w /w node:24-alpine node` nos comandos abaixo (no PowerShell; no Linux e no macOS use `"$PWD"`).
+Sem Node na máquina, e com Docker, peça à conversa principal para rodar o comando do Docker no lugar de `node testar.mjs`. Troque `node` por `docker run --rm -it -v "${PWD}:/w" -w /w node:24-alpine node` nos comandos abaixo (no PowerShell; no Linux e no macOS use `"$PWD"`).
 
 ## Obter o kit
 
@@ -137,7 +137,7 @@ Não escolha respostas nem escreva código.
 | `features.shell_tool = false` e outros `features.*` | Não | Desligam capacidades, como o shell |
 | `skills.config` | Não | Desliga Skills específicas |
 
-O Codex não tem lista de ferramentas por nome. O arquivo do agente também não muda `sandbox_mode`, `approval_policy` nem `mcp_servers`: o agente herda a sandbox e as aprovações da sessão. Pedir "só leia" nas instruções não cria uma sandbox somente leitura. O Codex só chama um agente quando você pede ou quando o `AGENTS.md` manda delegar, e só lê `.codex/` depois que você aceita confiar na pasta.
+O Codex não tem lista de ferramentas por nome. Segundo a documentação consultada em 04/11, `sandbox_mode`, `approval_policy` e `mcp_servers` dentro do arquivo do agente não mudam a sessão: o agente herda a sandbox e as aprovações dela. Confira essa página se a sua versão tiver mudado. Pedir "só leia" nas instruções não cria uma sandbox somente leitura. O Codex só chama um agente quando você pede ou quando o `AGENTS.md` manda delegar, e só lê `.codex/` depois que você aceita confiar na pasta.
 
 Documentação: [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents), [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [comandos](https://learn.chatgpt.com/docs/cli/slash-commands).
 
@@ -208,7 +208,7 @@ Na atividade, troque o nome da função e do arquivo pelos do seu pedido.
    Execute o processo de desenvolvimento para pedido.md.
    ```
 
-4. O spec para com dúvidas. Elas aparecem na resposta da conversa principal e na seção Dúvidas de `saida/spec.md`. As respostas de quem fez o pedido estão em `pedidos/<pedido>/respostas.md`. Copie para `respostas.md`. Se o spec levantar uma dúvida que essas respostas não cobrem, escreva a sua decisão em `respostas.md`. Se o spec disser que não tem dúvidas, escreva em `respostas.md` que usou as respostas do pedido, com mais de 40 caracteres. Depois peça:
+4. O spec para com dúvidas. Elas aparecem na resposta da conversa principal e na seção Dúvidas de `saida/spec.md`. As respostas de quem fez o pedido estão em `pedidos/<pedido>/respostas.md`. Copie para `respostas.md`. Se o spec levantar uma dúvida que essas respostas não cobrem, escreva a sua decisão em `respostas.md`. Se o spec disser que não tem dúvidas, copie mesmo assim as respostas do pedido, apague `saida/spec.md` e peça de novo, para o spec usá-las. O arquivo `respostas.md` precisa ter mais de 40 caracteres. Depois peça:
 
    ```text
    Preenchi respostas.md. Execute o processo de desenvolvimento para pedido.md.
