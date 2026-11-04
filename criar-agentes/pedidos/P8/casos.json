@@ -1,0 +1,108 @@
+{
+  "funcao": "normalizarTitulos",
+  "comparar": "valor",
+  "casos": [
+    {
+      "nome": "espaços nas pontas",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "  revisar código ",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": [
+        {
+          "id": 1,
+          "titulo": "Revisar código",
+          "concluida": false
+        }
+      ]
+    },
+    {
+      "nome": "espaços no meio",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "Revisar   o\tcódigo",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": [
+        {
+          "id": 1,
+          "titulo": "Revisar o código",
+          "concluida": false
+        }
+      ]
+    },
+    {
+      "nome": "resto do título mantido",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "api REST",
+            "concluida": true
+          }
+        ]
+      ],
+      "esperado": [
+        {
+          "id": 1,
+          "titulo": "Api REST",
+          "concluida": true
+        }
+      ]
+    },
+    {
+      "nome": "título vazio",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "   ",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": [
+        {
+          "id": 1,
+          "titulo": "",
+          "concluida": false
+        }
+      ]
+    },
+    {
+      "nome": "acento no começo",
+      "entrada": [
+        [
+          {
+            "id": 1,
+            "titulo": "ótimo",
+            "concluida": false
+          }
+        ]
+      ],
+      "esperado": [
+        {
+          "id": 1,
+          "titulo": "Ótimo",
+          "concluida": false
+        }
+      ]
+    },
+    {
+      "nome": "lista vazia",
+      "entrada": [
+        []
+      ],
+      "esperado": []
+    }
+  ]
+}
