@@ -49,6 +49,8 @@ export const testar = async pedido => {
   return { arquivo, resultados, ms: Math.round(performance.now() - inicio) }
 }
 
+const semAspas = valor => (/^(["']).*\1$/.test(valor) ? valor.slice(1, -1) : valor)
+
 const frontmatter = texto => {
   const m = texto.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/)
   if (!m) return { campos: {}, corpo: texto }
@@ -64,16 +66,19 @@ const frontmatter = texto => {
     if (!par) continue
     lista = par[2] === '' ? par[1] : null
     ultimo = par[1]
-    campos[par[1]] = par[2] === '' ? [] : par[2].trim()
+    campos[par[1]] = par[2] === '' ? [] : semAspas(par[2].trim())
   }
   return { campos, corpo: m[2] }
 }
 
 const toml = texto => {
-  const campo = nome => texto.match(new RegExp(`^${nome}\\s*=\\s*"([^"]*)"`, 'm'))?.[1]
-  const instrucoes = texto.match(/developer_instructions\s*=\s*"""([\s\S]*?)"""/)?.[1] ?? texto.match(/developer_instructions\s*=\s*"([^"]*)"/)?.[1]
+  const desescapar = valor => valor?.replace(/\\(["\\])/g, '$1')
+  const campo = nome => desescapar(texto.match(new RegExp(`^${nome}\\s*=\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm'))?.[1])
+  const instrucoes = texto.match(/developer_instructions\s*=\s*"""([\s\S]*?)"""/)?.[1] ?? desescapar(texto.match(/developer_instructions\s*=\s*"((?:[^"\\]|\\.)*)"/)?.[1])
   return { campos: { name: campo('name'), description: campo('description') }, corpo: instrucoes ?? '' }
 }
+
+export const PASTAS_AGENTES = ['.agents/agents/', '.claude/agents/', '.codex/agents/']
 
 const LOCAIS = [
   { harness: 'Antigravity', pasta: join('.agents', 'agents'), ext: '.md', ler: frontmatter },

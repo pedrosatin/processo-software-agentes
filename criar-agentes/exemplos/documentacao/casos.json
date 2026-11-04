@@ -1,0 +1,32 @@
+[
+  {
+    "id": "d1-dividir",
+    "esperado": [
+      "param:dividendo",
+      "param:divisor",
+      "erro:Divisor não pode ser zero"
+    ]
+  },
+  {
+    "id": "d2-saudacao",
+    "esperado": [
+      "param:nome",
+      "erro:Nome vazio"
+    ]
+  },
+  {
+    "id": "d3-intervalo",
+    "esperado": [
+      "param:inicio",
+      "param:fim",
+      "erro:Valores devem ser inteiros",
+      "erro:Início maior que fim"
+    ]
+  },
+  {
+    "id": "d4-contar",
+    "esperado": [
+      "param:lista"
+    ]
+  }
+]
