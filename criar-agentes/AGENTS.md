@@ -9,4 +9,6 @@ Os papéis spec e coder são subagents criados nesta pasta. No Antigravity eles 
 5. Se algum caso falhar, envie as falhas ao coder. Faça no máximo duas correções.
 6. Informe os critérios, o resultado dos testes e as falhas que restarem.
 
+Não leia a pasta pedidos/. Ela guarda as respostas e os casos de referência de todos os pedidos, e quem responde às dúvidas é a pessoa.
+
 Se o subagent spec ou coder não existir, pare e informe qual arquivo falta. Não crie os subagents por conta própria.

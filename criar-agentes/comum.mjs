@@ -73,7 +73,9 @@ const frontmatter = texto => {
 
 const toml = texto => {
   const desescapar = valor => valor?.replace(/\\(["\\])/g, '$1')
-  const campo = nome => desescapar(texto.match(new RegExp(`^${nome}\\s*=\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm'))?.[1])
+  const campo = nome => texto.match(new RegExp(`^${nome}\\s*=\\s*"""([\\s\\S]*?)"""`, 'm'))?.[1]?.trim()
+    ?? texto.match(new RegExp(`^${nome}\\s*=\\s*'([^']*)'`, 'm'))?.[1]
+    ?? desescapar(texto.match(new RegExp(`^${nome}\\s*=\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm'))?.[1])
   const instrucoes = texto.match(/developer_instructions\s*=\s*"""([\s\S]*?)"""/)?.[1] ?? desescapar(texto.match(/developer_instructions\s*=\s*"((?:[^"\\]|\\.)*)"/)?.[1])
   return { campos: { name: campo('name'), description: campo('description') }, corpo: instrucoes ?? '' }
 }
@@ -95,7 +97,7 @@ export const lerAgentes = async () => {
       const arquivo = join(local.pasta, nome)
       const conteudo = await readFile(arquivo, 'utf8')
       const { campos, corpo } = local.ler(conteudo)
-      agentes.push({ harness: local.harness, arquivo, nome: campos.name ?? '', descricao: campos.description ?? '', ferramentas: campos.tools ?? null, instrucoes: corpo.trim(), conteudo })
+      agentes.push({ harness: local.harness, arquivo, nome: campos.name ?? '', descricao: (campos.description ?? '').replace(/^[>|][+-]?\s*/, ''), ferramentas: campos.tools ?? null, instrucoes: corpo.trim(), conteudo })
     }
   }
   return agentes

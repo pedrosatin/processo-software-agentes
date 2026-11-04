@@ -20,7 +20,7 @@ export const avaliar = async ({ nome, extrair, arquivoSaida }) => {
   for (const caso of casos) {
     const arquivo = arquivoSaida(caso)
     if (!existsSync(arquivo)) {
-      linhas.push({ caso, semSaida: true, ...comparar(caso.esperado, []) })
+      linhas.push({ caso, semSaida: true, ...comparar(caso.esperado, []), exato: false })
       continue
     }
     const { itens, marca } = extrair(await readFile(arquivo, 'utf8'), caso)
@@ -46,10 +46,12 @@ export const avaliar = async ({ nome, extrair, arquivoSaida }) => {
   const cobertura = vp + fn === 0 ? null : Math.round(vp * 100 / (vp + fn))
   console.log(`\nCasos exatos: ${exatos} de ${linhas.length} (${Math.round(exatos * 100 / linhas.length)}%)`)
   console.log(`Itens corretos: ${vp}. Falsos positivos: ${fp}. Falsos negativos: ${fn}.`)
-  console.log(`Precisão: ${precisao ?? 'n/d'}%. Cobertura: ${cobertura ?? 'n/d'}%.`)
+  const pct = valor => (valor === null ? 'n/d' : `${valor}%`)
+  console.log(`Precisão: ${pct(precisao)}. Cobertura: ${pct(cobertura)}.`)
   const semMarca = com.filter(l => !l.marca).length
   if (linhas.length !== com.length) console.log(`\n${linhas.length - com.length} casos sem saída. O agente não rodou para eles.`)
   if (semMarca) console.log(`\n${semMarca} saídas sem a marca do agente. Confira se o harness chamou o agente ou se a conversa principal escreveu o arquivo.`)
-  console.log('\nTempo médio por caso não é medido por este script. Meça com o relógio do harness ou com time em modo não interativo.')
-  return linhas.length === com.length ? 0 : 1
+  console.log('\nA marca do agente é um texto que qualquer um pode escrever. Ela ajuda a notar um arquivo escrito pela conversa principal, mas não prova a delegação. Confira também a chamada ao agente na tela.')
+  console.log('Tempo médio por caso não é medido por este script. Meça com o relógio do harness ou com time em modo não interativo.')
+  return exatos === linhas.length ? 0 : 1
 }

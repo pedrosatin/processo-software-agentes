@@ -66,7 +66,8 @@ tools: Read, Write
 ---
 
 Leia pedido.md e respostas.md. Grave saida/spec.md com as seções Critérios (C01, C02...) e Dúvidas.
-Use as respostas nos critérios. Sem dúvidas, escreva Nenhuma. Não escolha respostas nem escreva código.
+Use as respostas nos critérios e copie as mensagens de erro exatamente. Sem dúvidas, escreva Nenhuma.
+Não escolha respostas nem escreva código.
 ```
 
 | Campo | Obrigatório | Função |
@@ -123,8 +124,9 @@ name = "spec"
 description = "Escreve a especificação com critérios e dúvidas. Use antes de qualquer implementação."
 developer_instructions = """
 Leia pedido.md e respostas.md. Grave saida/spec.md com as seções
-Critérios (C01, C02...) e Dúvidas. Use as respostas nos critérios.
-Sem dúvidas, escreva Nenhuma. Não escolha respostas nem escreva código.
+Critérios (C01, C02...) e Dúvidas. Use as respostas nos critérios
+e copie as mensagens de erro exatamente. Sem dúvidas, escreva Nenhuma.
+Não escolha respostas nem escreva código.
 """
 ```
 
@@ -141,7 +143,7 @@ Documentação: [subagents](https://learn.chatgpt.com/docs/agent-configuration/s
 
 ### O coder completo, para o pedido de exemplo
 
-O coder lê `saida/spec.md` e `pedido.md`. A assinatura da função e as mensagens de erro vêm do pedido, então as instruções do coder precisam mandar ler os dois arquivos.
+O coder lê `saida/spec.md` e `pedido.md`. A assinatura da função está em `pedido.md`. As mensagens de erro e as demais decisões estão nas respostas e chegam ao coder pela especificação, por isso o spec copia as mensagens exatamente e o coder as repete sem mudar.
 
 ```markdown
 ---
@@ -152,10 +154,41 @@ tools: Read, Write
 
 Leia saida/spec.md e pedido.md. Grave saida/percentualConcluido.ts exportando a função
 percentualConcluido e o tipo Tarefa. Funções puras, sem classes, sem imports, sem ponto e vírgula
-e sem alterar a entrada. Quando receber falhas de testes, corrija o comportamento de cada uma.
+e sem alterar a entrada. Mensagens de erro exatamente como na especificação.
+Quando receber falhas de testes, corrija o comportamento de cada uma.
 ```
 
-No Antigravity, use o cabeçalho do exemplo acima com `tools` de `view_file`, `write_to_file` e `replace_file_content`. No Codex, as mesmas instruções vão em `developer_instructions`. Na atividade, troque o nome da função e do arquivo pelos do seu pedido.
+No Antigravity, o cabeçalho leva `tools` com `view_file`, `write_to_file` e `replace_file_content`, e as instruções são as mesmas:
+
+```markdown
+---
+name: coder
+description: Implementa percentualConcluido a partir de saida/spec.md sem dúvidas em aberto.
+tools:
+  - view_file
+  - write_to_file
+  - replace_file_content
+subagent: true
+mainAgent: false
+---
+
+Leia saida/spec.md e pedido.md. Grave saida/percentualConcluido.ts (instruções do coder acima).
+```
+
+No Codex, as instruções vão em `developer_instructions`:
+
+```toml
+name = "coder"
+description = "Implementa percentualConcluido a partir de saida/spec.md sem dúvidas em aberto."
+developer_instructions = """
+Leia saida/spec.md e pedido.md. Grave saida/percentualConcluido.ts exportando a função
+percentualConcluido e o tipo Tarefa. Funções puras, sem classes, sem imports, sem ponto e
+vírgula e sem alterar a entrada. Mensagens de erro exatamente como na especificação.
+Quando receber falhas de testes, corrija o comportamento de cada uma.
+"""
+```
+
+Na atividade, troque o nome da função e do arquivo pelos do seu pedido.
 
 ## Passo a passo
 
@@ -203,7 +236,7 @@ A mensagem final do modelo não comprova a delegação nem a aprovação. Confir
 |---|---|
 | Na tela do harness | Claude Code: uma linha de chamada com o nome do agente, como `spec(...)`, e `/tasks` para listar os agentes em execução e os recentes. Antigravity: a chamada `invoke_subagent` e o comando `/agents`, que lista os agentes com estado. Codex: o comando `/subagents`, que troca entre as conversas dos agentes |
 | Nos arquivos | `saida/spec.md` e `saida/<função>.ts` foram gravados. Quem escreveu foi o agente se o harness mostra a gravação dentro da delegação, e não na conversa principal |
-| Na saída dos agentes dos exemplos | Os agentes de `exemplos/` gravam uma marca no arquivo (`"agente": "validador"` ou um comentário `<!-- agente: documentador -->`), e o `avaliar.mjs` avisa quando ela falta |
+| Na saída dos agentes dos exemplos | Os agentes de `exemplos/` gravam uma marca no arquivo (`"agente": "validador"` ou um comentário `<!-- agente: documentador -->`), e o `avaliar.mjs` avisa quando ela falta. A marca é um texto que qualquer um pode escrever. Ela ajuda a notar um arquivo escrito pela conversa principal, mas não prova a delegação |
 
 No `/agents` do Claude Code atual, o comando só imprime um lembrete e não lista os agentes. Em modo não interativo, `claude -p --output-format stream-json --verbose` marca as mensagens dos agentes com `parent_tool_use_id`. O `agy -p --output-format stream-json` registra a atividade do agente em eventos `step_update` com `subagent_info`. O `codex exec --json` registra eventos `collab_tool_call` quando delega, mas no ensaio de 04/11 só o evento `wait` apareceu, e a criação do agente não. Para o Codex, confira a delegação na tela ou com `/subagents`.
 
@@ -249,7 +282,7 @@ A pasta [`exemplos/`](exemplos) traz dois agentes de outro tipo, com métricas d
 | A conversa principal escreve o código sozinha | A descrição do agente não diz quando usá-lo, ou as regras de `AGENTS.md` foram apagadas |
 | O harness para pedindo permissão | O agente precisa gravar em `saida/` e a conversa principal precisa rodar `node testar.mjs`. Aprove ou libere esses comandos na pasta |
 | O coder grava outro arquivo | As instruções do coder citam a função do exemplo. Troque pelo nome que está em `pedido.md` |
-| O código tem a assinatura ou a mensagem de erro errada | As instruções do coder não mandam ler `pedido.md`, ou o spec não repetiu a assinatura e as mensagens de erro nos critérios. Acrescente `pedido.md` às instruções do coder |
+| O código tem a assinatura ou a mensagem de erro errada | A assinatura está em `pedido.md`, e as mensagens de erro estão nas respostas. Confira se o coder lê `pedido.md` e se o spec copiou as mensagens de erro exatamente nos critérios |
 | `testar.mjs` acusa erro de sintaxe | Node anterior a 22.18. Use o comando com Docker |
 
 ## Referências

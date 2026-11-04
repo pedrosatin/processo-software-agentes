@@ -48,7 +48,9 @@ const principal = async () => {
     [/\bC0?1\b/.test(specMd) && temSecao(specMd, 'Crit'), 'saida/spec.md com critérios numerados',
       specMd ? 'O arquivo precisa de um título com Critérios (por exemplo ## Critérios) e uma linha com C01. Peça ao spec o formato C01, C02...' : 'saida/spec.md não existe. O spec precisa rodar e gravar o arquivo.'],
     [!/Ainda sem respostas/.test(respostas) && respostas.trim().length > 40, 'respostas.md preenchido depois das dúvidas',
-      'respostas.md ainda está vazio. Copie as respostas de pedidos/' + pedido.id + '/respostas.md, acrescente a sua decisão para dúvidas novas, e rode o spec de novo.'],
+      /Ainda sem respostas/.test(respostas) || respostas.trim() === ''
+        ? `respostas.md ainda não foi preenchido. Copie as respostas de pedidos/${pedido.id}/respostas.md, acrescente a sua decisão para dúvidas novas, e rode o spec de novo.`
+        : `respostas.md tem ${respostas.trim().length} caracteres e precisa de mais de 40. Escreva as respostas ou a sua decisão com mais detalhe.`],
     [!testes.erro, testes.erro ?? `${arquivoCodigo} exporta ${pedido.funcao}`,
       'O coder precisa gravar o arquivo com a função exportada. Se o harness escreveu o código na conversa principal, a delegação ao coder não aconteceu.'],
     [!testes.erro && aprovados === testes.resultados.length, `${aprovados} de ${pedido.casos.length} casos de referência aprovados`,
@@ -74,6 +76,8 @@ const principal = async () => {
     if (!ok && dica) console.log(`         O que fazer: ${dica}`)
   })
   testes.resultados.filter(x => !x.passou).forEach(x => console.log(`         falha em "${x.nome}": ${x.detalhe}`))
+  agentes.filter(a => /\b(Bash|run_command)\b/.test(String(a.ferramentas ?? ''))).forEach(a =>
+    console.log(`\nAviso: o agente ${a.nome} em ${a.arquivo} tem ferramenta de comando (${a.ferramentas}). A atividade pede agentes que só leem e gravam arquivos.`))
   const falhas = conferencias.filter(([ok]) => !ok).length
   console.log(`\nTaxa de acerto nos casos de referência: ${evidencia.testes.taxa_acerto}%`)
   console.log(`Critérios no spec.md: ${criteriosNoSpec}. Casos de referência: ${pedido.casos.length}. Critério sem caso de referência não entra na taxa de acerto.`)

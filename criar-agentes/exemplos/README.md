@@ -33,7 +33,7 @@ O `avaliar.mjs` compara os achados de cada saída com o esperado em `casos.json`
 | Falso negativo | Item que existe no caso e o agente não apontou |
 | Precisão | Itens corretos divididos por todos os itens que o agente apontou |
 | Cobertura | Itens corretos divididos por todos os itens esperados |
-| Marca do agente | Texto que o agente grava na saída. Sem ela, o avaliador avisa que a conversa principal pode ter escrito o arquivo |
+| Marca do agente | Texto que o agente grava na saída. Sem ela, o avaliador avisa que a conversa principal pode ter escrito o arquivo. Qualquer pessoa pode escrever a marca, então ela não prova a delegação |
 
 O tempo médio por caso não é medido. Para medir, rode um caso por vez em modo não interativo com `time`, ou leia a duração no registro do harness.
 
@@ -49,6 +49,8 @@ Cada harness delegou ao agente uma vez por arquivo e gravou as saídas. A respos
 | Antigravity CLI 1.4.12, modelo padrão | validador | 7 de 7 | 0 | 0 |
 
 Duas coisas apareceram em tentativas anteriores e levaram a ajustes nas regras. Na primeira do documentador no Claude Code, a conversa principal parou antes de delegar, porque o comando `ls` pediu aprovação e o modo não interativo não tinha permissão para ele. Na do validador, ela leu `casos.json`, que guarda as respostas esperadas, e chamou também os agentes `Explore` e `general-purpose` para listar arquivos. As regras agora mandam listar `entradas/*.ts` com a ferramenta de busca de arquivos e proíbem ler `casos.json`. Com elas, a conversa principal do Claude Code fez duas buscas de arquivos, sete delegações ao agente e um `node avaliar.mjs`, sem outras leituras. Em modo interativo, o harness pede as aprovações na tela.
+
+Na tabela, o Claude Code usou o modelo `haiku`, e o Codex e o Antigravity usaram o modelo padrão da conta. Os modelos são diferentes, então a tabela não compara a qualidade dos harnesses. Com 7 casos, 7 de 7 não prova que o agente acerta sempre.
 
 Os ensaios usam as contas do professor e não comprovam a cota de uma conta gratuita nova.
 
