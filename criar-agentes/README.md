@@ -139,7 +139,19 @@ Não escolha respostas nem escreva código.
 
 O Codex não tem lista de ferramentas por nome. Segundo a documentação consultada em 04/11, `sandbox_mode`, `approval_policy` e `mcp_servers` dentro do arquivo do agente não mudam a sessão: o agente herda a sandbox e as aprovações dela. Confira essa página se a sua versão tiver mudado. Pedir "só leia" nas instruções não cria uma sandbox somente leitura. O Codex só chama um agente quando você pede ou quando o `AGENTS.md` manda delegar, e só lê `.codex/` depois que você aceita confiar na pasta.
 
-Documentação: [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents), [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [comandos](https://learn.chatgpt.com/docs/cli/slash-commands).
+Para liberar ou bloquear comandos, o Codex usa Rules, fora do arquivo do agente. São arquivos `.rules` em `~/.codex/rules/` ou em `.codex/rules/` do projeto, e valem para a sessão inteira. Cada regra indica o início do comando e uma decisão: `allow` roda sem perguntar, `prompt` pergunta a cada vez e `forbidden` bloqueia. Quando várias regras casam com o comando, vale a mais restritiva. A documentação marca as Rules como experimentais.
+
+```python
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "forbidden",
+    justification = "O processo da aula não publica alterações.",
+)
+```
+
+`codex execpolicy check --pretty --rules .codex/rules/aula.rules -- git push` mostra a decisão para um comando.
+
+Documentação: [subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents), [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [comandos](https://learn.chatgpt.com/docs/cli/slash-commands), [Rules](https://learn.chatgpt.com/docs/agent-configuration/rules).
 
 ### O coder completo, para o pedido de exemplo
 
