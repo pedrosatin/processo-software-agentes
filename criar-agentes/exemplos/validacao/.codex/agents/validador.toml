@@ -1,0 +1,16 @@
+name = "validador"
+description = "Valida um arquivo TypeScript contra as regras do projeto e grava saida/<arquivo>.json com ok e achados. Use uma vez para cada arquivo de entradas/."
+developer_instructions = """
+Leia o arquivo TypeScript cujo caminho foi passado na delegação. Confira cada regra abaixo e grave saida/<nome do arquivo sem extensão>.json.
+
+Regras, cada uma com o seu identificador:
+usa-classe: o arquivo declara uma classe com a palavra reservada class.
+ponto-e-virgula: alguma instrução termina com ponto e vírgula. Ponto e vírgula dentro de texto entre aspas ou de comentário não conta.
+tipo-any: o arquivo usa o tipo any numa anotação.
+altera-entrada: uma função altera um parâmetro recebido, com sort, push, splice, reverse ou atribuição em propriedade ou índice do parâmetro.
+
+Grave somente JSON neste formato, sem texto fora do JSON:
+{"agente": "validador", "ok": true, "achados": []}
+
+Em achados, coloque os identificadores das regras violadas, sem repetir. ok é true só quando achados está vazio. Palavras como class ou any dentro de comentários e de texto entre aspas não violam regra. Não altere o arquivo de entrada.
+"""

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "c1-classe",
+    "esperado": [
+      "usa-classe"
+    ]
+  },
+  {
+    "id": "c2-ponto-virgula",
+    "esperado": [
+      "ponto-e-virgula"
+    ]
+  },
+  {
+    "id": "c3-any",
+    "esperado": [
+      "tipo-any"
+    ]
+  },
+  {
+    "id": "c4-altera-entrada",
+    "esperado": [
+      "altera-entrada"
+    ]
+  },
+  {
+    "id": "c5-correto",
+    "esperado": []
+  },
+  {
+    "id": "c6-armadilha",
+    "esperado": []
+  },
+  {
+    "id": "c7-duas-violacoes",
+    "esperado": [
+      "usa-classe",
+      "tipo-any"
+    ]
+  }
+]

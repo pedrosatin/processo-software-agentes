@@ -1,6 +1,7 @@
 // Escolhe o pedido pelo RA (ou o exemplo da aula) e prepara pedido.md e respostas.md.
 // Uso: node pedido.mjs 12345678-9   ou   node pedido.mjs exemplo
-import { copyFile, writeFile, readFile } from 'node:fs/promises'
+import { copyFile, writeFile, readFile, rm, readdir } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { raValido, pedidoDoRa } from './comum.mjs'
 
@@ -10,10 +11,16 @@ if (arg !== 'exemplo' && !raValido(arg)) {
   process.exit(2)
 }
 const id = arg === 'exemplo' ? 'E' : pedidoDoRa(arg)
+const anterior = existsSync('respostas.md') ? await readFile('respostas.md', 'utf8') : ''
+const guardar = anterior.trim().length > 0 && !/Ainda sem respostas/.test(anterior)
+if (guardar) await writeFile('respostas.anterior.md', anterior)
 await copyFile(join('pedidos', id, 'pedido.md'), 'pedido.md')
 await writeFile('respostas.md', '# Respostas às dúvidas\n\nAinda sem respostas.\n')
 await writeFile('.pedido', id + '\n')
 if (arg !== 'exemplo') await writeFile('.ra', arg + '\n')
+else await rm('.ra', { force: true })
 console.log(await readFile('pedido.md', 'utf8'))
-console.log(`Pedido ${id} gravado em pedido.md. respostas.md foi esvaziado.`)
+console.log(`Pedido ${id} gravado em pedido.md. respostas.md foi esvaziado.${guardar ? ' As respostas anteriores ficaram em respostas.anterior.md.' : ''}`)
+console.log('Os arquivos ocultos .pedido e .ra guardam a sua escolha para a evidência. Não precisa editá-los.')
+if (existsSync('saida') && (await readdir('saida')).length > 0) console.log('Atenção: a pasta saida/ ainda tem arquivos de uma execução anterior. Apague-a para recomeçar.')
 console.log(`Quando o spec parar com dúvidas, as respostas de quem fez o pedido estão em pedidos/${id}/respostas.md.`)
