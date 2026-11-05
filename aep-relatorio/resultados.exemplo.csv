@@ -1,0 +1,11 @@
+agente;caso;cenario;tipo;esperado;obtido;acertou;fp;fn;tempo_s
+Validação de Código;c1;Arquivo com classe;tipico;usa-classe;usa-classe;sim;0;0;8,4
+Validação de Código;c2;Linha com ponto e vírgula;tipico;ponto-e-virgula;ponto-e-virgula;sim;0;0;7,9
+Validação de Código;c3;Parâmetro any;tipico;tipo-any;tipo-any;sim;0;0;9,1
+Validação de Código;c4;Arquivo correto;borda;nenhum achado;usa-classe;nao;1;0;12,3
+Validação de Código;c5;Arquivo vazio;borda;nenhum achado;nenhum achado;sim;0;0;4,2
+Documentação;d1;Função com dois parâmetros;tipico;parâmetros e retorno;parâmetros e retorno;sim;0;0;11,0
+Documentação;d2;Função que lança erro;tipico;parâmetros e erros;parâmetros sem os erros;nao;0;1;10,4
+Documentação;d3;Função sem parâmetros;borda;retorno;retorno;sim;0;0;6,8
+Documentação;d4;Função sem retorno;borda;parâmetros;parâmetros;sim;0;0;7,5
+Documentação;d5;Função com tipo genérico;borda;parâmetros e retorno;parâmetros e retorno;sim;0;0;13,2
